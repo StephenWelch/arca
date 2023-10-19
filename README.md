@@ -26,7 +26,7 @@ Vivamus dapibus iaculis dui. Nullam vitae arcu a nisi elementum semper eu eu vel
 
 ## Design Misc
 
-<!-- Your Text Here. You may work with your mentor on this later when they are assigned -->
+
 
 ## Steps for Documenting Your Design Process
 
@@ -35,6 +35,7 @@ Vivamus dapibus iaculis dui. Nullam vitae arcu a nisi elementum semper eu eu vel
 ## BOM + Component Cost
 
 <!-- Your Text Here. You may work with your mentor on this later when they are assigned -->
+[https://www.amazon.com/Sesame-Street-Tickliest-Laughing-Toddlers/dp/B08TJ44LR9/ref=sr_1_2?crid=1QN8HDIISQ9N2&keywords=tickle+me+elmo&qid=1697677883&s=toys-and-games&sprefix=tickle+me+elmo%2Ctoys-and-games%2C90&sr=1-2](Elmo)
 
 ## Timeline
 
