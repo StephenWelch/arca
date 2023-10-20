@@ -44,7 +44,7 @@ Vivamus dapibus iaculis dui. Nullam vitae arcu a nisi elementum semper eu eu vel
 
 ## Useful Links
 
-<!-- Your Text Here. You may work with your mentor on this later when they are assigned -->
+[CAD](https://cad.onshape.com/documents/4743a97557c0a80d1585b0a7/w/82680a303504770a7b3fa862)
 
 ## Log
 
