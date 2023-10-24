@@ -1,6 +1,6 @@
 ## Members
-Henry Forsyth, Computer Engineering Student (2024)
-rhforsythjr@vt.edu
+Stephen Welch, Computer Engineering Student (2024)
+stephenwelch@vt.edu
 
 ## Mentor
 MENTOR NAME HERE
@@ -37,7 +37,7 @@ Vivamus dapibus iaculis dui. Nullam vitae arcu a nisi elementum semper eu eu vel
 [Elmo](https://www.amazon.com/Sesame-Street-Tickliest-Laughing-Toddlers/dp/B08TJ44LR9/ref=sr_1_2?crid=1QN8HDIISQ9N2&keywords=tickle+me+elmo&qid=1697677883&s=toys-and-games&sprefix=tickle+me+elmo%2Ctoys-and-games%2C90&sr=1-2)
 [RM-C610 Brushless Motor Controller](https://store.dji.com/product/rm-c610-brushless-dc-motor-speed-control?vid=40021)
 [RM-M2006-C610 Brushless Motor](https://store.dji.com/product/rm-m2006-p36-brushless-motor?vid=40031)
-
+[6656K118](https://www.mcmaster.com/products/bearings/ball-bearings~/ultra-thin-ball-bearings-6/)
 ## Timeline
 
 <!-- Your Text Here. You may work with your mentor on this later when they are assigned -->
