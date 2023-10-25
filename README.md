@@ -10,11 +10,13 @@ IN PROGRESS
 
 ## Project Overview
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula, odio eu dictum aliquet, enim elit tempor diam, quis volutpat mi eros ut nisi. Aliquam luctus orci eget accumsan porta. Proin sollicitudin ultricies lacus et varius. Pellentesque tempor vehicula tempus. Integer semper id lorem vehicula tristique. Suspendisse nec placerat libero, eget aliquet eros. Phasellus iaculis quis lorem in ultrices. Nunc lobortis odio at sem pretium dictum. Integer sed tellus quis lorem pretium posuere.
+3D-printed biped for <$1000.
 
 ## Educational Value Added
 
-Vivamus dapibus iaculis dui. Nullam vitae arcu a nisi elementum semper eu eu velit. Suspendisse vel dictum lacus. Sed facilisis luctus consequat. Donec vulputate eu dolor in molestie. Maecenas pretium sem non tellus facilisis sollicitudin id ut nulla. In condimentum orci nisi, sagittis facilisis neque convallis eget. Duis ut sem cursus, placerat mi pellentesque, mollis eros. Integer efficitur blandit elit, sed egestas sem porta in. Mauris euismod nulla ac tellus tempus, eu egestas dui molestie. Proin faucibus enim quis consequat sodales. Pellentesque eleifend blandit augue et laoreet. Phasellus vel posuere nisi, ac aliquam arcu.
+- Learning how to CAD complex assemblies
+- Embedded controls
+- High-level controls
 
 ## Tasks
 
@@ -22,7 +24,13 @@ Vivamus dapibus iaculis dui. Nullam vitae arcu a nisi elementum semper eu eu vel
 
 ## Design Decisions
 
-<!-- Your Text Here. You may work with your mentor on this later when they are assigned -->
+- Tethered operation to reduce cost
+- Battery, RPi, Power electronics to be added later
+- Based on Tello Leg: [Video 1](https://www.youtube.com/watch?v=62lo04Up2vc) [Video 2](https://www.youtube.com/watch?v=mn8tCtYHzHI&t=1s) [Paper](https://arxiv.org/abs/2203.00644)
+- Avoid gear/belt transmissions where possible
+    - Large losses to friction, etc. esp. at this scale
+    - Hard to get right, esp. with 3D prints
+- Minimize leg inertia
 
 ## Design Misc
 
@@ -33,14 +41,15 @@ Vivamus dapibus iaculis dui. Nullam vitae arcu a nisi elementum semper eu eu vel
 <!-- Your Text Here. You may work with your mentor on this later when they are assigned -->
 
 ## BOM + Component Cost
-|Component|Quantity (Per-leg)|Unit Price|Total|
-|---------|------------------|----------|-----|
-|[Elmo](https://www.amazon.com/Sesame-Street-Tickliest-Laughing-Toddlers/dp/B08TJ44LR9/ref=sr_1_2?crid=1QN8HDIISQ9N2&keywords=tickle+me+elmo&qid=1697677883&s=toys-and-games&sprefix=tickle+me+elmo%2Ctoys-and-games%2C90&sr=1-2)|1|$50|$50|
-|[RM-C610 Brushless Motor Controller](https://store.dji.com/product/rm-c610-brushless-dc-motor-speed-control)|3|$39|$117|
-|[RM-M2006-C610 Brushless Motor](https://store.dji.com/product/rm-m2006-p36-brushless-motor)|3|$55|$165|
-|[6656K118](https://www.mcmaster.com/products/bearings/ball-bearings~/ultra-thin-ball-bearings-6/)|2|$15.65|$31.30|
-|[Skate Bearings](https://www.amazon.com/gp/product/B08YN6WQXR/ref=sw_img_1?smid=AED51UXSJ2INU&psc=1)|2|N/A|N/A|
-|[Teensy 4.1](https://www.amazon.com/PJRC-Teensy-4-1-Without-Pins/dp/B088D3FWR7)|1|$31.99|$31.99|
+|Component|Quantity (Per-leg)|Quantity (Unit)|Unit Price|Total|
+|---------|------------------|---------------|----------|-----|
+|[Elmo](https://www.amazon.com/Sesame-Street-Tickliest-Laughing-Toddlers/dp/B08TJ44LR9/ref=sr_1_2?crid=1QN8HDIISQ9N2&keywords=tickle+me+elmo&qid=1697677883&s=toys-and-games&sprefix=tickle+me+elmo%2Ctoys-and-games%2C90&sr=1-2)|N/A|1|$50|$50|
+|[RM-C610 Brushless Motor Controller](https://store.dji.com/product/rm-c610-brushless-dc-motor-speed-control)|3|N/A|$39|$117|
+|[RM-M2006-C610 Brushless Motor](https://store.dji.com/product/rm-m2006-p36-brushless-motor)|3|N/A|$55|$165|
+|[6656K118](https://www.mcmaster.com/products/bearings/ball-bearings~/ultra-thin-ball-bearings-6/)|2|N/A|$15.65|$31.30|
+|[Skate Bearings](https://www.amazon.com/gp/product/B08YN6WQXR/ref=sw_img_1?smid=AED51UXSJ2INU&psc=1)|2|20|N/A|N/A|
+|[Teensy 4.1](https://www.amazon.com/PJRC-Teensy-4-1-Without-Pins/dp/B088D3FWR7)|N/A|1|$31.99|$31.99|
+
 ## Timeline
 
 <!-- Your Text Here. You may work with your mentor on this later when they are assigned -->
