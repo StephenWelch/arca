@@ -33,11 +33,13 @@ Vivamus dapibus iaculis dui. Nullam vitae arcu a nisi elementum semper eu eu vel
 <!-- Your Text Here. You may work with your mentor on this later when they are assigned -->
 
 ## BOM + Component Cost
-
-[Elmo](https://www.amazon.com/Sesame-Street-Tickliest-Laughing-Toddlers/dp/B08TJ44LR9/ref=sr_1_2?crid=1QN8HDIISQ9N2&keywords=tickle+me+elmo&qid=1697677883&s=toys-and-games&sprefix=tickle+me+elmo%2Ctoys-and-games%2C90&sr=1-2)
-[RM-C610 Brushless Motor Controller](https://store.dji.com/product/rm-c610-brushless-dc-motor-speed-control?vid=40021)
-[RM-M2006-C610 Brushless Motor](https://store.dji.com/product/rm-m2006-p36-brushless-motor?vid=40031)
-[6656K118](https://www.mcmaster.com/products/bearings/ball-bearings~/ultra-thin-ball-bearings-6/)
+|Component|Quantity (Per-leg)|Unit Price|Total|
+|---------|------------------|----------|-----|
+|[Elmo](https://www.amazon.com/Sesame-Street-Tickliest-Laughing-Toddlers/dp/B08TJ44LR9/ref=sr_1_2?crid=1QN8HDIISQ9N2&keywords=tickle+me+elmo&qid=1697677883&s=toys-and-games&sprefix=tickle+me+elmo%2Ctoys-and-games%2C90&sr=1-2)|1|$50|$50|
+|[RM-C610 Brushless Motor Controller](https://store.dji.com/product/rm-c610-brushless-dc-motor-speed-control)|3|$39|$117|
+|[RM-M2006-C610 Brushless Motor](https://store.dji.com/product/rm-m2006-p36-brushless-motor)|3|$55|$165|
+|[6656K118](https://www.mcmaster.com/products/bearings/ball-bearings~/ultra-thin-ball-bearings-6/)|2|$15.65|$31.30|
+|[Skate Bearings](https://www.amazon.com/gp/product/B08YN6WQXR/ref=sw_img_1?smid=AED51UXSJ2INU&psc=1)|2|N/A|$9|
 ## Timeline
 
 <!-- Your Text Here. You may work with your mentor on this later when they are assigned -->
