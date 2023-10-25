@@ -40,6 +40,7 @@ Vivamus dapibus iaculis dui. Nullam vitae arcu a nisi elementum semper eu eu vel
 |[RM-M2006-C610 Brushless Motor](https://store.dji.com/product/rm-m2006-p36-brushless-motor)|3|$55|$165|
 |[6656K118](https://www.mcmaster.com/products/bearings/ball-bearings~/ultra-thin-ball-bearings-6/)|2|$15.65|$31.30|
 |[Skate Bearings](https://www.amazon.com/gp/product/B08YN6WQXR/ref=sw_img_1?smid=AED51UXSJ2INU&psc=1)|2|N/A|N/A|
+|[Teensy 4.1](https://www.amazon.com/PJRC-Teensy-4-1-Without-Pins/dp/B088D3FWR7)|1|$31.99|$31.99|
 ## Timeline
 
 <!-- Your Text Here. You may work with your mentor on this later when they are assigned -->
