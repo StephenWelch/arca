@@ -34,7 +34,9 @@ IN PROGRESS
 
 ## Design Misc
 
-
+Current Risks:
+Torque output, esp. at hip linkage
+Knee linkage
 
 ## Steps for Documenting Your Design Process
 
