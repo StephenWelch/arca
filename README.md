@@ -20,7 +20,9 @@ A torque-controlled bipedal robot for <$1000. The short term goal is assembling 
     - Serial interface to high-level controller
 - High-level controls
     - ROS 2
-    - Reduced order modelling & Model Predictive Control
+    - Implementing [step timing adaptation-based walking controller](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9082021)
+    - Implementing MPC walking control with a reduced-order model
+    - Whole body control
 
 ## Tasks
 
