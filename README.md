@@ -56,6 +56,7 @@ A torque-controlled bipedal robot for <$1000. The short term goal is assembling 
 - Actuator arrangement
     - Based on Tello Leg: [Video 1](https://www.youtube.com/watch?v=62lo04Up2vc) [Video 2](https://www.youtube.com/watch?v=mn8tCtYHzHI&t=1s) [Paper](https://arxiv.org/abs/2203.00644)
     - Minimizes "reflected inertia" - the moment of inertia of each link the actuator has to move
+    - Keeps knee actuator in the leg frame, which reduces torque tracking requirements
     - Combined hip/roll axes
         - Rarely actuated at the same time, effectively doubles available torque to 2 Nm
 - Avoid gear/belt transmissions where possible
