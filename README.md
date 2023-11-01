@@ -21,7 +21,8 @@ A torque-controlled bipedal robot for <$1000. The short term goal is assembling 
 - High-level controls
     - ROS 2
     - Implementing [step timing adaptation-based walking controller](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9082021)
-    - Implementing MPC walking control with a reduced-order model
+    - Implementing [MPC walking control](https://arxiv.org/pdf/2010.08198.pdf)
+    - Impedance control
     - Whole body control
 
 ## Tasks
