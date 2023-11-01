@@ -33,11 +33,11 @@ A torque-controlled bipedal robot for <$1000. The short term goal is assembling 
     - 1 Nm torque @ 1:36 reduction
     - [Proven performance](https://www.youtube.com/watch?v=_Sh4kRtmAog)
     - Constant torque at all RPMs
-      ![M2006 motor curves](m2006_specs.png)
+      ![M2006 motor curves](images/m2006_specs.png)
     - 90g motor, 17g ESC
 
 ### Mechanics
-![labeled diagram of leg](ARCA.png)
+![labeled diagram of leg](images/arca.png)
 - 3 DoF per-leg
     - Pros:
         - Each actuator removed from the design saves $94
