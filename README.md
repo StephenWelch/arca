@@ -94,6 +94,7 @@ Possible fixes for this would include:
 [CAD](https://cad.onshape.com/documents/4743a97557c0a80d1585b0a7/w/82680a303504770a7b3fa862)
 [C610 Motor Controller Library](https://github.com/stanfordroboticsclub/DJIC610Controller)
 [BOLT Biped Driver](https://github.com/open-dynamic-robot-initiative/bolt)
+[BRUCE Paper](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9811790)
 
 ## Log
 
