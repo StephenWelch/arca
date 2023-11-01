@@ -52,6 +52,7 @@ A torque-controlled bipedal robot for <$1000. The short term goal is assembling 
     - Cons:
         - Since the ankle isn't actuated, the robot is *not* passively stable - it must actively step to maintain balance
             - This makes control more challenging
+        - Since hip yaw isn't actuated, the robot yaw can't be controlled directly while walking
 - Actuator arrangement
     - Based on Tello Leg: [Video 1](https://www.youtube.com/watch?v=62lo04Up2vc) [Video 2](https://www.youtube.com/watch?v=mn8tCtYHzHI&t=1s) [Paper](https://arxiv.org/abs/2203.00644)
     - Minimizes "reflected inertia" - the moment of inertia of each link the actuator has to move
