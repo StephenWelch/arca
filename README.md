@@ -14,9 +14,13 @@ A torque-controlled bipedal robot for <$1000. The short term goal is assembling 
 
 ## Educational Value Added
 
-- Learning how to CAD complex assemblies
+- Learning how to CAD complex moving assemblies
 - Embedded controls
+    - Implement torque control for robot joints
+    - Serial interface to high-level controller
 - High-level controls
+    - ROS 2
+    - Reduced order modelling & Model Predictive Control
 
 ## Tasks
 
