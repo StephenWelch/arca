@@ -10,7 +10,7 @@ IN PROGRESS
 
 ## Project Overview
 
-A torque-controlled bipedal robot for <$1000.
+A torque-controlled bipedal robot for <$1000. The short term goal is assembling and validating a single leg under load.
 
 ## Educational Value Added
 
@@ -34,6 +34,7 @@ A torque-controlled bipedal robot for <$1000.
     - [Proven performance](https://www.youtube.com/watch?v=_Sh4kRtmAog)
     - Constant torque at all RPMs
       ![M2006 motor curves](m2006_specs.png)
+    - 90g motor, 17g ESC
 
 ### Mechanics
 ![labeled diagram of leg](ARCA.png)
@@ -47,15 +48,26 @@ A torque-controlled bipedal robot for <$1000.
 - Actuator arrangement
     - Based on Tello Leg: [Video 1](https://www.youtube.com/watch?v=62lo04Up2vc) [Video 2](https://www.youtube.com/watch?v=mn8tCtYHzHI&t=1s) [Paper](https://arxiv.org/abs/2203.00644)
     - Minimizes "reflected inertia" - the moment of inertia of each link the actuator has to move
+    - Combined hip/roll axes
+        - Rarely actuated at the same time, effectively doubles available torque to 2 Nm
 - Avoid gear/belt transmissions where possible
     - Large losses to friction, etc. esp. at this scale
     - Hard to get right, esp. with 3D prints
+- Available torque
+    - 1 N*m * 0.2248089431 lbf/N \* 100 cm/m = 22.48 lbf\*cm
+    - Actuator linkages designed to be 1:1
+    - Assuming 90 deg knee bend:
+        - Knee can lift 22.48 lbf\*cm / 8 cm thigh length = 2.81 lbf
+        - Thigh can lift 22.48 lbf\*cm * 2 motors / 8 cm thigh length = 5.62 lbf
+        - Total weight of components is 107 g per actuator * 0.00220462 lbs/g * 3 actuators = 0.707685 lbs
 
 ## Design Misc
 
-Current Risks:
-Torque output, esp. at hip linkage
-Knee linkage
+The main concern is that torque output won't be adequate for dynamic motions (the static case is addressed briefly above).
+Possible fixes for this would include:
+- Redesigning for larger, higher-torque actuators
+- Designing a custom reduction for the M2006 motor
+- Adding an effective reduction in the actuator linkages
 
 ## Steps for Documenting Your Design Process
 
