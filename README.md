@@ -32,9 +32,11 @@ A torque-controlled bipedal robot for <$1000.
     - Only brushless motor of its size supporting torque control out-of-the-box
     - 1 Nm torque @ 1:36 reduction
     - [Proven performance](https://www.youtube.com/watch?v=_Sh4kRtmAog)
+    - Constant torque at all RPMs
+      ![M2006 motor curves](m2006_specs.png)
 
 ### Mechanics
-
+![labeled diagram of leg](ARCA.png)
 - 3 DoF per-leg
     - Pros:
         - Each actuator removed from the design saves $94
