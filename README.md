@@ -87,7 +87,7 @@ Possible fixes for this would include:
 
 ## Timeline
 
-<!-- Your Text Here. You may work with your mentor on this later when they are assigned -->
+[Timeline Link](timeline.pdf)
 
 ## Useful Links
 
