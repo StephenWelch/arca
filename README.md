@@ -8,6 +8,11 @@ MENTOR NAME HERE
 ## Current Status
 IN PROGRESS
 
+### 2-2-24
+- Test fit of (most of) 1st iteration design
+- Waiting for electronics & test stand parts
+<img src="images/status_2-2-24_1.jpg" width="250">
+
 ## Project Overview
 
 A torque-controlled bipedal robot for <$1000. The short term goal is assembling and validating a single leg under load.
