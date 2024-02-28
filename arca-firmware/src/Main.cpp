@@ -19,7 +19,6 @@ Timer printTimer(50);
 Timer controlTimer(1000);
 
 int id = 0;
-bool running = false;
 float desiredPos = 0;
 float desiredTorque = 0;
 int32_t currentCommands[] = {0, 0, 0, 0, 0, 0, 0, 0};
@@ -82,9 +81,9 @@ void loop()
         {
         case 'g':
 
-            if (cmd.length() == 3)
+            if (cmd.length() >= 3)
             {
-                int requested_id = atoi(&cmd[2]);
+                int requested_id = cmd.substring(2).toInt();
                 if (requested_id >= 1 && requested_id <= 8)
                 {
                     id = requested_id;
@@ -98,12 +97,10 @@ void loop()
             }
 
             Serial.println("Started");
-            running = true;
             printTimer.start();
             break;
         case 's':
             Serial.println("Stopped");
-            running = false;
             printTimer.stop();
             break;
         case kTorque:
