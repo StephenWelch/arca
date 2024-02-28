@@ -35,7 +35,6 @@ void setup()
 }
 
 
-
 inline void printVariable(const int id, const String& name, const float val)
 {
     String s;
@@ -128,18 +127,18 @@ void loop()
         C610& motor = bus.Get(id);
 
         double torque;
-        switch(mode)
+        switch (mode)
         {
-            case kPosition:
-                torque = 1.0 * (desiredPos - motor.Position()) - 0.1 * motor.Velocity(); // PD position control
-                currentCommands[id] = torqueToCurrent(torque, motor);
-                break;
-            case kTorque:
-                currentCommands[id] = torqueToCurrent(desiredTorque, motor);
-                break;
-            case kCurrent:
-                currentCommands[id] = static_cast<int32_t>(desiredCurrent * 1000);
-                break;
+        case kPosition:
+            torque = 1.0 * (desiredPos - motor.Position()) - 0.1 * motor.Velocity(); // PD position control
+            currentCommands[id] = torqueToCurrent(torque, motor);
+            break;
+        case kTorque:
+            currentCommands[id] = torqueToCurrent(desiredTorque, motor);
+            break;
+        case kCurrent:
+            currentCommands[id] = static_cast<int32_t>(desiredCurrent * 1000);
+            break;
         }
 
         currentCommands[id] = constrain(currentCommands[id], -2000, 2000);
