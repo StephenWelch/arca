@@ -2,17 +2,31 @@
 // Created by Stephen Welch on 2/27/2024.
 //
 #include "Arduino.h"
-#include "C610Bus.h"
 #include "C610.h"
+#include "C610Bus.h"
 #include "SoftwareTimer.h"
+#include "BasicLinearAlgebra.h"
+#include "Kinematics.h"
+
+enum ControlMode
+{
+    kPosition = 'p',
+    kTorque = 't',
+};
 
 C610Bus<CAN1> bus; // Initialization. Templated to either use CAN1 or CAN2.
-Timer printTimer(25);
+Timer printTimer(50);
 Timer controlTimer(1000);
+
 int id = 0;
 bool running = false;
 float desiredPos = 0;
+float desiredTorque = 0;
 int32_t currentCommands[] = {0, 0, 0, 0, 0, 0, 0, 0};
+ControlMode mode = kPosition;
+
+
+BLA::Matrix<3> pos;
 
 void setup()
 {
@@ -23,6 +37,7 @@ void setup()
 }
 
 
+
 inline void printVariable(const int id, const String& name, const float val)
 {
     String s;
@@ -30,16 +45,7 @@ inline void printVariable(const int id, const String& name, const float val)
     Serial.print(s);
 }
 
-
-void printMotorInfo(const int id, C610& motor)
-{
-    printVariable(id, "pos", motor.Position());
-    printVariable(id, "vel", motor.Velocity());
-    printVariable(id, "current", motor.Current());
-    printVariable(id, "torque", motor.Torque());
-}
-
-int sign(float val) { return (val > 0) - (val < 0); }
+inline int sign(float val) { return (val > 0) - (val < 0); }
 
 /**
  * \brief
@@ -100,17 +106,13 @@ void loop()
             running = false;
             printTimer.stop();
             break;
-        case 't':
-            if (cmd.length() >= 3)
-            {
-                currentCommands[id] = cmd.substring(2).toInt();
-            }
+        case kTorque:
+            mode = kTorque;
+            if (cmd.length() >= 3) desiredTorque = cmd.substring(2).toFloat();
             break;
-        case 'p':
-            if (cmd.length() >= 3)
-            {
-                desiredPos = cmd.substring(2).toFloat();
-            }
+        case kPosition:
+            mode = kPosition;
+            if (cmd.length() >= 3) desiredPos = cmd.substring(2).toFloat();
             break;
         default:
             Serial.print("Command char '");
@@ -125,9 +127,19 @@ void loop()
     if (controlTimer.update())
     {
         C610& motor = bus.Get(id);
-        double command = 1.0 * (desiredPos - motor.Position()) - 0.1 * motor.Velocity(); // PD position control
+        pos = ForwardKinematics({0, 0, motor.Position()}, {}, 0);
 
-        currentCommands[id] = torqueToCurrent(command, motor);
+        double torque = 0;
+        switch(mode)
+        {
+            case kPosition:
+                torque = 1.0 * (desiredPos - motor.Position()) - 0.1 * motor.Velocity(); // PD position control
+                break;
+            case kTorque:
+                torque = desiredTorque;
+                break;
+        }
+        currentCommands[id] = torqueToCurrent(torque, motor);
 
         bus.CommandTorques(currentCommands[0], currentCommands[1], currentCommands[2], currentCommands[3],
                            C610Subbus::kOneToFourBlinks);
@@ -137,11 +149,18 @@ void loop()
 
     if (printTimer.update())
     {
-        printMotorInfo(id, bus.Get(id));
+        C610& motor = bus.Get(id);
+        printVariable(id, "pos", motor.Position());
+        // printVariable(id, "vel", motor.Velocity());
+        // printVariable(id, "current", motor.Current());
+        // printVariable(id, "torque", motor.Torque());
         controlTimer.print();
-        printTimer.print();
+        // printTimer.print();
         printVariable(id, "des_pos", desiredPos);
         printVariable(id, "cmd", currentCommands[id]);
+        printVariable(id, "x", pos(0));
+        printVariable(id, "y", pos(1));
+        printVariable(id, "z", pos(2));
         Serial.println();
     }
 }
