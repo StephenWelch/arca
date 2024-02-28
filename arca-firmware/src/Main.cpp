@@ -12,6 +12,7 @@ enum ControlMode
 {
     kPosition = 'p',
     kTorque = 't',
+    kCurrent = 'c',
 };
 
 C610Bus<CAN1> bus; // Initialization. Templated to either use CAN1 or CAN2.
@@ -21,11 +22,9 @@ Timer controlTimer(1000);
 int id = 0;
 float desiredPos = 0;
 float desiredTorque = 0;
+float desiredCurrent = 0;
 int32_t currentCommands[] = {0, 0, 0, 0, 0, 0, 0, 0};
 ControlMode mode = kPosition;
-
-
-BLA::Matrix<3> pos;
 
 void setup()
 {
@@ -68,8 +67,7 @@ int32_t torqueToCurrent(double torque, C610& motor)
         kV = -0.00494;
         kI = 0.000179;
     }
-    auto current = static_cast<int32_t>((torque - ff * sign(motor.Velocity()) - kV * motor.Velocity()) / kI);
-    return constrain(current, -2000, 2000);
+    return static_cast<int32_t>((torque - ff * sign(motor.Velocity()) - kV * motor.Velocity()) / kI);
 }
 
 void loop()
@@ -111,6 +109,10 @@ void loop()
             mode = kPosition;
             if (cmd.length() >= 3) desiredPos = cmd.substring(2).toFloat();
             break;
+        case kCurrent:
+            mode = kCurrent;
+            if (cmd.length() >= 3) desiredCurrent = cmd.substring(2).toFloat();
+            break;
         default:
             Serial.print("Command char '");
             Serial.print(cmd[0]);
@@ -124,19 +126,23 @@ void loop()
     if (controlTimer.update())
     {
         C610& motor = bus.Get(id);
-        pos = ForwardKinematics({0, 0, motor.Position()}, {}, 0);
 
-        double torque = 0;
+        double torque;
         switch(mode)
         {
             case kPosition:
                 torque = 1.0 * (desiredPos - motor.Position()) - 0.1 * motor.Velocity(); // PD position control
+                currentCommands[id] = torqueToCurrent(torque, motor);
                 break;
             case kTorque:
-                torque = desiredTorque;
+                currentCommands[id] = torqueToCurrent(desiredTorque, motor);
+                break;
+            case kCurrent:
+                currentCommands[id] = static_cast<int32_t>(desiredCurrent * 1000);
                 break;
         }
-        currentCommands[id] = torqueToCurrent(torque, motor);
+
+        currentCommands[id] = constrain(currentCommands[id], -2000, 2000);
 
         bus.CommandTorques(currentCommands[0], currentCommands[1], currentCommands[2], currentCommands[3],
                            C610Subbus::kOneToFourBlinks);
@@ -147,6 +153,8 @@ void loop()
     if (printTimer.update())
     {
         C610& motor = bus.Get(id);
+        auto pos = ForwardKinematics({0, 0, motor.Position()}, {}, 0);
+
         printVariable(id, "pos", motor.Position());
         // printVariable(id, "vel", motor.Velocity());
         // printVariable(id, "current", motor.Current());
