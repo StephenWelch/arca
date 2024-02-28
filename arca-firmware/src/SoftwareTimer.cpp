@@ -52,11 +52,17 @@ uint32_t Timer::getPeriod() const
     return this->period;
 }
 
+double Timer::getActualRate() const
+{
+    return 1000000.0 / this->getTimeElapsed();
+}
+
+
 void Timer::print() const
 {
     Serial.print("timer_");
     Serial.print(this->getPeriod());
     Serial.print(":");
-    Serial.print(this->getTimeElapsed());
+    Serial.print(this->getActualRate());
     Serial.print(" ");
 }

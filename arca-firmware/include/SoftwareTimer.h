@@ -2,13 +2,13 @@
 // Created by Stephen Welch on 2/22/2024.
 //
 
-#ifndef SOFTWARETIMER_H
-#define SOFTWARETIMER_H
+#pragma once
+
 #include <cstdint>
 
 
-class Timer {
-
+class Timer
+{
 public:
     Timer(float rate);
 
@@ -19,6 +19,7 @@ public:
     void print() const;
     uint32_t getPeriod() const;
     uint32_t getTimeElapsed() const;
+    double getActualRate() const;
 
 private:
     bool running;
@@ -27,7 +28,3 @@ private:
     uint32_t currentTime;
     uint32_t timeElapsed;
 };
-
-
-
-#endif //SOFTWARETIMER_H
