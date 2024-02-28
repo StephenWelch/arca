@@ -157,7 +157,7 @@ void loop()
         printVariable(id, "pos", motor.Position());
         // printVariable(id, "vel", motor.Velocity());
         // printVariable(id, "current", motor.Current());
-        // printVariable(id, "torque", motor.Torque());
+        printVariable(id, "torque", motor.Torque());
         controlTimer.print();
         // printTimer.print();
         printVariable(id, "des_pos", desiredPos);
