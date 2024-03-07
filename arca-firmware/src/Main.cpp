@@ -10,21 +10,49 @@
 
 enum ControlMode
 {
-    kPosition = 'p',
+    kJointPosition = 'p',
+    kEndEffectorPosition = 'e',
+    kEndEffectorForce = 'f',
     kTorque = 't',
     kCurrent = 'c',
 };
 
+const float CW_JOINT_LIMIT = radians(0);
+const float CCW_JOINT_LIMIT = radians(115);
+
+const BLA::Matrix<3, 3> endEffectorPositionGains = {
+    100.0, 0.0, 0.0,
+    0.0, 100.0, 0.0,
+    0.0, 0.0, 100.0
+};
+
+const BLA::Matrix<3, 3> endEffectorVelocityGains = {
+    5.0, 0.0, 0.0,
+    0.0, 5.0, 0.0,
+    0.0, 0.0, 5.0
+};
+
+// program resources
 C610Bus<CAN1> bus; // Initialization. Templated to either use CAN1 or CAN2.
 Timer printTimer(50);
 Timer controlTimer(1000);
 
+// program state
 int id = 0;
-float desiredPos = 0;
+bool firstLoop = true;
+ControlMode mode = kCurrent;
+BLA::Matrix<3> torque = {0, 0, 0};
+BLA::Matrix<3> force = {0, 0, 0};
+int32_t currentCommands[] = {0, 0, 0, 0, 0, 0, 0, 0};
+
+// control state
+BLA::Matrix<3> endEffectorPos = {0, 0, 0};
+BLA::Matrix<3> endEffectorVel = {0, 0, 0};
+float desiredJointPos = 0;
 float desiredTorque = 0;
 float desiredCurrent = 0;
-int32_t currentCommands[] = {0, 0, 0, 0, 0, 0, 0, 0};
-ControlMode mode = kPosition;
+BLA::Matrix<3> desiredEndEffectorPos = {0, 0, 0};
+BLA::Matrix<3> desiredEndEffectorForce = {0, 0, 0};
 
 void setup()
 {
@@ -35,11 +63,29 @@ void setup()
 }
 
 
-inline void printVariable(const int id, const String& name, const float val)
+inline void printVariable(const String& name, const float val)
 {
     String s;
-    s = "m" + String(id) + "_" + name + ":" + String(val) + " ";
+    s = name + ":" + String(val) + " ";
     Serial.print(s);
+}
+
+template <typename DerivedType, int rows, int cols, typename d_type>
+void printMatrix(const String& name, const BLA::MatrixBase<DerivedType, rows, cols, d_type>& m)
+{
+    for (int r = 0; r < rows; r++)
+    {
+        for (int c = 0; c < cols; c++)
+        {
+            Serial.print(name);
+            Serial.print("_");
+            Serial.print(r);
+            Serial.print(c);
+            Serial.print(": ");
+            Serial.print(m(r, c));
+            Serial.print(" ");
+        }
+    }
 }
 
 inline int sign(float val) { return (val > 0) - (val < 0); }
@@ -66,7 +112,9 @@ int32_t torqueToCurrent(double torque, C610& motor)
         kV = -0.00494;
         kI = 0.000179;
     }
+
     return static_cast<int32_t>((torque - ff * sign(motor.Velocity()) - kV * motor.Velocity()) / kI);
+    // return static_cast<int32_t>((torque - ff * motor.Velocity()) / kI);
 }
 
 void loop()
@@ -77,11 +125,10 @@ void loop()
         switch (cmd[0])
         {
         case 'g':
-
             if (cmd.length() >= 3)
             {
                 int requested_id = cmd.substring(2).toInt();
-                if (requested_id >= 1 && requested_id <= 8)
+                if (requested_id >= 0 && requested_id <= 7)
                 {
                     id = requested_id;
                 }
@@ -100,17 +147,25 @@ void loop()
             Serial.println("Stopped");
             printTimer.stop();
             break;
+        case kCurrent:
+            mode = kCurrent;
+            if (cmd.length() >= 3) desiredCurrent = cmd.substring(2).toFloat();
+            break;
         case kTorque:
             mode = kTorque;
             if (cmd.length() >= 3) desiredTorque = cmd.substring(2).toFloat();
             break;
-        case kPosition:
-            mode = kPosition;
-            if (cmd.length() >= 3) desiredPos = cmd.substring(2).toFloat();
+        case kJointPosition:
+            mode = kJointPosition;
+            if (cmd.length() >= 3) desiredJointPos = cmd.substring(2).toFloat();
             break;
-        case kCurrent:
-            mode = kCurrent;
-            if (cmd.length() >= 3) desiredCurrent = cmd.substring(2).toFloat();
+        case kEndEffectorPosition:
+            mode = kEndEffectorPosition;
+            if (cmd.length() >= 3) desiredEndEffectorPos(2) = cmd.substring(2).toFloat();
+            break;
+        case kEndEffectorForce:
+            mode = kEndEffectorForce;
+            if (cmd.length() >= 3) desiredEndEffectorForce(2) = cmd.substring(2).toFloat();
             break;
         default:
             Serial.print("Command char '");
@@ -125,22 +180,60 @@ void loop()
     if (controlTimer.update())
     {
         C610& motor = bus.Get(id);
+        endEffectorPos = ForwardKinematics({0, 0, motor.Position()}, {}, 0);
+        auto jac = LegJacobian({0, 0, motor.Position()}, {}, 0);
+        endEffectorVel = jac * BLA::Matrix<3>{0, motor.Velocity(), 0};
 
-        double torque;
+        if (firstLoop)
+        {
+            firstLoop = false;
+            desiredEndEffectorPos = endEffectorPos;
+        }
+
         switch (mode)
         {
-        case kPosition:
-            torque = 1.0 * (desiredPos - motor.Position()) - 0.1 * motor.Velocity(); // PD position control
-            currentCommands[id] = torqueToCurrent(torque, motor);
+        case kCurrent:
+            currentCommands[id] = static_cast<int32_t>(desiredCurrent * 1000);
             break;
         case kTorque:
             currentCommands[id] = torqueToCurrent(desiredTorque, motor);
             break;
-        case kCurrent:
-            currentCommands[id] = static_cast<int32_t>(desiredCurrent * 1000);
+        case kJointPosition:
+            torque(2) = 1.5 * (desiredJointPos - motor.Position()) - 0.1 * motor.Velocity(); // PD position control
+            currentCommands[id] = torqueToCurrent(torque(2), motor);
+            break;
+        case kEndEffectorPosition:
+            desiredEndEffectorPos(0) = endEffectorPos(0);
+            force = endEffectorPositionGains * (desiredEndEffectorPos - endEffectorPos) - endEffectorVelocityGains * endEffectorVel;
+            torque = (~jac * force);
+            currentCommands[id] = torqueToCurrent(torque(2), motor);
+        // currentCommands[id] = static_cast<int32_t>(torque(2)*1000);
+        // Serial.println(currentCommands[id]);
+        // currentCommands[id] = 0;
+        // printMatrix("force", force);
+        // printMatrix("torque", torque);
+        // printMatrix("jac", ~jac);
+        // Serial.println();
+
+            break;
+        case kEndEffectorForce:
+            torque = (~jac * desiredEndEffectorForce);
+            currentCommands[id] = torqueToCurrent(torque(2), motor);
+            // currentCommands[id] = static_cast<int32_t>(torque(2) * 1000);
             break;
         }
 
+        // prevent motors from moving in direction past joint limits
+        if (motor.Position() < CW_JOINT_LIMIT && currentCommands[id] < 0)
+        {
+            currentCommands[id] = 0;
+        }
+        if( motor.Position() > CCW_JOINT_LIMIT && currentCommands[id] > 0)
+        {
+            currentCommands[id] = 0;
+        }
+
+        // current limit
         currentCommands[id] = constrain(currentCommands[id], -2000, 2000);
 
         bus.CommandTorques(currentCommands[0], currentCommands[1], currentCommands[2], currentCommands[3],
@@ -152,19 +245,24 @@ void loop()
     if (printTimer.update())
     {
         C610& motor = bus.Get(id);
-        auto pos = ForwardKinematics({0, 0, motor.Position()}, {}, 0);
 
-        printVariable(id, "pos", motor.Position());
+        printVariable("mode", mode);
+        printVariable("pos", degrees(motor.Position()));
         // printVariable(id, "vel", motor.Velocity());
         // printVariable(id, "current", motor.Current());
-        printVariable(id, "torque", motor.Torque());
+        printVariable("torque", motor.Torque());
+        printMatrix("force", force);
         controlTimer.print();
         // printTimer.print();
-        printVariable(id, "des_pos", desiredPos);
-        printVariable(id, "cmd", currentCommands[id]);
-        printVariable(id, "x", pos(0));
-        printVariable(id, "y", pos(1));
-        printVariable(id, "z", pos(2));
+        printVariable("des_joint_pos", desiredJointPos);
+        printVariable("cmd", currentCommands[id]);
+        printMatrix("cmd_t", torque);
+        // printVariable(id, "des_joint_x", desiredEndEffectorPos(0));
+        // printVariable(id, "des_joint_y", desiredEndEffectorPos(1));
+        printVariable("des_joint_z", desiredEndEffectorPos(2));
+        printVariable("x", endEffectorPos(0));
+        printVariable("y", endEffectorPos(1));
+        printVariable("z", endEffectorPos(2));
         Serial.println();
     }
 }
