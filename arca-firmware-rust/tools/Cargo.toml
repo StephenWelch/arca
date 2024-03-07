@@ -1,0 +1,15 @@
+[package]
+name = "tools"
+version = "0.1.0"
+authors.workspace = true
+edition.workspace = true
+publish = false  # Project-specific development tool.
+description = """
+Project-specific tooling.
+"""
+license.workspace = true
+repository.workspace = true
+
+[[bin]]
+name = "runner"
+path = "runner.rs"

@@ -1,3 +1,15 @@
-/target
+target/
 **/*.rs.bk
+Cargo.lock
+/.idea
 /out
+/svd/imxrt1062/*
+.vscode/
+
+# Let developers specify their own configs in non Teensy crates
+imxrt1062-fcb-gen/.cargo
+tools/.cargo
+
+*.o
+*.d
+*.hex
