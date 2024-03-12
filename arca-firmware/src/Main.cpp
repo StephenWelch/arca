@@ -40,6 +40,7 @@ Timer controlTimer(1000);
 // program state
 int id = 0;
 bool firstLoop = true;
+bool motorsEnabled = true;
 ControlMode mode = kCurrent;
 BLA::Matrix<3> torque = {0, 0, 0};
 BLA::Matrix<3> force = {0, 0, 0};
@@ -147,6 +148,10 @@ void loop()
             Serial.println("Stopped");
             printTimer.stop();
             break;
+        case 'a':
+            motorsEnabled = !motorsEnabled;
+            Serial.print(motorsEnabled ? "Motors enabled" : "Motors disabled");
+            break;
         case kCurrent:
             mode = kCurrent;
             if (cmd.length() >= 3) desiredCurrent = cmd.substring(2).toFloat();
@@ -229,6 +234,10 @@ void loop()
             currentCommands[id] = 0;
         }
         if( motor.Position() > CCW_JOINT_LIMIT && currentCommands[id] > 0)
+        {
+            currentCommands[id] = 0;
+        }
+        if( !motorsEnabled )
         {
             currentCommands[id] = 0;
         }
