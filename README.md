@@ -24,7 +24,8 @@ IN PROGRESS
     - Several parts are very thin & flexible in the non-vertical direction in order to reduce size and make assembly easier
     - Mounting for thigh arms is not ideal & may flex
   - Clearance and wire routing
-<img src="images/status_7-24-24_cad.jpg width="250">
+
+<img src="images/status_2-2-24_1.png width="250">
   
 ### 2-2-24
 - Test fit of (most of) 1st iteration design
