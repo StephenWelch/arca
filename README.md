@@ -25,7 +25,7 @@ IN PROGRESS
     - Mounting for thigh arms is not ideal & may flex
   - Clearance and wire routing
 
-<img src="images/status_2-2-24_1.png width="250">
+<img src="images/status_2-2-24_1.png" width="250">
   
 ### 2-2-24
 - Test fit of (most of) 1st iteration design
