@@ -8,10 +8,18 @@ MENTOR NAME HERE
 ## Current Status
 IN PROGRESS
 
+### 7-24-24
+- Prototype of full assembly design
+- Work-in-progress hardware-sim abstraction layer
+- Assembly & validation of left leg in progress
+- Full model exported to URDF & MJCF
+<img src="images/status_7-24-24_cad.jpg width="250">
+  
 ### 2-2-24
 - Test fit of (most of) 1st iteration design
 - Waiting for electronics & test stand parts
 <img src="images/status_2-2-24_1.jpg" width="250">
+
 
 ## Project Overview
 
@@ -96,7 +104,7 @@ Possible fixes for this would include:
 
 ## Useful Links
 
-[CAD](https://cad.onshape.com/documents/4743a97557c0a80d1585b0a7/w/82680a303504770a7b3fa862)
+[CAD](https://cad.onshape.com/documents/4743a97557c0a80d1585b0a7/w/2d6986bf76e2e55acb049bf2/e/10cf3b3fefc155c08becdc5d)
 [C610 Motor Controller Library](https://github.com/stanfordroboticsclub/DJIC610Controller)
 [BOLT Biped Driver](https://github.com/open-dynamic-robot-initiative/bolt)
 [BRUCE Paper](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9811790)
