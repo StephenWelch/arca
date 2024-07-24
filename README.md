@@ -30,7 +30,7 @@ IN PROGRESS
 ### 2-2-24
 - Test fit of (most of) 1st iteration design
 - Waiting for electronics & test stand parts
-<img src="images/status_2-2-24_1.png" width="250">
+<img src="images/status_2-2-24_1.jpg" width="250">
 
 
 ## Project Overview
