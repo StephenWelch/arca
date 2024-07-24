@@ -11,8 +11,19 @@ IN PROGRESS
 ### 7-24-24
 - Prototype of full assembly design
 - Work-in-progress hardware-sim abstraction layer
-- Assembly & validation of left leg in progress
+- Assembly & validation of updated left leg in progress
 - Full model exported to URDF & MJCF
+- Tracking several current design risks:
+  - Most fasteners are M3/M4 nuts & bolts - unknown how this will stand up to vibration
+  - Rod end bearing range-of-motion is biggest limiter of robot range-of-motion
+  - Backlash
+    - Fasteners for 3D printed linkage arms to motor shaft have a lot of play
+      - M3 through motor shaft thru-hole is not perfect fit - may need to switch to steel pin
+      - Linkage arm thru-hole tends to compress
+        - Currently testing clamp-style design
+    - Several parts are very thin & flexible in the non-vertical direction in order to reduce size and make assembly easier
+    - Mounting for thigh arms is not ideal & may flex
+  - Clearance and wire routing
 <img src="images/status_7-24-24_cad.jpg width="250">
   
 ### 2-2-24
@@ -49,12 +60,17 @@ A torque-controlled bipedal robot for <$1000. The short term goal is assembling 
     - Battery, RPi, Power electronics to be added later
 - Teensy commanded over serial by PC running high-level controller
 - Robomaster M2006 P36 Brushless Motor
-    - Only brushless motor of its size supporting torque control out-of-the-box
     - 1 Nm torque @ 1:36 reduction
-    - [Proven performance](https://www.youtube.com/watch?v=_Sh4kRtmAog)
-    - Constant torque at all RPMs
-      ![M2006 motor curves](images/m2006_specs.png)
     - 90g motor, 17g ESC
+    - Pros:
+      - Only brushless motor of its size supporting torque control out-of-the-box
+      - [Proven performance](https://www.youtube.com/watch?v=_Sh4kRtmAog)
+      - Constant torque at all RPMs
+        ![M2006 motor curves](images/m2006_specs.png)
+    - Cons:
+      - High reduction -> low torque transparency -> less compliance
+      - Form factor challenging to package
+
 
 ### Mechanics
 ![labeled diagram of leg](images/arca.png)
@@ -68,6 +84,7 @@ A torque-controlled bipedal robot for <$1000. The short term goal is assembling 
         - Since hip yaw isn't actuated, the robot yaw can't be controlled directly while walking
 - Actuator arrangement
     - Based on Tello Leg: [Video 1](https://www.youtube.com/watch?v=62lo04Up2vc) [Video 2](https://www.youtube.com/watch?v=mn8tCtYHzHI&t=1s) [Paper](https://arxiv.org/abs/2203.00644)
+        - Challenging practical limitation to this design is rotor inertia of QDD actuators, especially at the knee/ankle differential. The P36 is not QDD and is much smaller scale, removing this limitation
     - Minimizes "reflected inertia" - the moment of inertia of each link the actuator has to move
     - Keeps knee actuator in the leg frame, which reduces torque tracking requirements
     - Combined hip/roll axes
