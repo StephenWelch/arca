@@ -13,17 +13,28 @@ IN PROGRESS
 - Work-in-progress hardware-sim abstraction layer
 - Assembly & validation of updated left leg in progress
 - Full model exported to URDF & MJCF
-- Tracking several current design risks:
+- Solved design issues:
+  - Knee actuator didn't have enough clearance with sideplate to freely rotate
+  - Knee joint was prone to friction with thigh sideplates
+  - Thigh joint was prone to friction with lower thigh carriage
+  - Hip motor mounting didn't have enough clearance to assemble without flex
+  - Foot had no way to add rubber/other material for more friction
+  - Width of knee joint made fastening bearings hard
+- Current design issues:
   - Most fasteners are M3/M4 nuts & bolts - unknown how this will stand up to vibration
   - Rod end bearing range-of-motion is biggest limiter of robot range-of-motion
   - Backlash
     - Fasteners for 3D printed linkage arms to motor shaft have a lot of play
-      - M3 through motor shaft thru-hole is not perfect fit - may need to switch to steel pin
       - Linkage arm thru-hole tends to compress
         - Currently testing clamp-style design
+      - M3 through motor shaft thru-hole is not perfect fit
+        - May need to switch to steel pin
+      - No off-the-shelf servo arms for motor shaft size
     - Several parts are very thin & flexible in the non-vertical direction in order to reduce size and make assembly easier
     - Mounting for thigh arms is not ideal & may flex
+      - Planning on addressing this by integrating into thigh sideplates once finalized
   - Clearance and wire routing
+    - Planning on investigating materials to reduce friction between motor wires & PLA parts
 
 <img src="images/status_2-2-24_1.png" width="250">
   
