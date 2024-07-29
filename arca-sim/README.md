@@ -1,0 +1,1 @@
+ pip install 'urdf2mjcf @ git+https://github.com/StephenWelch/urdf2mjcf.git@main'

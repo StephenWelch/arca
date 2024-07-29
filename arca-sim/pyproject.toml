@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "arca-sim"
+version = "0.1.0"
+description = ""
+authors = ["Stephen Welch <stephenwelchva@vt.edu>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+mujoco = "^3.2.0"
+numpy = "^2.0.0"
+onshape-to-robot = "^0.3.26"
+dm-control = "^1.0.20"
+urdf2mjcf = {git = "https://github.com/StephenWelch/urdf2mjcf.git", rev = "main"}
+defusedxml = "^0.7.1"
+eclipse-zenoh = "^0.11.0"
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
