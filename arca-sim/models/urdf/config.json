@@ -11,5 +11,5 @@
     "onshape_api": "https://cad.onshape.com",
     "onshape_access_key": "YzXl4ZumXz9Pk4Juyhyoyh3U",
     "onshape_secret_key": "cqENxfvcW1iuFvCJChw0MifYBrqP5DCkRQeZKywgtsaxfC8m",
-    "postImportCommands": ["urdf2mjcf --ground --lighting robot.urdf robot.xml"]
+    // "postImportCommands": ["urdf2mjcf --ground --lighting robot.urdf robot.xml"]
 }

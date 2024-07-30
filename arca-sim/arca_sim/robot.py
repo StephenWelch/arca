@@ -6,6 +6,7 @@ from dataclasses import dataclass, field
 class Mode(Enum):
     JOINT = 0
     FORCE = 1
+    POS = 2
 
 @dataclass
 class Setpoint:
@@ -14,6 +15,7 @@ class Setpoint:
     des_joint_pos: np.ndarray = field(default_factory=lambda: np.zeros(6))
     des_joint_vel: np.ndarray = field(default_factory=lambda: np.zeros(6))
     des_force: np.ndarray = field(default_factory=lambda: np.zeros(6))
+    des_pos: np.ndarray = field(default_factory=lambda: np.zeros(6))
 
     @property
     def des_l_joint_pos(self)->np.ndarray:
@@ -62,6 +64,22 @@ class Setpoint:
     @des_r_force.setter
     def des_r_force(self, force:np.ndarray):
         self.des_force[3:] = force
+
+    @property
+    def des_l_pos(self)->np.ndarray:
+        return self.des_pos[:3]
+    
+    @des_l_pos.setter
+    def des_l_pos(self, pos:np.ndarray):
+        self.des_pos[:3] = pos
+
+    @property
+    def des_r_pos(self)->np.ndarray:
+        return self.des_pos[3:]
+    
+    @des_r_pos.setter
+    def des_r_pos(self, pos:np.ndarray):
+        self.des_pos[3:] = pos
 
     @property
     def des_l_hip_roll(self)->float:

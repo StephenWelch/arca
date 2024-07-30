@@ -21,8 +21,9 @@ def get_mujoco_model(fixed:bool=False)->MjModel:
     robot.contact.add("exclude", name="exclude_1_body_1", body1="base", body2="l_thigh")
     
     # add actuators for left joints, then right
-    sorted_joints = sorted(robot.find_all("joint"), key=lambda j: j.name)
-    for joint in sorted_joints:
+    # sorted_joints = sorted(robot.find_all("joint"), key=lambda j: j.name)
+    # for joint in sorted_joints:
+    for joint in robot.find_all("joint"):
         if "passive" not in joint.name:
             robot.actuator.add("motor", joint=joint.name, ctrlrange="-1 1")
         if "ankle" in joint.name:
@@ -37,8 +38,8 @@ def get_mujoco_model(fixed:bool=False)->MjModel:
     # scene.compiler.fitaabb = True
     # scene.compiler.fusestatic = True
     # scene.compiler.discardvisual = False
-    # scene.compiler.balanceinertia = True
-    # scene.compiler.inertiafromgeom = True
+    scene.compiler.balanceinertia = True
+    scene.compiler.inertiafromgeom = True
     attach_frame = scene.attach(robot)
     attach_frame.add("freejoint")
 
