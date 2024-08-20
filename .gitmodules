@@ -1,3 +1,6 @@
 [submodule "arca-firmware/lib/DJIC610Controller"]
 	path = arca-firmware/lib/DJIC610Controller
 	url = https://github.com/stanfordroboticsclub/DJIC610Controller.git
+[submodule "arca/third_party/MsgPacketizer"]
+	path = arca/third_party/MsgPacketizer
+	url = https://github.com/hideakitai/MsgPacketizer.git

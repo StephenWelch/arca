@@ -10,6 +10,7 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(msgpack REQUIRED)
+find_library(libserial libserial.so)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
@@ -27,10 +28,12 @@ if(BUILD_TESTING)
 endif()
 
 add_executable(arca_interface src/arca_interface.cpp)
-target_include_directories(arca_interface PUBLIC include)
+target_include_directories(arca_interface PUBLIC include third_party)
+target_link_libraries(arca_interface ${libserial})
 ament_target_dependencies(
   arca_interface 
   rclcpp 
+  std_msgs
   msgpack
 )
 
