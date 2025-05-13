@@ -21,7 +21,8 @@
     "joint_properties": {
         "default": {
             // "actuated": false,
-            "type": "motor"
+            "type": "motor",
+            "frictionloss": 0.01,
         },
         "l_hip_outer_passive": {
             "actuated": false
@@ -60,4 +61,7 @@
             "actuated": false
         },
     },
+    "ignore": {
+        "*": "collision"
+    }
 }
