@@ -1,24 +1,19 @@
-[tool.poetry]
+[project]
 name = "arca-sim"
 version = "0.1.0"
-description = ""
-authors = ["Stephen Welch <stephenwelchva@vt.edu>"]
+description = "Add your description here"
 readme = "README.md"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "eclipse-zenoh>=1.3.4",
+    "mujoco==3.3.2",
+    "numpy>=2.2.5",
+    "onshape-to-robot",
+    "pymeshlab>=2023.12.post3",
+]
 
-[tool.poetry.dependencies]
-python = "^3.12"
-mujoco = "^3.2.0"
-numpy = "^2.0.0"
-onshape-to-robot = "^0.3.26"
-dm-control = "^1.0.20"
-urdf2mjcf = {git = "https://github.com/StephenWelch/urdf2mjcf.git", rev = "main"}
-defusedxml = "^0.7.1"
-eclipse-zenoh = "^0.11.0"
+[tool.uv.sources]
+onshape-to-robot = { git = "https://github.com/Rhoban/onshape-to-robot.git" }
 
-[tool.pyright]
-venvPath = "."
-venv = ".venv"
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+[tool.hatch.build.targets.wheel]
+packages = ["src/arca_sim"]
