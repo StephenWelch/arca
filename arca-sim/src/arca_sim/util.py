@@ -10,3 +10,11 @@ def rpy_to_quat(rpy):
         cr*sp*cy + sr*cp*sy,
         cr*cp*sy - sr*sp*cy
     ])
+
+def quat_to_rpy(quat):
+    return np.array([
+        np.arctan2(2*(quat[3]*quat[0] + quat[1]*quat[2]), 1 - 2*(quat[0]**2 + quat[1]**2)),
+        np.arcsin(2*(quat[3]*quat[1] - quat[2]*quat[0])),
+        np.arctan2(2*(quat[3]*quat[2] + quat[0]*quat[1]), 1 - 2*(quat[1]**2 + quat[2]**2))
+    ])
+
