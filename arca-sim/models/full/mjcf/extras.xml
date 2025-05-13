@@ -1,0 +1,11 @@
+<default>
+    <equality solref="0.005 1"/>
+</default>
+
+<worldbody>
+    <body name="world_link" pos="0 0 0" quat="1 0 0 0"/>
+</worldbody>
+
+<equality>
+    <weld name="gantry" body1="world_link" body2="trunk" relpose="0 0 0.5 1 0 0 0"/>
+</equality>

@@ -1,0 +1,14 @@
+{
+    "configuration": "hip_arm_angle=2.356194490192345+radian",
+    "documentId": "4743a97557c0a80d1585b0a7",
+    "documentMicroversion": "14130a68966d471529e7166a",
+    "documentVersion": "4df03cff747030a39f53386e",
+    "elementId": "9ed05db92f8c3265dfa5f57d",
+    "fullConfiguration": "hip_arm_angle=2.356194490192345+radian",
+    "id": "MzCBqjKEnGfp9/nbl",
+    "isStandardContent": false,
+    "name": "Part 4 <1>",
+    "partId": "J7D",
+    "suppressed": false,
+    "type": "Part"
+}

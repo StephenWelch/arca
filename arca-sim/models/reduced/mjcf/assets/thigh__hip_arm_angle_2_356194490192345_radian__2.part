@@ -1,0 +1,14 @@
+{
+    "configuration": "hip_arm_angle=2.356194490192345+radian",
+    "documentId": "4743a97557c0a80d1585b0a7",
+    "documentMicroversion": "7bc8e372ab7a0718f97429c7",
+    "documentVersion": "514e915ff358e6caf98cba3e",
+    "elementId": "9ed05db92f8c3265dfa5f57d",
+    "fullConfiguration": "hip_arm_angle=2.356194490192345+radian",
+    "id": "MOYmh4T+vzc/Rehi7",
+    "isStandardContent": false,
+    "name": "thigh <3>",
+    "partId": "JiD",
+    "suppressed": false,
+    "type": "Part"
+}

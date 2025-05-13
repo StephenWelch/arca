@@ -1,0 +1,21 @@
+{
+    "onshape_api": "https://cad.onshape.com",
+    "onshape_access_key": "YzXl4ZumXz9Pk4Juyhyoyh3U",
+    "onshape_secret_key": "cqENxfvcW1iuFvCJChw0MifYBrqP5DCkRQeZKywgtsaxfC8m",
+
+    "document_id": "4743a97557c0a80d1585b0a7",
+    "workspace_id": "2d6986bf76e2e55acb049bf2",
+    "assembly_name": "main_reduced",
+    "assets_dir": "assets",
+
+    "merge_stls": "all",
+    "merge_stls_collisions": true,
+    // "simplify_stls": "all",
+    // "add_dummy_base_link": true,
+
+    "output_format": "mujoco",
+    "joint_max_effort": 1,
+
+    "ball_to_euler": true,
+    // "post_import_commands": ["urdf2mjcf --ground --lighting robot.urdf robot.xml"]
+}

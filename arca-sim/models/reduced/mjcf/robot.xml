@@ -1,0 +1,253 @@
+<?xml version="1.0" ?>
+<!-- Generated using onshape-to-robot -->
+<!-- Onshape document_id: 4743a97557c0a80d1585b0a7 / workspace_id: 2d6986bf76e2e55acb049bf2 -->
+<mujoco model="C:\Users\steph\code\arca\arca-sim\models\reduced\mjcf">
+  <compiler angle="radian" meshdir="assets" autolimits="true"/>
+  <default>
+    <default class="C:\Users\steph\code\arca\arca-sim\models\reduced\mjcf">
+      <joint frictionloss="0.1" armature="0.005"/>
+      <position kp="50" dampratio="1"/>
+      <default class="visual">
+        <geom type="mesh" contype="0" conaffinity="0" group="2"/>
+      </default>
+      <default class="collision">
+        <geom group="3"/>
+      </default>
+    </default>
+  </default>
+  <worldbody>
+    <!-- Link trunk -->
+    <body name="trunk" pos="0 0 0" quat="1 0 0 0" childclass="C:\Users\steph\code\arca\arca-sim\models\reduced\mjcf">
+      <freejoint name="trunk_freejoint"/>
+      <inertial pos="8.88935e-17 -0.0322521 -0.0255515" mass="0.50738" fullinertia="0.000361696 0.00154489 0.00155102 -6.30203e-08 -4.36525e-07 8.81145e-09"/>
+      <!-- Part m2006_p36_3 -->
+      <geom type="mesh" class="visual" pos="-0.01175 -0.018 -0.0299827" quat="0.298046 0.641224 -0.298046 -0.641224" mesh="m2006_p36_3" material="m2006_p36_3_material"/>
+      <geom type="mesh" class="collision" pos="-0.01175 -0.018 -0.0299827" quat="0.298046 0.641224 -0.298046 -0.641224" mesh="m2006_p36_3" material="m2006_p36_3_material"/>
+      <!-- Part upper_carriage -->
+      <geom type="mesh" class="visual" pos="0.03225 -0.03225 -0.0806645" quat="0.5 0.5 0.5 0.5" mesh="upper_carriage" material="upper_carriage_material"/>
+      <geom type="mesh" class="collision" pos="0.03225 -0.03225 -0.0806645" quat="0.5 0.5 0.5 0.5" mesh="upper_carriage" material="upper_carriage_material"/>
+      <!-- Part m2006_p36_3_2 -->
+      <geom type="mesh" class="visual" pos="0.09175 -0.0465 -0.0299827" quat="0.641224 0.298046 -0.641224 -0.298046" mesh="m2006_p36_3" material="m2006_p36_3_material"/>
+      <geom type="mesh" class="collision" pos="0.09175 -0.0465 -0.0299827" quat="0.641224 0.298046 -0.641224 -0.298046" mesh="m2006_p36_3" material="m2006_p36_3_material"/>
+      <!-- Part m2006_p36_3_3 -->
+      <geom type="mesh" class="visual" pos="-0.09175 -0.0465 -0.0299827" quat="0.641224 0.298046 0.641224 0.298046" mesh="m2006_p36_3" material="m2006_p36_3_material"/>
+      <geom type="mesh" class="collision" pos="-0.09175 -0.0465 -0.0299827" quat="0.641224 0.298046 0.641224 0.298046" mesh="m2006_p36_3" material="m2006_p36_3_material"/>
+      <!-- Part superstructure -->
+      <geom type="mesh" class="visual" pos="-0.07125 -0.03225 -0.0806645" quat="0.5 0.5 0.5 0.5" mesh="superstructure" material="superstructure_material"/>
+      <geom type="mesh" class="collision" pos="-0.07125 -0.03225 -0.0806645" quat="0.5 0.5 0.5 0.5" mesh="superstructure" material="superstructure_material"/>
+      <!-- Part m2006_p36_3_4 -->
+      <geom type="mesh" class="visual" pos="0.01175 -0.018 -0.0299827" quat="0.298046 0.641224 0.298046 0.641224" mesh="m2006_p36_3" material="m2006_p36_3_material"/>
+      <geom type="mesh" class="collision" pos="0.01175 -0.018 -0.0299827" quat="0.298046 0.641224 0.298046 0.641224" mesh="m2006_p36_3" material="m2006_p36_3_material"/>
+      <!-- Part upper_carriage_2 -->
+      <geom type="mesh" class="visual" pos="0.01775 -0.03225 -0.0806645" quat="0.5 0.5 0.5 0.5" mesh="upper_carriage__2" material="upper_carriage__2_material"/>
+      <geom type="mesh" class="collision" pos="0.01775 -0.03225 -0.0806645" quat="0.5 0.5 0.5 0.5" mesh="upper_carriage__2" material="upper_carriage__2_material"/>
+      <!-- Link l_thigh_lower_mount -->
+      <body name="l_thigh_lower_mount" pos="-0.05175 -0.00475 -0.0806645" quat="0.707107 -0.707107 -1.11022e-16 -5.92474e-18">
+        <!-- Joint from trunk to l_thigh_lower_mount -->
+        <joint axis="0 0 1" name="r_hip_roll" type="hinge"/>
+        <inertial pos="7.13144e-18 -1.75427e-05 -0.0275" mass="0.106222" fullinertia="4.98391e-05 6.15836e-05 4.69705e-05 8.4894e-21 -2.14174e-13 4.25849e-13"/>
+        <!-- Part 6656k118_ultra_thin_ball_bearing -->
+        <geom type="mesh" class="visual" pos="0.0195 5.55112e-17 -0.0275" quat="2.70684e-16 -0.707107 4.44089e-16 -0.707107" mesh="6656k118_ultra_thin_ball_bearing" material="6656k118_ultra_thin_ball_bearing_material"/>
+        <geom type="mesh" class="collision" pos="0.0195 5.55112e-17 -0.0275" quat="2.70684e-16 -0.707107 4.44089e-16 -0.707107" mesh="6656k118_ultra_thin_ball_bearing" material="6656k118_ultra_thin_ball_bearing_material"/>
+        <!-- Part 5972k222_ball_bearing -->
+        <geom type="mesh" class="visual" pos="-6.93889e-18 6.93889e-17 -0.0515" quat="1.11022e-16 -4.28733e-17 1 1.11022e-16" mesh="5972k222_ball_bearing" material="5972k222_ball_bearing_material"/>
+        <geom type="mesh" class="collision" pos="-6.93889e-18 6.93889e-17 -0.0515" quat="1.11022e-16 -4.28733e-17 1 1.11022e-16" mesh="5972k222_ball_bearing" material="5972k222_ball_bearing_material"/>
+        <!-- Part 6656k118_ultra_thin_ball_bearing_2 -->
+        <geom type="mesh" class="visual" pos="-0.0195 5.55112e-17 -0.0275" quat="0.707107 3.44227e-16 -0.707107 -4.44089e-16" mesh="6656k118_ultra_thin_ball_bearing" material="6656k118_ultra_thin_ball_bearing_material"/>
+        <geom type="mesh" class="collision" pos="-0.0195 5.55112e-17 -0.0275" quat="0.707107 3.44227e-16 -0.707107 -4.44089e-16" mesh="6656k118_ultra_thin_ball_bearing" material="6656k118_ultra_thin_ball_bearing_material"/>
+        <!-- Part 5972k222_ball_bearing_2 -->
+        <geom type="mesh" class="visual" pos="0 1.38778e-17 -0.0035" quat="1 0 -5.89806e-17 -1.53523e-16" mesh="5972k222_ball_bearing" material="5972k222_ball_bearing_material"/>
+        <geom type="mesh" class="collision" pos="0 1.38778e-17 -0.0035" quat="1 0 -5.89806e-17 -1.53523e-16" mesh="5972k222_ball_bearing" material="5972k222_ball_bearing_material"/>
+        <!-- Part lower_carriage -->
+        <geom type="mesh" class="visual" pos="0.0195 5.55112e-17 -0.0275" quat="0.707107 2.88738e-16 -0.707107 -4.44089e-16" mesh="lower_carriage" material="lower_carriage_material"/>
+        <geom type="mesh" class="collision" pos="0.0195 5.55112e-17 -0.0275" quat="0.707107 2.88738e-16 -0.707107 -4.44089e-16" mesh="lower_carriage" material="lower_carriage_material"/>
+        <!-- Link r_thigh -->
+        <body name="r_thigh" pos="-0.023 4.16334e-17 -0.0275" quat="0.231131 -0.668265 0.231131 -0.668265">
+          <!-- Joint from l_thigh_lower_mount to r_thigh -->
+          <joint axis="0 0 1" name="r_hip_pitch" type="hinge"/>
+          <inertial pos="0.000352109 -0.0299392 0.017919" mass="0.156403" fullinertia="0.000391219 5.59838e-05 0.000353364 -1.3488e-06 4.41349e-07 -6.40476e-07"/>
+          <!-- Part part_4__hip_arm_angle_2_356194490192345_radian -->
+          <geom type="mesh" class="visual" pos="2.35922e-16 -2.91434e-16 -0.018" quat="1 8.2901e-16 -5.55112e-16 -4.15466e-16" mesh="part_4__hip_arm_angle_2_356194490192345_radian" material="part_4__hip_arm_angle_2_356194490192345_radian_material"/>
+          <geom type="mesh" class="collision" pos="2.35922e-16 -2.91434e-16 -0.018" quat="1 8.2901e-16 -5.55112e-16 -4.15466e-16" mesh="part_4__hip_arm_angle_2_356194490192345_radian" material="part_4__hip_arm_angle_2_356194490192345_radian_material"/>
+          <!-- Part 5972k222_ball_bearing_3 -->
+          <geom type="mesh" class="visual" pos="-1.39142e-06 -0.119848 0.036231" quat="0.999996 -0.00266092 2.02071e-06 -7.55149e-06" mesh="5972k222_ball_bearing__2" material="5972k222_ball_bearing__2_material"/>
+          <geom type="mesh" class="collision" pos="-1.39142e-06 -0.119848 0.036231" quat="0.999996 -0.00266092 2.02071e-06 -7.55149e-06" mesh="5972k222_ball_bearing__2" material="5972k222_ball_bearing__2_material"/>
+          <!-- Part m2006_p36_3_5 -->
+          <geom type="mesh" class="visual" pos="1.249e-16 0 -0.018" quat="0.984808 7.53499e-16 -2.22045e-16 -0.173648" mesh="m2006_p36_3__2" material="m2006_p36_3__2_material"/>
+          <geom type="mesh" class="collision" pos="1.249e-16 0 -0.018" quat="0.984808 7.53499e-16 -2.22045e-16 -0.173648" mesh="m2006_p36_3__2" material="m2006_p36_3__2_material"/>
+          <!-- Part 5972k222_ball_bearing_4 -->
+          <geom type="mesh" class="visual" pos="0 -0.12 2.77556e-17" quat="8.11504e-16 -1 8.02497e-16 3.90549e-16" mesh="5972k222_ball_bearing__2" material="5972k222_ball_bearing__2_material"/>
+          <geom type="mesh" class="collision" pos="0 -0.12 2.77556e-17" quat="8.11504e-16 -1 8.02497e-16 3.90549e-16" mesh="5972k222_ball_bearing__2" material="5972k222_ball_bearing__2_material"/>
+          <!-- Part thigh__hip_arm_angle_2_356194490192345_radian -->
+          <geom type="mesh" class="visual" pos="0 0 -0.018" quat="1 2.91434e-16 -2.22045e-16 6.52312e-18" mesh="thigh__hip_arm_angle_2_356194490192345_radian" material="thigh__hip_arm_angle_2_356194490192345_radian_material"/>
+          <geom type="mesh" class="collision" pos="0 0 -0.018" quat="1 2.91434e-16 -2.22045e-16 6.52312e-18" mesh="thigh__hip_arm_angle_2_356194490192345_radian" material="thigh__hip_arm_angle_2_356194490192345_radian_material"/>
+          <!-- Part thigh_outer__hip_arm_angle_2_356194490192345_radian -->
+          <geom type="mesh" class="visual" pos="-1.249e-16 -3.81639e-16 -0.018" quat="1 6.65236e-16 -1.11022e-16 -2.87964e-16" mesh="thigh_outer__hip_arm_angle_2_356194490192345_radian" material="thigh_outer__hip_arm_angle_2_356194490192345_radian_material"/>
+          <geom type="mesh" class="collision" pos="-1.249e-16 -3.81639e-16 -0.018" quat="1 6.65236e-16 -1.11022e-16 -2.87964e-16" mesh="thigh_outer__hip_arm_angle_2_356194490192345_radian" material="thigh_outer__hip_arm_angle_2_356194490192345_radian_material"/>
+          <!-- Part part_6__hip_arm_angle_2_356194490192345_radian -->
+          <geom type="mesh" class="visual" pos="1.62522e-07 -0.00263535 -0.0181436" quat="0.999996 -0.00266092 2.02071e-06 -7.55149e-06" mesh="part_6__hip_arm_angle_2_356194490192345_radian" material="part_6__hip_arm_angle_2_356194490192345_radian_material"/>
+          <geom type="mesh" class="collision" pos="1.62522e-07 -0.00263535 -0.0181436" quat="0.999996 -0.00266092 2.02071e-06 -7.55149e-06" mesh="part_6__hip_arm_angle_2_356194490192345_radian" material="part_6__hip_arm_angle_2_356194490192345_radian_material"/>
+          <!-- Part thigh__hip_arm_angle_2_356194490192345_radian_2 -->
+          <geom type="mesh" class="visual" pos="2.00253e-07 -0.000135381 -0.0181569" quat="0.999996 -0.00266092 2.02071e-06 -7.55149e-06" mesh="thigh__hip_arm_angle_2_356194490192345_radian__2" material="thigh__hip_arm_angle_2_356194490192345_radian__2_material"/>
+          <geom type="mesh" class="collision" pos="2.00253e-07 -0.000135381 -0.0181569" quat="0.999996 -0.00266092 2.02071e-06 -7.55149e-06" mesh="thigh__hip_arm_angle_2_356194490192345_radian__2" material="thigh__hip_arm_angle_2_356194490192345_radian__2_material"/>
+          <!-- Link r_knee -->
+          <body name="r_knee" pos="-1.40571e-06 -0.119866 0.032731" quat="0.537738 -0.00143261 -0.00224236 -0.843108">
+            <!-- Joint from r_thigh to r_knee -->
+            <joint axis="0 0 1" name="r_knee" type="hinge"/>
+            <inertial pos="-0.000454558 -0.0431783 -0.0158319" mass="0.023936" fullinertia="4.07035e-05 4.15956e-06 3.84718e-05 1.04198e-07 -1.49529e-07 4.51662e-07"/>
+            <!-- Part ankle -->
+            <geom type="mesh" class="visual" pos="0 1.51788e-18 -0.0018" quat="0.5 -0.5 -0.5 -0.5" mesh="ankle" material="ankle_material"/>
+            <geom type="mesh" class="collision" pos="0 1.51788e-18 -0.0018" quat="0.5 -0.5 -0.5 -0.5" mesh="ankle" material="ankle_material"/>
+            <!-- Part ankle_2 -->
+            <geom type="mesh" class="visual" pos="0 1.51788e-18 -0.0018" quat="0.5 -0.5 -0.5 -0.5" mesh="ankle__2" material="ankle__2_material"/>
+            <geom type="mesh" class="collision" pos="0 1.51788e-18 -0.0018" quat="0.5 -0.5 -0.5 -0.5" mesh="ankle__2" material="ankle__2_material"/>
+            <!-- Part part_3 -->
+            <geom type="mesh" class="visual" pos="0 -2.38524e-18 -0.03195" quat="0.5 -0.5 -0.5 -0.5" mesh="part_3" material="part_3_material"/>
+            <geom type="mesh" class="collision" pos="0 -2.38524e-18 -0.03195" quat="0.5 -0.5 -0.5 -0.5" mesh="part_3" material="part_3_material"/>
+            <!-- Link foot -->
+            <body name="foot" pos="-3.33067e-16 -0.12 -0.0195" quat="3.7777e-16 -0.418192 -0.908359 -1.08602e-16">
+              <!-- Joint from r_knee to foot -->
+              <joint axis="0 0 1" name="r_ankle_passive" type="hinge"/>
+              <inertial pos="-8.30386e-08 -0.00450828 -0.005" mass="0.00685832" fullinertia="2.75437e-07 9.89038e-07 1.15532e-06 8.01075e-13 -5.40036e-13 1.74194e-14"/>
+              <!-- Part foot -->
+              <geom type="mesh" class="visual" pos="0 -1.38778e-17 -0.005" quat="0.707107 -0.707107 0 2.95903e-18" mesh="foot" material="foot_material"/>
+              <geom type="mesh" class="collision" pos="0 -1.38778e-17 -0.005" quat="0.707107 -0.707107 0 2.95903e-18" mesh="foot" material="foot_material"/>
+            </body>
+          </body>
+        </body>
+      </body>
+      <!-- Link l_thigh_lower_mount_2 -->
+      <body name="l_thigh_lower_mount_2" pos="0.05175 -0.00475 -0.0806645" quat="6.83137e-06 -6.83137e-06 -0.707107 -0.707107">
+        <!-- Joint from trunk to l_thigh_lower_mount_2 -->
+        <joint axis="0 0 1" name="l_hip_roll" type="hinge"/>
+        <inertial pos="-4.22318e-18 -1.75427e-05 -0.0275" mass="0.106222" fullinertia="4.98391e-05 6.15836e-05 4.69705e-05 8.54384e-21 -2.14174e-13 4.25849e-13"/>
+        <!-- Part 6656k118_ultra_thin_ball_bearing_3 -->
+        <geom type="mesh" class="visual" pos="0.0195 1.38778e-17 -0.0275" quat="1.95826e-16 -0.707107 2.22045e-16 -0.707107" mesh="6656k118_ultra_thin_ball_bearing" material="6656k118_ultra_thin_ball_bearing_material"/>
+        <geom type="mesh" class="collision" pos="0.0195 1.38778e-17 -0.0275" quat="1.95826e-16 -0.707107 2.22045e-16 -0.707107" mesh="6656k118_ultra_thin_ball_bearing" material="6656k118_ultra_thin_ball_bearing_material"/>
+        <!-- Part 5972k222_ball_bearing_5 -->
+        <geom type="mesh" class="visual" pos="-1.38778e-17 1.38778e-17 -0.0515" quat="7.21645e-16 -6.1756e-17 1 -2.22045e-16" mesh="5972k222_ball_bearing" material="5972k222_ball_bearing_material"/>
+        <geom type="mesh" class="collision" pos="-1.38778e-17 1.38778e-17 -0.0515" quat="7.21645e-16 -6.1756e-17 1 -2.22045e-16" mesh="5972k222_ball_bearing" material="5972k222_ball_bearing_material"/>
+        <!-- Part 6656k118_ultra_thin_ball_bearing_4 -->
+        <geom type="mesh" class="visual" pos="-0.0195 2.77556e-17 -0.0275" quat="0.707107 1.11914e-16 -0.707107 -4.44089e-16" mesh="6656k118_ultra_thin_ball_bearing" material="6656k118_ultra_thin_ball_bearing_material"/>
+        <geom type="mesh" class="collision" pos="-0.0195 2.77556e-17 -0.0275" quat="0.707107 1.11914e-16 -0.707107 -4.44089e-16" mesh="6656k118_ultra_thin_ball_bearing" material="6656k118_ultra_thin_ball_bearing_material"/>
+        <!-- Part 5972k222_ball_bearing_6 -->
+        <geom type="mesh" class="visual" pos="0 1.38778e-17 -0.0035" quat="1 0 8.68023e-23 -1.11012e-16" mesh="5972k222_ball_bearing" material="5972k222_ball_bearing_material"/>
+        <geom type="mesh" class="collision" pos="0 1.38778e-17 -0.0035" quat="1 0 8.68023e-23 -1.11012e-16" mesh="5972k222_ball_bearing" material="5972k222_ball_bearing_material"/>
+        <!-- Part lower_carriage_2 -->
+        <geom type="mesh" class="visual" pos="0.0195 1.38778e-17 -0.0275" quat="0.707107 2.10296e-16 -0.707107 -2.77556e-16" mesh="lower_carriage" material="lower_carriage_material"/>
+        <geom type="mesh" class="collision" pos="0.0195 1.38778e-17 -0.0275" quat="0.707107 2.10296e-16 -0.707107 -2.77556e-16" mesh="lower_carriage" material="lower_carriage_material"/>
+        <!-- Link l_thigh -->
+        <body name="l_thigh" pos="-0.023 2.77556e-17 -0.0275" quat="0.670264 -0.225269 0.670264 -0.225269">
+          <!-- Joint from l_thigh_lower_mount_2 to l_thigh -->
+          <joint axis="0 0 1" name="l_hip_pitch" type="hinge"/>
+          <inertial pos="-0.000312941 -0.0299249 0.017919" mass="0.156403" fullinertia="0.000391424 5.59166e-05 0.000353502 1.07541e-06 -5.04975e-07 -6.63694e-07"/>
+          <!-- Part 5972k222_ball_bearing_7 -->
+          <geom type="mesh" class="visual" pos="1.38778e-17 -0.12 4.16334e-17" quat="1.11022e-15 -1.42517e-15 -1 1.11022e-15" mesh="5972k222_ball_bearing__2" material="5972k222_ball_bearing__2_material"/>
+          <geom type="mesh" class="collision" pos="1.38778e-17 -0.12 4.16334e-17" quat="1.11022e-15 -1.42517e-15 -1 1.11022e-15" mesh="5972k222_ball_bearing__2" material="5972k222_ball_bearing__2_material"/>
+          <!-- Part part_8__hip_arm_angle_2_356194490192345_radian -->
+          <geom type="mesh" class="visual" pos="-2.08167e-16 -5.68989e-16 -0.018" quat="3.33067e-16 1.69024e-15 1 -1.77636e-15" mesh="part_8__hip_arm_angle_2_356194490192345_radian" material="part_8__hip_arm_angle_2_356194490192345_radian_material"/>
+          <geom type="mesh" class="collision" pos="-2.08167e-16 -5.68989e-16 -0.018" quat="3.33067e-16 1.69024e-15 1 -1.77636e-15" mesh="part_8__hip_arm_angle_2_356194490192345_radian" material="part_8__hip_arm_angle_2_356194490192345_radian_material"/>
+          <!-- Part thigh__hip_arm_angle_2_356194490192345_radian_3 -->
+          <geom type="mesh" class="visual" pos="2.00253e-07 -0.000135381 -0.0181569" quat="0.999996 -0.00266092 2.02071e-06 -7.55149e-06" mesh="thigh__hip_arm_angle_2_356194490192345_radian__2" material="thigh__hip_arm_angle_2_356194490192345_radian__2_material"/>
+          <geom type="mesh" class="collision" pos="2.00253e-07 -0.000135381 -0.0181569" quat="0.999996 -0.00266092 2.02071e-06 -7.55149e-06" mesh="thigh__hip_arm_angle_2_356194490192345_radian__2" material="thigh__hip_arm_angle_2_356194490192345_radian__2_material"/>
+          <!-- Part part_9__hip_arm_angle_2_356194490192345_radian -->
+          <geom type="mesh" class="visual" pos="1.62522e-07 -0.00263535 -0.0181436" quat="2.02071e-06 -7.55149e-06 -0.999996 0.00266092" mesh="part_9__hip_arm_angle_2_356194490192345_radian" material="part_9__hip_arm_angle_2_356194490192345_radian_material"/>
+          <geom type="mesh" class="collision" pos="1.62522e-07 -0.00263535 -0.0181436" quat="2.02071e-06 -7.55149e-06 -0.999996 0.00266092" mesh="part_9__hip_arm_angle_2_356194490192345_radian" material="part_9__hip_arm_angle_2_356194490192345_radian_material"/>
+          <!-- Part 5972k222_ball_bearing_8 -->
+          <geom type="mesh" class="visual" pos="-1.39142e-06 -0.119848 0.036231" quat="0.999996 -0.00266092 2.02071e-06 -7.55149e-06" mesh="5972k222_ball_bearing__2" material="5972k222_ball_bearing__2_material"/>
+          <geom type="mesh" class="collision" pos="-1.39142e-06 -0.119848 0.036231" quat="0.999996 -0.00266092 2.02071e-06 -7.55149e-06" mesh="5972k222_ball_bearing__2" material="5972k222_ball_bearing__2_material"/>
+          <!-- Part m2006_p36_3_6 -->
+          <geom type="mesh" class="visual" pos="9.71445e-17 1.04083e-16 -0.018" quat="0.984808 -2.64501e-15 -1.44329e-15 0.173648" mesh="m2006_p36_3__3" material="m2006_p36_3__3_material"/>
+          <geom type="mesh" class="collision" pos="9.71445e-17 1.04083e-16 -0.018" quat="0.984808 -2.64501e-15 -1.44329e-15 0.173648" mesh="m2006_p36_3__3" material="m2006_p36_3__3_material"/>
+          <!-- Part part_7__hip_arm_angle_2_356194490192345_radian -->
+          <geom type="mesh" class="visual" pos="1.38778e-17 1.38778e-17 -0.018" quat="2.09339e-16 -0 -1 -3.05203e-16" mesh="part_7__hip_arm_angle_2_356194490192345_radian" material="part_7__hip_arm_angle_2_356194490192345_radian_material"/>
+          <geom type="mesh" class="collision" pos="1.38778e-17 1.38778e-17 -0.018" quat="2.09339e-16 -0 -1 -3.05203e-16" mesh="part_7__hip_arm_angle_2_356194490192345_radian" material="part_7__hip_arm_angle_2_356194490192345_radian_material"/>
+          <!-- Part part_4__hip_arm_angle_2_356194490192345_radian_2 -->
+          <geom type="mesh" class="visual" pos="-2.498e-16 -6.245e-16 -0.018" quat="1 -1.72425e-15 -1.11022e-16 -1.83187e-15" mesh="part_4__hip_arm_angle_2_356194490192345_radian" material="part_4__hip_arm_angle_2_356194490192345_radian_material"/>
+          <geom type="mesh" class="collision" pos="-2.498e-16 -6.245e-16 -0.018" quat="1 -1.72425e-15 -1.11022e-16 -1.83187e-15" mesh="part_4__hip_arm_angle_2_356194490192345_radian" material="part_4__hip_arm_angle_2_356194490192345_radian_material"/>
+          <!-- Link l_knee -->
+          <body name="l_knee" pos="-1.40571e-06 -0.119866 0.032731" quat="0.724103 -0.00192538 0.00183669 0.689687">
+            <!-- Joint from l_thigh to l_knee -->
+            <joint axis="0 0 1" name="l_knee" type="hinge"/>
+            <inertial pos="0.000454558 -0.0431783 -0.0158319" mass="0.023936" fullinertia="4.07035e-05 4.15956e-06 3.84718e-05 -1.04198e-07 1.49529e-07 4.51662e-07"/>
+            <!-- Part ankle_3 -->
+            <geom type="mesh" class="visual" pos="2.77556e-17 -2.77556e-17 -0.0018" quat="0.5 -0.5 -0.5 -0.5" mesh="ankle__2" material="ankle__2_material"/>
+            <geom type="mesh" class="collision" pos="2.77556e-17 -2.77556e-17 -0.0018" quat="0.5 -0.5 -0.5 -0.5" mesh="ankle__2" material="ankle__2_material"/>
+            <!-- Part ankle_4 -->
+            <geom type="mesh" class="visual" pos="5.55112e-17 -2.77556e-17 -0.0018" quat="0.5 -0.5 -0.5 -0.5" mesh="ankle" material="ankle_material"/>
+            <geom type="mesh" class="collision" pos="5.55112e-17 -2.77556e-17 -0.0018" quat="0.5 -0.5 -0.5 -0.5" mesh="ankle" material="ankle_material"/>
+            <!-- Part part_3_2 -->
+            <geom type="mesh" class="visual" pos="8.32667e-17 -1.38778e-17 -0.0272" quat="0.5 -0.5 0.5 0.5" mesh="part_3" material="part_3_material"/>
+            <geom type="mesh" class="collision" pos="8.32667e-17 -1.38778e-17 -0.0272" quat="0.5 -0.5 0.5 0.5" mesh="part_3" material="part_3_material"/>
+            <!-- Link foot_2 -->
+            <body name="foot_2" pos="4.996e-16 -0.12 -0.0195" quat="6.99319e-16 -0.0854488 -0.996343 -8.61597e-18">
+              <!-- Joint from l_knee to foot_2 -->
+              <joint axis="0 0 1" name="l_ankle_passive" type="hinge"/>
+              <inertial pos="-8.30386e-08 -0.00450828 -0.005" mass="0.00685832" fullinertia="2.75437e-07 9.89038e-07 1.15532e-06 8.01075e-13 -5.40036e-13 1.74194e-14"/>
+              <!-- Part foot_2 -->
+              <geom type="mesh" class="visual" pos="-1.38778e-17 2.77556e-17 -0.005" quat="0.707107 -0.707107 0 1.50192e-17" mesh="foot" material="foot_material"/>
+              <geom type="mesh" class="collision" pos="-1.38778e-17 2.77556e-17 -0.005" quat="0.707107 -0.707107 0 1.50192e-17" mesh="foot" material="foot_material"/>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <asset>
+    <mesh file="6656k118_ultra_thin_ball_bearing.stl"/>
+    <mesh file="part_3.stl"/>
+    <mesh file="5972k222_ball_bearing__2.stl"/>
+    <mesh file="lower_carriage.stl"/>
+    <mesh file="part_6__hip_arm_angle_2_356194490192345_radian.stl"/>
+    <mesh file="superstructure.stl"/>
+    <mesh file="upper_carriage__2.stl"/>
+    <mesh file="upper_carriage.stl"/>
+    <mesh file="thigh__hip_arm_angle_2_356194490192345_radian__2.stl"/>
+    <mesh file="m2006_p36_3__2.stl"/>
+    <mesh file="part_9__hip_arm_angle_2_356194490192345_radian.stl"/>
+    <mesh file="part_4__hip_arm_angle_2_356194490192345_radian.stl"/>
+    <mesh file="foot.stl"/>
+    <mesh file="part_8__hip_arm_angle_2_356194490192345_radian.stl"/>
+    <mesh file="5972k222_ball_bearing.stl"/>
+    <mesh file="ankle__2.stl"/>
+    <mesh file="thigh__hip_arm_angle_2_356194490192345_radian.stl"/>
+    <mesh file="m2006_p36_3__3.stl"/>
+    <mesh file="m2006_p36_3.stl"/>
+    <mesh file="ankle.stl"/>
+    <mesh file="part_7__hip_arm_angle_2_356194490192345_radian.stl"/>
+    <mesh file="thigh_outer__hip_arm_angle_2_356194490192345_radian.stl"/>
+    <material name="m2006_p36_3_material" rgba="0.917647 0.917647 0.917647 1"/>
+    <material name="upper_carriage_material" rgba="0.917647 0.917647 0.917647 1"/>
+    <material name="superstructure_material" rgba="0.647059 0.647059 0.647059 1"/>
+    <material name="upper_carriage__2_material" rgba="0.917647 0.917647 0.917647 1"/>
+    <material name="6656k118_ultra_thin_ball_bearing_material" rgba="0.498039 0.498039 0.498039 1"/>
+    <material name="5972k222_ball_bearing_material" rgba="0.972549 0.529412 0.00392157 1"/>
+    <material name="lower_carriage_material" rgba="0.917647 0.917647 0.917647 1"/>
+    <material name="part_4__hip_arm_angle_2_356194490192345_radian_material" rgba="0.917647 0.917647 0.917647 1"/>
+    <material name="5972k222_ball_bearing__2_material" rgba="0.972549 0.529412 0.00392157 1"/>
+    <material name="m2006_p36_3__2_material" rgba="0.917647 0.917647 0.917647 1"/>
+    <material name="thigh__hip_arm_angle_2_356194490192345_radian_material" rgba="0.615686 0.811765 0.929412 1"/>
+    <material name="thigh_outer__hip_arm_angle_2_356194490192345_radian_material" rgba="0.498039 0.498039 0.498039 1"/>
+    <material name="part_6__hip_arm_angle_2_356194490192345_radian_material" rgba="0.647059 0.647059 0.647059 1"/>
+    <material name="thigh__hip_arm_angle_2_356194490192345_radian__2_material" rgba="0.917647 0.917647 0.917647 1"/>
+    <material name="ankle_material" rgba="0.615686 0.811765 0.929412 1"/>
+    <material name="ankle__2_material" rgba="0.615686 0.811765 0.929412 1"/>
+    <material name="part_3_material" rgba="0.647059 0.647059 0.647059 1"/>
+    <material name="foot_material" rgba="0.615686 0.811765 0.929412 1"/>
+    <material name="part_8__hip_arm_angle_2_356194490192345_radian_material" rgba="0.498039 0.498039 0.498039 1"/>
+    <material name="part_9__hip_arm_angle_2_356194490192345_radian_material" rgba="0.647059 0.647059 0.647059 1"/>
+    <material name="m2006_p36_3__3_material" rgba="0.917647 0.917647 0.917647 1"/>
+    <material name="part_7__hip_arm_angle_2_356194490192345_radian_material" rgba="0.615686 0.811765 0.929412 1"/>
+  </asset>
+  <actuator>
+    <position class="C:\Users\steph\code\arca\arca-sim\models\reduced\mjcf" name="r_hip_roll" joint="r_hip_roll"/>
+    <position class="C:\Users\steph\code\arca\arca-sim\models\reduced\mjcf" name="r_hip_pitch" joint="r_hip_pitch"/>
+    <position class="C:\Users\steph\code\arca\arca-sim\models\reduced\mjcf" name="r_knee" joint="r_knee"/>
+    <position class="C:\Users\steph\code\arca\arca-sim\models\reduced\mjcf" name="r_ankle_passive" joint="r_ankle_passive"/>
+    <position class="C:\Users\steph\code\arca\arca-sim\models\reduced\mjcf" name="l_hip_roll" joint="l_hip_roll"/>
+    <position class="C:\Users\steph\code\arca\arca-sim\models\reduced\mjcf" name="l_hip_pitch" joint="l_hip_pitch"/>
+    <position class="C:\Users\steph\code\arca\arca-sim\models\reduced\mjcf" name="l_knee" joint="l_knee"/>
+    <position class="C:\Users\steph\code\arca\arca-sim\models\reduced\mjcf" name="l_ankle_passive" joint="l_ankle_passive"/>
+  </actuator>
+  <equality/>
+</mujoco>

@@ -1,0 +1,13 @@
+{
+    "configuration": "length=0.03+meter",
+    "documentId": "4743a97557c0a80d1585b0a7",
+    "documentMicroversion": "1122a9c61cdd6118ddf38b2c",
+    "elementId": "9e84d0a1eb04d4270b78e0f7",
+    "fullConfiguration": "length=0.03+meter",
+    "id": "McWNABsSXu3qw72OI",
+    "isStandardContent": false,
+    "name": "hip_arm <4>",
+    "partId": "JbD",
+    "suppressed": false,
+    "type": "Part"
+}
