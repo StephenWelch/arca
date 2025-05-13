@@ -1,5 +1,5 @@
 <default>
-    <equality solref="0.005 1"/>
+    <equality solimp="0.0 0.95 0.001 0.5 2" solref="0.005 1"/>
 </default>
 
 <worldbody>

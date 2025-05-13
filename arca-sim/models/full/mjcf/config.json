@@ -19,9 +19,10 @@
 
     "ball_to_euler": true,
     "joint_properties": {
-        // "default": {
-        //     "actuated": false,
-        // },
+        "default": {
+            // "actuated": false,
+            "type": "motor"
+        },
         "l_hip_outer_passive": {
             "actuated": false
         },
