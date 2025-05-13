@@ -123,7 +123,7 @@ class SimLowLevelController:
 def main_passive():
 
     # model = MjModel.from_xml_path("models/urdf/robot.xml")
-    model = robot_model.get_mujoco_model(fixed=True)
+    model = robot_model.get_mujoco_model("models/full", fixed=True)
     data = MjData(model)
 
     state_out = State()
@@ -153,15 +153,19 @@ def main_passive():
         #     0, np.deg2rad(46.81234), np.deg2rad(-90), np.deg2rad(-45),
         #     0, np.deg2rad(46.81234), np.deg2rad(-90), np.deg2rad(-45)
         # ]
-        data.qpos = [
-            0, 0, 0.265, 1, 0, 0, 0,
-            0, np.deg2rad(30), np.deg2rad(-90), np.deg2rad(-45),
-            0, np.deg2rad(30), np.deg2rad(-90), np.deg2rad(-45)
-        ]
+        # data.qpos = [
+        #     0, 0, 0.265, 1, 0, 0, 0,
+        #     0, np.deg2rad(30), np.deg2rad(-90), np.deg2rad(-45),
+        #     0, np.deg2rad(30), np.deg2rad(-90), np.deg2rad(-45)
+        # ]
 
         # for i in range(50):
         #     mj.mj_step(model, data)
         mj.mj_step(model, data)
+        for i in range(data.ncon):
+            geom1 = model.geom(data.contact[i].geom[0])
+            geom2 = model.geom(data.contact[i].geom[1])
+            print(f"Contact: {geom1.name} {geom2.name}")
         # mj.mj_forward(model, data)
 
         # interact with viewer
@@ -178,7 +182,7 @@ def main_passive():
             # data.qpos[:7] = [0, 0, 0.261, 1, 0, 0, 0]
             data.qpos[:7] = [0, 0, 0.5, 1, 0, 0, 0]
             # data.ctrl = controller.update(state_in, setpt)
-            data.ctrl = controller.update(model, data, state_out, setpt)
+            # data.ctrl = controller.update(model, data, state_out, setpt)
             # data.ctrl = np.full(6, 0)
             # print(f"{data.ctrl}")
             # print(f"{state_out.l_joint_force}\t{state_out.r_joint_force}")
