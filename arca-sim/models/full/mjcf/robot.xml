@@ -142,7 +142,7 @@
           <!-- Link knee_arm__length_0_04_meter -->
           <body name="knee_arm__length_0_04_meter" pos="1.38778e-17 2.77556e-17 -0.018" quat="0.34202 -4.44566e-15 4.44089e-16 -0.939693">
             <!-- Joint from l_thigh to knee_arm__length_0_04_meter -->
-            <joint axis="0 0 1" name="l_knee" type="hinge" range="-1.307131438305011 1.8344612152847821"/>
+            <joint axis="0 0 1" name="l_knee" type="hinge" range="-1.307131438305011 1.8344612152847821" frictionloss="0.01"/>
             <inertial pos="0.0192583 -0.00522325 0.0091877" mass="0.00480721" fullinertia="1.96137e-07 1.3472e-06 1.41312e-06 3.3253e-07 -2.06002e-07 5.48122e-08"/>
             <!-- Part 59935k13_ball_joint_rod_end_4 -->
             <geom type="mesh" class="visual" pos="0.0353599 -0.0224928 0.013825" quat="1.2371e-14 -0.131451 -0.991323 -5.25776e-15" mesh="59935k13_ball_joint_rod_end" material="59935k13_ball_joint_rod_end_material"/>
@@ -480,31 +480,31 @@
     </body>
   </worldbody>
   <asset>
-    <mesh file="ankle__2.stl"/>
-    <mesh file="m2006_p36_3.stl"/>
-    <mesh file="r_outer_arm.stl"/>
-    <mesh file="l_inner_plate.stl"/>
-    <mesh file="59935k13_ball_joint_rod_end__2.stl"/>
-    <mesh file="l_outer_plate.stl"/>
-    <mesh file="l_outer_arm.stl"/>
     <mesh file="standoff.stl"/>
-    <mesh file="foot.stl"/>
-    <mesh file="6656k118_ultra_thin_ball_bearing.stl"/>
-    <mesh file="59935k13_ball_joint_rod_end.stl"/>
-    <mesh file="part_3__length_0_12_meter.stl"/>
+    <mesh file="59935k13_ball_joint_rod_end__2.stl"/>
+    <mesh file="m2006_p36_3.stl"/>
     <mesh file="superstructure.stl"/>
-    <mesh file="lower_carriage.stl"/>
+    <mesh file="l_inner_arm.stl"/>
+    <mesh file="upper_carriage.stl"/>
+    <mesh file="upper_carriage__2.stl"/>
+    <mesh file="6656k118_ultra_thin_ball_bearing.stl"/>
+    <mesh file="l_outer_arm.stl"/>
     <mesh file="part_3.stl"/>
     <mesh file="ankle.stl"/>
-    <mesh file="l_inner_arm.stl"/>
-    <mesh file="hip_arm__length_0_04_meter.stl"/>
-    <mesh file="m2006_p36_3__2.stl"/>
-    <mesh file="r_inner_arm.stl"/>
-    <mesh file="upper_carriage__2.stl"/>
-    <mesh file="upper_carriage.stl"/>
-    <mesh file="5972k222_ball_bearing.stl"/>
-    <mesh file="part_3__length_0_0525_meter.stl"/>
     <mesh file="r_thigh_outer_plate.stl"/>
+    <mesh file="m2006_p36_3__2.stl"/>
+    <mesh file="r_outer_arm.stl"/>
+    <mesh file="l_inner_plate.stl"/>
+    <mesh file="ankle__2.stl"/>
+    <mesh file="lower_carriage.stl"/>
+    <mesh file="59935k13_ball_joint_rod_end.stl"/>
+    <mesh file="hip_arm__length_0_04_meter.stl"/>
+    <mesh file="5972k222_ball_bearing.stl"/>
+    <mesh file="part_3__length_0_12_meter.stl"/>
+    <mesh file="r_inner_arm.stl"/>
+    <mesh file="part_3__length_0_0525_meter.stl"/>
+    <mesh file="foot.stl"/>
+    <mesh file="l_outer_plate.stl"/>
     <material name="m2006_p36_3_material" rgba="0.917647 0.917647 0.917647 1"/>
     <material name="upper_carriage_material" rgba="0.917647 0.917647 0.917647 1"/>
     <material name="superstructure_material" rgba="0.647059 0.647059 0.647059 1"/>

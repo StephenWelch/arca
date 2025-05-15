@@ -20,44 +20,67 @@
     "ball_to_euler": true,
     "joint_properties": {
         "default": {
-            // "actuated": false,
-            "type": "motor"
+            "actuated": false,
+            "type": "motor",
+            "frictionloss": 0.01,
         },
-        "l_hip_outer_passive": {
-            "actuated": false
+        "l_hip_outer": {
+            "actuated": true
         },
-        "l_hip_inner_passive": {
-            "actuated": false
+        "l_hip_inner": {
+            "actuated": true
         },
-        "l_hip_pitch_passive": {
-            "actuated": false
+        "l_knee": {
+            "actuated": true
         },
-        "l_hip_roll_passive": {
-            "actuated": false
+        "r_hip_outer": {
+            "actuated": true
         },
-        "l_knee_passive": {
-            "actuated": false
+        "r_hip_inner": {
+            "actuated": true
         },
-        "l_ankle_passive": {
-            "actuated": false
+        "r_knee": {
+            "actuated": true
         },
-        "r_hip_outer_passive": {
-            "actuated": false
-        },
-        "r_hip_inner_passive": {
-            "actuated": false
-        },
-        "r_hip_pitch_passive": {
-            "actuated": false
-        },
-        "r_hip_roll_passive": {
-            "actuated": false
-        },
-        "r_knee_passive": {
-            "actuated": false
-        },
-        "r_ankle_passive": {
-            "actuated": false
-        },
+
+        // "l_hip_outer_passive": {
+        //     "actuated": false
+        // },
+        // "l_hip_inner_passive": {
+        //     "actuated": false
+        // },
+        // "l_hip_pitch_passive": {
+        //     "actuated": false
+        // },
+        // "l_hip_roll_passive": {
+        //     "actuated": false
+        // },
+        // "l_knee_passive": {
+        //     "actuated": false
+        // },
+        // "l_ankle_passive": {
+        //     "actuated": false
+        // },
+        // "r_hip_outer_passive": {
+        //     "actuated": false
+        // },
+        // "r_hip_inner_passive": {
+        //     "actuated": false
+        // },
+        // "r_hip_pitch_passive": {
+        //     "actuated": false
+        // },
+        // "r_hip_roll_passive": {
+        //     "actuated": false
+        // },
+        // "r_knee_passive": {
+        //     "actuated": false
+        // },
+        // "r_ankle_passive": {
+        //     "actuated": false
+        // },
     },
+    "ignore": {
+        "*": "collision"
+    }
 }
