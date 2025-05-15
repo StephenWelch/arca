@@ -17,7 +17,7 @@
   </default>
   <!-- Additional extras.xml -->
   <default>
-    <equality solimp="0.0 0.95 0.001 0.5 2" solref="0.005 1"/>
+    <equality solimp="0.9 0.95 0.001 0.5 2" solref="0.005 1"/>
   </default>
   <worldbody>
     <body name="world_link" pos="0 0 0" quat="1 0 0 0"/>
@@ -25,87 +25,28 @@
   <equality>
     <weld name="gantry" body1="world_link" body2="trunk" relpose="0 0 0.5 1 0 0 0"/>
   </equality>
+  <option timestep="0.001"/>
   <worldbody>
     <!-- Link trunk -->
     <body name="trunk" pos="0 0 0" quat="1 0 0 0" childclass="C:\Users\steph\code\arca\arca-sim\models\full\mjcf">
       <freejoint name="trunk_freejoint"/>
-      <inertial pos="-5.85501e-17 -2.1021e-06 -0.0342193" mass="0.50738" fullinertia="0.000361696 0.00154489 0.00155102 -6.30203e-08 -4.36525e-07 8.81145e-09"/>
-      <!-- Part m2006_p36_3 -->
-      <geom type="mesh" class="visual" pos="-0.01175 0.01425 -0.0386505" quat="0.298046 0.641224 -0.298046 -0.641224" mesh="m2006_p36_3" material="m2006_p36_3_material"/>
-      <geom type="mesh" class="collision" pos="-0.01175 0.01425 -0.0386505" quat="0.298046 0.641224 -0.298046 -0.641224" mesh="m2006_p36_3" material="m2006_p36_3_material"/>
-      <!-- Part upper_carriage -->
-      <geom type="mesh" class="visual" pos="0.03225 1.43928e-15 -0.0893322" quat="0.5 0.5 0.5 0.5" mesh="upper_carriage" material="upper_carriage_material"/>
-      <geom type="mesh" class="collision" pos="0.03225 1.43928e-15 -0.0893322" quat="0.5 0.5 0.5 0.5" mesh="upper_carriage" material="upper_carriage_material"/>
-      <!-- Part m2006_p36_3_2 -->
-      <geom type="mesh" class="visual" pos="0.09175 -0.01425 -0.0386505" quat="0.641224 0.298046 -0.641224 -0.298046" mesh="m2006_p36_3" material="m2006_p36_3_material"/>
-      <geom type="mesh" class="collision" pos="0.09175 -0.01425 -0.0386505" quat="0.641224 0.298046 -0.641224 -0.298046" mesh="m2006_p36_3" material="m2006_p36_3_material"/>
-      <!-- Part m2006_p36_3_3 -->
-      <geom type="mesh" class="visual" pos="-0.09175 -0.01425 -0.0386505" quat="0.641224 0.298046 0.641224 0.298046" mesh="m2006_p36_3" material="m2006_p36_3_material"/>
-      <geom type="mesh" class="collision" pos="-0.09175 -0.01425 -0.0386505" quat="0.641224 0.298046 0.641224 0.298046" mesh="m2006_p36_3" material="m2006_p36_3_material"/>
-      <!-- Part superstructure -->
-      <geom type="mesh" class="visual" pos="-0.07125 6.2454e-18 -0.0893322" quat="0.5 0.5 0.5 0.5" mesh="superstructure" material="superstructure_material"/>
-      <geom type="mesh" class="collision" pos="-0.07125 6.2454e-18 -0.0893322" quat="0.5 0.5 0.5 0.5" mesh="superstructure" material="superstructure_material"/>
-      <!-- Part m2006_p36_3_4 -->
-      <geom type="mesh" class="visual" pos="0.01175 0.01425 -0.0386505" quat="0.298046 0.641224 0.298046 0.641224" mesh="m2006_p36_3" material="m2006_p36_3_material"/>
-      <geom type="mesh" class="collision" pos="0.01175 0.01425 -0.0386505" quat="0.298046 0.641224 0.298046 0.641224" mesh="m2006_p36_3" material="m2006_p36_3_material"/>
-      <!-- Part upper_carriage_2 -->
-      <geom type="mesh" class="visual" pos="0.01775 5.97933e-16 -0.0893322" quat="0.5 0.5 0.5 0.5" mesh="upper_carriage__2" material="upper_carriage__2_material"/>
-      <geom type="mesh" class="collision" pos="0.01775 5.97933e-16 -0.0893322" quat="0.5 0.5 0.5 0.5" mesh="upper_carriage__2" material="upper_carriage__2_material"/>
+      <inertial pos="-6.1969e-17 -2.1021e-06 -0.0342193" mass="0.50738" fullinertia="0.000361696 0.00154489 0.00155102 -6.30203e-08 -4.36525e-07 8.81145e-09"/>
+      <!-- Part trunk_parts -->
+      <geom type="mesh" class="visual" pos="-6.02596e-17 -2.1021e-06 -0.0342193" quat="1 0 0 0" mesh="trunk_visual" material="trunk_visual_material"/>
       <!-- Link thigh_lower_mount -->
-      <body name="thigh_lower_mount" pos="0.05175 0.0275 -0.0893322" quat="7.89993e-15 -7.91728e-15 0.707107 0.707107">
+      <body name="thigh_lower_mount" pos="0.05175 0.0275 -0.0893322" quat="4.20543e-15 -3.45224e-15 -0.707107 -0.707107">
         <!-- Joint from trunk to thigh_lower_mount -->
-        <joint axis="0 0 1" name="l_hip_roll_passive" type="hinge"/>
-        <inertial pos="-4.22318e-18 -1.75427e-05 -0.0275" mass="0.106222" fullinertia="4.98391e-05 6.15836e-05 4.69705e-05 3.69606e-20 -2.14174e-13 4.25848e-13"/>
-        <!-- Part 6656k118_ultra_thin_ball_bearing -->
-        <geom type="mesh" class="visual" pos="0.0195 1.80411e-16 -0.0275" quat="6.35887e-15 -0.707107 -3.21965e-15 -0.707107" mesh="6656k118_ultra_thin_ball_bearing" material="6656k118_ultra_thin_ball_bearing_material"/>
-        <geom type="mesh" class="collision" pos="0.0195 1.80411e-16 -0.0275" quat="6.35887e-15 -0.707107 -3.21965e-15 -0.707107" mesh="6656k118_ultra_thin_ball_bearing" material="6656k118_ultra_thin_ball_bearing_material"/>
-        <!-- Part 5972k222_ball_bearing -->
-        <geom type="mesh" class="visual" pos="-1.38778e-17 -4.16334e-17 -0.0515" quat="6.93889e-18 0 1 -4.44089e-15" mesh="5972k222_ball_bearing" material="5972k222_ball_bearing_material"/>
-        <geom type="mesh" class="collision" pos="-1.38778e-17 -4.16334e-17 -0.0515" quat="6.93889e-18 0 1 -4.44089e-15" mesh="5972k222_ball_bearing" material="5972k222_ball_bearing_material"/>
-        <!-- Part 6656k118_ultra_thin_ball_bearing_2 -->
-        <geom type="mesh" class="visual" pos="-0.0195 -1.66533e-16 -0.0275" quat="0.707107 3.17944e-15 -0.707107 3.17944e-15" mesh="6656k118_ultra_thin_ball_bearing" material="6656k118_ultra_thin_ball_bearing_material"/>
-        <geom type="mesh" class="collision" pos="-0.0195 -1.66533e-16 -0.0275" quat="0.707107 3.17944e-15 -0.707107 3.17944e-15" mesh="6656k118_ultra_thin_ball_bearing" material="6656k118_ultra_thin_ball_bearing_material"/>
-        <!-- Part 5972k222_ball_bearing_2 -->
-        <geom type="mesh" class="visual" pos="0 -1.38778e-17 -0.0035" quat="1 0 0 -5.04871e-29" mesh="5972k222_ball_bearing" material="5972k222_ball_bearing_material"/>
-        <geom type="mesh" class="collision" pos="0 -1.38778e-17 -0.0035" quat="1 0 0 -5.04871e-29" mesh="5972k222_ball_bearing" material="5972k222_ball_bearing_material"/>
-        <!-- Part lower_carriage -->
-        <geom type="mesh" class="visual" pos="0.0195 1.80411e-16 -0.0275" quat="0.707107 0 -0.707107 3.21965e-15" mesh="lower_carriage" material="lower_carriage_material"/>
-        <geom type="mesh" class="collision" pos="0.0195 1.80411e-16 -0.0275" quat="0.707107 0 -0.707107 3.21965e-15" mesh="lower_carriage" material="lower_carriage_material"/>
+        <joint axis="0 0 1" name="l_hip_roll_passive" type="hinge" frictionloss="0.01"/>
+        <inertial pos="-4.41099e-18 -1.75427e-05 -0.0275" mass="0.106222" fullinertia="4.98391e-05 6.15836e-05 4.69705e-05 5.167e-22 -2.14174e-13 4.25849e-13"/>
+        <!-- Part thigh_lower_mount_parts -->
+        <geom type="mesh" class="visual" pos="0 -1.75427e-05 -0.0275" quat="4.21885e-15 3.45224e-15 0.707107 0.707107" mesh="thigh_lower_mount_visual" material="thigh_lower_mount_visual_material"/>
         <!-- Link l_thigh -->
-        <body name="l_thigh" pos="-0.02275 -2.22045e-16 -0.0275" quat="0.270598 0.653281 0.270598 0.653281">
+        <body name="l_thigh" pos="-0.02275 0 -0.0275" quat="0.270598 0.653281 0.270598 0.653281">
           <!-- Joint from thigh_lower_mount to l_thigh -->
-          <joint axis="0 0 1" name="l_hip_pitch_passive" type="hinge"/>
+          <joint axis="0 0 1" name="l_hip_pitch_passive" type="hinge" frictionloss="0.01"/>
           <inertial pos="0.000899952 0.0298613 0.0179928" mass="0.15874" fullinertia="0.000394916 6.10091e-05 0.00035582 2.95051e-06 2.80027e-07 4.27413e-07"/>
-          <!-- Part 5972k222_ball_bearing_3 -->
-          <geom type="mesh" class="visual" pos="5.55112e-17 0.12 -8.32667e-17" quat="1.55431e-15 1.61475e-15 -1 4.16334e-15" mesh="5972k222_ball_bearing" material="5972k222_ball_bearing_material"/>
-          <geom type="mesh" class="collision" pos="5.55112e-17 0.12 -8.32667e-17" quat="1.55431e-15 1.61475e-15 -1 4.16334e-15" mesh="5972k222_ball_bearing" material="5972k222_ball_bearing_material"/>
-          <!-- Part l_outer_arm -->
-          <geom type="mesh" class="visual" pos="1.249e-16 4.30211e-16 -0.018" quat="1.08398e-15 1 8.05489e-16 -9.38937e-16" mesh="l_outer_arm" material="l_outer_arm_material"/>
-          <geom type="mesh" class="collision" pos="1.249e-16 4.30211e-16 -0.018" quat="1.08398e-15 1 8.05489e-16 -9.38937e-16" mesh="l_outer_arm" material="l_outer_arm_material"/>
-          <!-- Part 59935k13_ball_joint_rod_end -->
-          <geom type="mesh" class="visual" pos="0.0384801 0.01472 0.0591261" quat="0.00186181 -0.707094 0.707114 0.00185503" mesh="59935k13_ball_joint_rod_end" material="59935k13_ball_joint_rod_end_material"/>
-          <geom type="mesh" class="collision" pos="0.0384801 0.01472 0.0591261" quat="0.00186181 -0.707094 0.707114 0.00185503" mesh="59935k13_ball_joint_rod_end" material="59935k13_ball_joint_rod_end_material"/>
-          <!-- Part l_inner_plate -->
-          <geom type="mesh" class="visual" pos="-3.58456e-07 0.00012709 -0.0181521" quat="1.39445e-05 -4.79387e-06 -0.0026282 0.999997" mesh="l_inner_plate" material="l_inner_plate_material"/>
-          <geom type="mesh" class="collision" pos="-3.58456e-07 0.00012709 -0.0181521" quat="1.39445e-05 -4.79387e-06 -0.0026282 0.999997" mesh="l_inner_plate" material="l_inner_plate_material"/>
-          <!-- Part l_inner_arm -->
-          <geom type="mesh" class="visual" pos="-3.58456e-07 0.00012709 -0.0181521" quat="0.0026282 -0.999997 1.39445e-05 -4.79387e-06" mesh="l_inner_arm" material="l_inner_arm_material"/>
-          <geom type="mesh" class="collision" pos="-3.58456e-07 0.00012709 -0.0181521" quat="0.0026282 -0.999997 1.39445e-05 -4.79387e-06" mesh="l_inner_arm" material="l_inner_arm_material"/>
-          <!-- Part 5972k222_ball_bearing_4 -->
-          <geom type="mesh" class="visual" pos="2.46591e-06 0.119843 0.036228" quat="1.39445e-05 -4.79387e-06 -0.0026282 0.999997" mesh="5972k222_ball_bearing" material="5972k222_ball_bearing_material"/>
-          <geom type="mesh" class="collision" pos="2.46591e-06 0.119843 0.036228" quat="1.39445e-05 -4.79387e-06 -0.0026282 0.999997" mesh="5972k222_ball_bearing" material="5972k222_ball_bearing_material"/>
-          <!-- Part m2006_p36_3_5 -->
-          <geom type="mesh" class="visual" pos="1.38778e-17 2.77556e-17 -0.018" quat="0.34202 -4.48095e-15 4.44089e-16 -0.939693" mesh="m2006_p36_3__2" material="m2006_p36_3__2_material"/>
-          <geom type="mesh" class="collision" pos="1.38778e-17 2.77556e-17 -0.018" quat="0.34202 -4.48095e-15 4.44089e-16 -0.939693" mesh="m2006_p36_3__2" material="m2006_p36_3__2_material"/>
-          <!-- Part l_outer_plate -->
-          <geom type="mesh" class="visual" pos="2.77556e-17 1.38778e-17 -0.018" quat="4.08864e-17 2.22045e-16 1.11022e-16 1" mesh="l_outer_plate" material="l_outer_plate_material"/>
-          <geom type="mesh" class="collision" pos="2.77556e-17 1.38778e-17 -0.018" quat="4.08864e-17 2.22045e-16 1.11022e-16 1" mesh="l_outer_plate" material="l_outer_plate_material"/>
-          <!-- Part 59935k13_ball_joint_rod_end_2 -->
-          <geom type="mesh" class="visual" pos="0.0134808 0.015 -0.01345" quat="0.707107 -9.62343e-16 1.66533e-16 -0.707107" mesh="59935k13_ball_joint_rod_end" material="59935k13_ball_joint_rod_end_material"/>
-          <geom type="mesh" class="collision" pos="0.0134808 0.015 -0.01345" quat="0.707107 -9.62343e-16 1.66533e-16 -0.707107" mesh="59935k13_ball_joint_rod_end" material="59935k13_ball_joint_rod_end_material"/>
-          <!-- Part standoff -->
-          <geom type="mesh" class="visual" pos="-9.29812e-16 -1.41553e-15 -0.018" quat="4.77396e-15 9.15758e-15 -3.77476e-15 1" mesh="standoff" material="standoff_material"/>
-          <geom type="mesh" class="collision" pos="-9.29812e-16 -1.41553e-15 -0.018" quat="4.77396e-15 9.15758e-15 -3.77476e-15 1" mesh="standoff" material="standoff_material"/>
+          <!-- Part l_thigh_parts -->
+          <geom type="mesh" class="visual" pos="0.000899952 0.0298613 0.0179928" quat="0.653281 0.270598 0.653281 -0.270598" mesh="l_thigh_visual" material="l_thigh_visual_material"/>
           <!-- Frame closing_l_hip_inner_2 -->
           <site group="3" name="closing_l_hip_inner_2" pos="0.0259801 0.0147204 0.059126" quat="0.49868 0.501322 0.501303 -0.498689"/>
           <!-- Frame closing_l_hip_outer_2 -->
@@ -113,69 +54,51 @@
           <!-- Link l_knee -->
           <body name="l_knee" pos="2.49973e-06 0.119861 0.032728" quat="0.707094 0.00186181 0.00185503 -0.707114">
             <!-- Joint from l_thigh to l_knee -->
-            <joint axis="0 0 1" name="l_knee_passive" type="hinge"/>
+            <joint axis="0 0 1" name="l_knee_passive" type="hinge" frictionloss="0.01"/>
             <inertial pos="0.00122988 -0.0428518 -0.016707" mass="0.0251199" fullinertia="4.11528e-05 4.86011e-06 3.88399e-05 -2.3273e-07 4.94116e-07 5.96743e-07"/>
-            <!-- Part ankle -->
-            <geom type="mesh" class="visual" pos="2.77556e-17 1.38778e-17 -0.0018" quat="0.5 -0.5 -0.5 -0.5" mesh="ankle" material="ankle_material"/>
-            <geom type="mesh" class="collision" pos="2.77556e-17 1.38778e-17 -0.0018" quat="0.5 -0.5 -0.5 -0.5" mesh="ankle" material="ankle_material"/>
-            <!-- Part ankle_2 -->
-            <geom type="mesh" class="visual" pos="2.77556e-17 1.38778e-17 -0.0018" quat="0.5 -0.5 -0.5 -0.5" mesh="ankle__2" material="ankle__2_material"/>
-            <geom type="mesh" class="collision" pos="2.77556e-17 1.38778e-17 -0.0018" quat="0.5 -0.5 -0.5 -0.5" mesh="ankle__2" material="ankle__2_material"/>
-            <!-- Part part_3 -->
-            <geom type="mesh" class="visual" pos="-1.66533e-16 -4.16334e-17 -0.0272" quat="0.5 -0.5 0.5 0.5" mesh="part_3" material="part_3_material"/>
-            <geom type="mesh" class="collision" pos="-1.66533e-16 -4.16334e-17 -0.0272" quat="0.5 -0.5 0.5 0.5" mesh="part_3" material="part_3_material"/>
-            <!-- Part 59935k13_ball_joint_rod_end_3 -->
-            <geom type="mesh" class="visual" pos="0.0294047 -0.0362523 -0.0344" quat="0.707107 3.1016e-16 1.38778e-16 0.707107" mesh="59935k13_ball_joint_rod_end" material="59935k13_ball_joint_rod_end_material"/>
-            <geom type="mesh" class="collision" pos="0.0294047 -0.0362523 -0.0344" quat="0.707107 3.1016e-16 1.38778e-16 0.707107" mesh="59935k13_ball_joint_rod_end" material="59935k13_ball_joint_rod_end_material"/>
+            <!-- Part l_knee_parts -->
+            <geom type="mesh" class="visual" pos="0.00122988 -0.0428518 -0.016707" quat="0.654991 -0.271321 0.65156 0.269892" mesh="l_knee_visual" material="l_knee_visual_material"/>
             <!-- Frame closing_l_knee_linkage_2 -->
             <site group="3" name="closing_l_knee_linkage_2" pos="0.0169047 -0.0362523 -0.0344" quat="0.5 0.5 0.5 -0.5"/>
             <!-- Link foot -->
-            <body name="foot" pos="2.77556e-17 -0.12 -0.0195" quat="9.26522e-18 1 5.07512e-17 3.62584e-19">
+            <body name="foot" pos="-8.32667e-17 -0.12 -0.0195" quat="0 1 0 0">
               <!-- Joint from l_knee to foot -->
-              <joint axis="0 0 1" name="l_ankle_passive" type="hinge"/>
+              <joint axis="0 0 1" name="l_ankle_passive" type="hinge" frictionloss="0.01"/>
               <inertial pos="-0.00318778 0.00318789 -0.005" mass="0.00685832" fullinertia="6.32237e-07 6.32238e-07 1.15532e-06 -3.568e-07 3.9418e-13 3.69545e-13"/>
-              <!-- Part foot -->
-              <geom type="mesh" class="visual" pos="2.77556e-17 -2.77556e-17 -0.005" quat="0.270598 -0.270598 0.653281 -0.653281" mesh="foot" material="foot_material"/>
-              <geom type="mesh" class="collision" pos="2.77556e-17 -2.77556e-17 -0.005" quat="0.270598 -0.270598 0.653281 -0.653281" mesh="foot" material="foot_material"/>
+              <!-- Part foot_parts -->
+              <geom type="mesh" class="visual" pos="-0.00318778 0.00318789 -0.005" quat="0.271321 0.654991 -0.269892 0.65156" mesh="foot_visual" material="foot_visual_material"/>
             </body>
           </body>
           <!-- Link knee_arm__length_0_04_meter -->
-          <body name="knee_arm__length_0_04_meter" pos="1.38778e-17 2.77556e-17 -0.018" quat="0.34202 -4.44566e-15 4.44089e-16 -0.939693">
+          <body name="knee_arm__length_0_04_meter" pos="1.38778e-17 1.38778e-17 -0.018" quat="0.34202 -7.17052e-15 1.33227e-15 -0.939693">
             <!-- Joint from l_thigh to knee_arm__length_0_04_meter -->
-            <joint axis="0 0 1" name="l_knee" type="hinge" range="-1.307131438305011 1.8344612152847821" frictionloss="0.01"/>
+            <joint axis="0 0 1" name="l_knee" type="hinge" range="-1.22 0.523" frictionloss="0.01"/>
             <inertial pos="0.0192583 -0.00522325 0.0091877" mass="0.00480721" fullinertia="1.96137e-07 1.3472e-06 1.41312e-06 3.3253e-07 -2.06002e-07 5.48122e-08"/>
-            <!-- Part 59935k13_ball_joint_rod_end_4 -->
-            <geom type="mesh" class="visual" pos="0.0353599 -0.0224928 0.013825" quat="1.2371e-14 -0.131451 -0.991323 -5.25776e-15" mesh="59935k13_ball_joint_rod_end" material="59935k13_ball_joint_rod_end_material"/>
-            <geom type="mesh" class="collision" pos="0.0353599 -0.0224928 0.013825" quat="1.2371e-14 -0.131451 -0.991323 -5.25776e-15" mesh="59935k13_ball_joint_rod_end" material="59935k13_ball_joint_rod_end_material"/>
-            <!-- Part hip_arm__length_0_04_meter -->
-            <geom type="mesh" class="visual" pos="9.54098e-18 -1.38778e-17 2.77556e-17" quat="0.131451 4.34763e-15 -2.10942e-15 0.991323" mesh="hip_arm__length_0_04_meter" material="hip_arm__length_0_04_meter_material"/>
-            <geom type="mesh" class="collision" pos="9.54098e-18 -1.38778e-17 2.77556e-17" quat="0.131451 4.34763e-15 -2.10942e-15 0.991323" mesh="hip_arm__length_0_04_meter" material="hip_arm__length_0_04_meter_material"/>
+            <!-- Part knee_arm__length_0_04_meter_parts -->
+            <geom type="mesh" class="visual" pos="0.0192583 -0.00522325 0.0091877" quat="0.477714 -0.521334 0.477714 0.521334" mesh="knee_arm__length_0_04_meter_visual" material="knee_arm__length_0_04_meter_visual_material"/>
+            <!-- Frame l_knee_arm_end -->
+            <site group="3" name="l_knee_arm_end" pos="0.0386177 -0.0104248 0.009" quat="0.131451 8.07668e-15 -4.10783e-15 0.991323"/>
             <!-- Link l_knee_passive_link_x -->
             <body name="l_knee_passive_link_x" pos="0.0386177 -0.0104248 0.013825" quat="0.41209 0.807229 0.381279 0.182181">
               <!-- Joint from knee_arm__length_0_04_meter to l_knee_passive_link_x -->
-              <joint axis="1 0 0" name="l_knee_passive_x" type="hinge"/>
+              <joint axis="1 0 0" name="l_knee_passive_x" type="hinge" frictionloss="0.01"/>
               <inertial pos="0 0 0" mass="1e-09" fullinertia="1e-09 1e-09 1e-09 0 0 0"/>
+              <!-- Part l_knee_passive_link_x_parts -->
               <!-- Link l_knee_passive_link_y -->
-              <body name="l_knee_passive_link_y" pos="-6.93889e-18 4.33681e-17 0" quat="1 -1.68481e-17 0 -4.16334e-17">
+              <body name="l_knee_passive_link_y" pos="-2.08167e-17 -7.80626e-18 2.77556e-17" quat="1 -1.34969e-17 1.94289e-16 -5.55112e-17">
                 <!-- Joint from l_knee_passive_link_x to l_knee_passive_link_y -->
-                <joint axis="0 1 0" name="l_knee_passive_y" type="hinge"/>
+                <joint axis="0 1 0" name="l_knee_passive_y" type="hinge" frictionloss="0.01"/>
                 <inertial pos="0 0 0" mass="1e-09" fullinertia="1e-09 1e-09 1e-09 0 0 0"/>
+                <!-- Part l_knee_passive_link_y_parts -->
                 <!-- Link linkage__configuration_default_length_0_12_meter -->
-                <body name="linkage__configuration_default_length_0_12_meter" pos="-6.93889e-18 4.33681e-17 0" quat="1 -1.68481e-17 0 -4.16334e-17">
+                <body name="linkage__configuration_default_length_0_12_meter" pos="-2.08167e-17 -7.80626e-18 2.77556e-17" quat="1 -1.34969e-17 1.94289e-16 -5.55112e-17">
                   <!-- Joint from l_knee_passive_link_y to linkage__configuration_default_length_0_12_meter -->
-                  <joint axis="0 0 1" name="l_knee_passive_z" type="hinge"/>
-                  <inertial pos="-0.06 -5.19278e-09 -5.68556e-17" mass="0.00554627" fullinertia="1.40646e-08 5.38143e-06 5.37746e-06 1.05728e-21 -9.69161e-12 -3.26912e-22"/>
-                  <!-- Part 59935k13_ball_joint_rod_end_5 -->
-                  <geom type="mesh" class="visual" pos="-0.0125 3.38271e-17 0" quat="0.5 -0.5 -0.5 -0.5" mesh="59935k13_ball_joint_rod_end__2" material="59935k13_ball_joint_rod_end__2_material"/>
-                  <geom type="mesh" class="collision" pos="-0.0125 3.38271e-17 0" quat="0.5 -0.5 -0.5 -0.5" mesh="59935k13_ball_joint_rod_end__2" material="59935k13_ball_joint_rod_end__2_material"/>
-                  <!-- Part part_3__length_0_12_meter -->
-                  <geom type="mesh" class="visual" pos="-0.0125 3.55618e-17 -5.55112e-17" quat="0.5 -0.5 -0.5 -0.5" mesh="part_3__length_0_12_meter" material="part_3__length_0_12_meter_material"/>
-                  <geom type="mesh" class="collision" pos="-0.0125 3.55618e-17 -5.55112e-17" quat="0.5 -0.5 -0.5 -0.5" mesh="part_3__length_0_12_meter" material="part_3__length_0_12_meter_material"/>
-                  <!-- Part 59935k13_ball_joint_rod_end_6 -->
-                  <geom type="mesh" class="visual" pos="-0.1075 5.89806e-17 -8.32667e-17" quat="0.5 -0.5 0.5 0.5" mesh="59935k13_ball_joint_rod_end__2" material="59935k13_ball_joint_rod_end__2_material"/>
-                  <geom type="mesh" class="collision" pos="-0.1075 5.89806e-17 -8.32667e-17" quat="0.5 -0.5 0.5 0.5" mesh="59935k13_ball_joint_rod_end__2" material="59935k13_ball_joint_rod_end__2_material"/>
+                  <joint axis="0 0 1" name="l_knee_passive_z" type="hinge" frictionloss="0.01"/>
+                  <inertial pos="-0.06 -5.19278e-09 -1.52669e-16" mass="0.00554627" fullinertia="1.40646e-08 5.38143e-06 5.37746e-06 3.42977e-21 -9.69161e-12 -3.91192e-21"/>
+                  <!-- Part linkage__configuration_default_length_0_12_meter_parts -->
+                  <geom type="mesh" class="visual" pos="-0.06 -5.19278e-09 -1.66533e-16" quat="0.053145 -0.712204 0.530532 -0.456592" mesh="linkage__configuration_default_length_0_12_meter_visual" material="linkage__configuration_default_length_0_12_meter_visual_material"/>
                   <!-- Frame closing_l_knee_linkage_1 -->
-                  <site group="3" name="closing_l_knee_linkage_1" pos="-0.12 4.94396e-17 -8.32667e-17" quat="2.22045e-16 -0 1 -2.22045e-16"/>
+                  <site group="3" name="closing_l_knee_linkage_1" pos="-0.12 2.60209e-18 -3.05311e-16" quat="0 6.94118e-16 -1 1.11022e-16"/>
                 </body>
               </body>
             </body>
@@ -183,130 +106,71 @@
         </body>
       </body>
       <!-- Link thigh_lower_mount_2 -->
-      <body name="thigh_lower_mount_2" pos="-0.05175 0.0275 -0.0893322" quat="0.707107 -0.707107 1.4766e-14 1.46169e-14">
+      <body name="thigh_lower_mount_2" pos="-0.05175 0.0275 -0.0893322" quat="0.707107 -0.707107 -2.5091e-14 -2.52392e-14">
         <!-- Joint from trunk to thigh_lower_mount_2 -->
-        <joint axis="0 0 1" name="r_hip_roll_passive" type="hinge"/>
-        <inertial pos="-6.26458e-18 -1.75427e-05 -0.0275" mass="0.106222" fullinertia="4.98391e-05 6.15836e-05 4.69705e-05 1.85812e-20 -2.14174e-13 4.25849e-13"/>
-        <!-- Part 6656k118_ultra_thin_ball_bearing_3 -->
-        <geom type="mesh" class="visual" pos="0.0195 2.77556e-17 -0.0275" quat="7.91627e-17 -0.707107 -0 -0.707107" mesh="6656k118_ultra_thin_ball_bearing" material="6656k118_ultra_thin_ball_bearing_material"/>
-        <geom type="mesh" class="collision" pos="0.0195 2.77556e-17 -0.0275" quat="7.91627e-17 -0.707107 -0 -0.707107" mesh="6656k118_ultra_thin_ball_bearing" material="6656k118_ultra_thin_ball_bearing_material"/>
-        <!-- Part 5972k222_ball_bearing_5 -->
-        <geom type="mesh" class="visual" pos="-2.08167e-17 1.38778e-17 -0.0515" quat="1.11022e-16 2.42861e-17 -1 -1.20581e-16" mesh="5972k222_ball_bearing" material="5972k222_ball_bearing_material"/>
-        <geom type="mesh" class="collision" pos="-2.08167e-17 1.38778e-17 -0.0515" quat="1.11022e-16 2.42861e-17 -1 -1.20581e-16" mesh="5972k222_ball_bearing" material="5972k222_ball_bearing_material"/>
-        <!-- Part 6656k118_ultra_thin_ball_bearing_4 -->
-        <geom type="mesh" class="visual" pos="-0.0195 1.38778e-17 -0.0275" quat="0.707107 0 -0.707107 -1.11022e-16" mesh="6656k118_ultra_thin_ball_bearing" material="6656k118_ultra_thin_ball_bearing_material"/>
-        <geom type="mesh" class="collision" pos="-0.0195 1.38778e-17 -0.0275" quat="0.707107 0 -0.707107 -1.11022e-16" mesh="6656k118_ultra_thin_ball_bearing" material="6656k118_ultra_thin_ball_bearing_material"/>
-        <!-- Part 5972k222_ball_bearing_6 -->
-        <geom type="mesh" class="visual" pos="0 1.38778e-17 -0.0035" quat="1 0 0 1.0842e-19" mesh="5972k222_ball_bearing" material="5972k222_ball_bearing_material"/>
-        <geom type="mesh" class="collision" pos="0 1.38778e-17 -0.0035" quat="1 0 0 1.0842e-19" mesh="5972k222_ball_bearing" material="5972k222_ball_bearing_material"/>
-        <!-- Part lower_carriage_2 -->
-        <geom type="mesh" class="visual" pos="0.0195 2.77556e-17 -0.0275" quat="0.707107 3.92523e-17 -0.707107 -1.11022e-16" mesh="lower_carriage" material="lower_carriage_material"/>
-        <geom type="mesh" class="collision" pos="0.0195 2.77556e-17 -0.0275" quat="0.707107 3.92523e-17 -0.707107 -1.11022e-16" mesh="lower_carriage" material="lower_carriage_material"/>
+        <joint axis="0 0 1" name="r_hip_roll_passive" type="hinge" frictionloss="0.01"/>
+        <inertial pos="7.13237e-18 -1.75427e-05 -0.0275" mass="0.106222" fullinertia="4.98391e-05 6.15836e-05 4.69705e-05 2.13097e-19 -2.14174e-13 4.25849e-13"/>
+        <!-- Part thigh_lower_mount_2_parts -->
+        <geom type="mesh" class="visual" pos="6.93889e-18 -1.75427e-05 -0.0275" quat="0.707107 0.707107 2.54241e-14 2.52392e-14" mesh="thigh_lower_mount_2_visual" material="thigh_lower_mount_2_visual_material"/>
         <!-- Link r_thigh -->
-        <body name="r_thigh" pos="-0.02275 0 -0.0275" quat="0.653281 0.270598 0.653281 0.270598">
+        <body name="r_thigh" pos="-0.02275 -5.96745e-16 -0.0275" quat="0.653281 0.270598 0.653281 0.270598">
           <!-- Joint from thigh_lower_mount_2 to r_thigh -->
-          <joint axis="0 0 1" name="r_hip_pitch_passive" type="hinge"/>
+          <joint axis="0 0 1" name="r_hip_pitch_passive" type="hinge" frictionloss="0.01"/>
           <inertial pos="-0.000931108 0.0298878 0.0179928" mass="0.15874" fullinertia="0.000394556 6.11092e-05 0.000355559 -3.13013e-06 -2.2953e-07 3.84008e-07"/>
-          <!-- Part 59935k13_ball_joint_rod_end_7 -->
-          <geom type="mesh" class="visual" pos="-0.0134814 0.0147215 0.0591256" quat="0.00186181 -0.707094 0.707114 0.00185503" mesh="59935k13_ball_joint_rod_end" material="59935k13_ball_joint_rod_end_material"/>
-          <geom type="mesh" class="collision" pos="-0.0134814 0.0147215 0.0591256" quat="0.00186181 -0.707094 0.707114 0.00185503" mesh="59935k13_ball_joint_rod_end" material="59935k13_ball_joint_rod_end_material"/>
-          <!-- Part standoff_2 -->
-          <geom type="mesh" class="visual" pos="-2.63678e-16 3.747e-16 -0.018" quat="8.32667e-16 1.53903e-15 -9.99201e-16 1" mesh="standoff" material="standoff_material"/>
-          <geom type="mesh" class="collision" pos="-2.63678e-16 3.747e-16 -0.018" quat="8.32667e-16 1.53903e-15 -9.99201e-16 1" mesh="standoff" material="standoff_material"/>
-          <!-- Part 59935k13_ball_joint_rod_end_8 -->
-          <geom type="mesh" class="visual" pos="-0.0384808 0.015 -0.01345" quat="0.707107 2.88336e-16 3.33067e-16 -0.707107" mesh="59935k13_ball_joint_rod_end" material="59935k13_ball_joint_rod_end_material"/>
-          <geom type="mesh" class="collision" pos="-0.0384808 0.015 -0.01345" quat="0.707107 2.88336e-16 3.33067e-16 -0.707107" mesh="59935k13_ball_joint_rod_end" material="59935k13_ball_joint_rod_end_material"/>
-          <!-- Part 5972k222_ball_bearing_7 -->
-          <geom type="mesh" class="visual" pos="2.46591e-06 0.119843 0.036228" quat="1.39445e-05 -4.79387e-06 -0.0026282 0.999997" mesh="5972k222_ball_bearing" material="5972k222_ball_bearing_material"/>
-          <geom type="mesh" class="collision" pos="2.46591e-06 0.119843 0.036228" quat="1.39445e-05 -4.79387e-06 -0.0026282 0.999997" mesh="5972k222_ball_bearing" material="5972k222_ball_bearing_material"/>
-          <!-- Part m2006_p36_3_6 -->
-          <geom type="mesh" class="visual" pos="-1.94289e-16 2.22045e-16 -0.018" quat="0.34202 2.09793e-15 -6.71685e-15 0.939693" mesh="m2006_p36_3" material="m2006_p36_3_material"/>
-          <geom type="mesh" class="collision" pos="-1.94289e-16 2.22045e-16 -0.018" quat="0.34202 2.09793e-15 -6.71685e-15 0.939693" mesh="m2006_p36_3" material="m2006_p36_3_material"/>
-          <!-- Part 5972k222_ball_bearing_8 -->
-          <geom type="mesh" class="visual" pos="0 0.12 -6.93889e-17" quat="2.69246e-15 1 2.40973e-15 -6.75239e-15" mesh="5972k222_ball_bearing" material="5972k222_ball_bearing_material"/>
-          <geom type="mesh" class="collision" pos="0 0.12 -6.93889e-17" quat="2.69246e-15 1 2.40973e-15 -6.75239e-15" mesh="5972k222_ball_bearing" material="5972k222_ball_bearing_material"/>
-          <!-- Part r_thigh_outer_plate -->
-          <geom type="mesh" class="visual" pos="0 2.77556e-17 -0.018" quat="3.05191e-16 1 -1.14967e-17 2.09346e-16" mesh="r_thigh_outer_plate" material="r_thigh_outer_plate_material"/>
-          <geom type="mesh" class="collision" pos="0 2.77556e-17 -0.018" quat="3.05191e-16 1 -1.14967e-17 2.09346e-16" mesh="r_thigh_outer_plate" material="r_thigh_outer_plate_material"/>
-          <!-- Part r_outer_arm -->
-          <geom type="mesh" class="visual" pos="1.52656e-16 -8.46545e-16 -0.018" quat="2.498e-15 8.15438e-15 4.44089e-15 -1" mesh="r_outer_arm" material="r_outer_arm_material"/>
-          <geom type="mesh" class="collision" pos="1.52656e-16 -8.46545e-16 -0.018" quat="2.498e-15 8.15438e-15 4.44089e-15 -1" mesh="r_outer_arm" material="r_outer_arm_material"/>
-          <!-- Part r_inner_arm -->
-          <geom type="mesh" class="visual" pos="-3.58456e-07 0.00012709 -0.0181521" quat="1.39445e-05 -4.79387e-06 -0.0026282 0.999997" mesh="r_inner_arm" material="r_inner_arm_material"/>
-          <geom type="mesh" class="collision" pos="-3.58456e-07 0.00012709 -0.0181521" quat="1.39445e-05 -4.79387e-06 -0.0026282 0.999997" mesh="r_inner_arm" material="r_inner_arm_material"/>
-          <!-- Part l_inner_plate_2 -->
-          <geom type="mesh" class="visual" pos="-3.58456e-07 0.00012709 -0.0181521" quat="1.39445e-05 -4.79387e-06 -0.0026282 0.999997" mesh="l_inner_plate" material="l_inner_plate_material"/>
-          <geom type="mesh" class="collision" pos="-3.58456e-07 0.00012709 -0.0181521" quat="1.39445e-05 -4.79387e-06 -0.0026282 0.999997" mesh="l_inner_plate" material="l_inner_plate_material"/>
+          <!-- Part r_thigh_parts -->
+          <geom type="mesh" class="visual" pos="-0.000931108 0.0298878 0.0179928" quat="0.653281 0.270598 -0.653281 0.270598" mesh="r_thigh_visual" material="r_thigh_visual_material"/>
           <!-- Frame closing_r_hip_outer_2 -->
-          <site group="3" name="closing_r_hip_outer_2" pos="-0.0259808 0.015 -0.01345" quat="0.707107 0.707107 3.33067e-15 3.56458e-15"/>
+          <site group="3" name="closing_r_hip_outer_2" pos="-0.0259808 0.015 -0.01345" quat="0.707107 0.707107 1.9984e-15 2.23478e-15"/>
           <!-- Frame closing_r_hip_inner_2 -->
           <site group="3" name="closing_r_hip_inner_2" pos="-0.0259814 0.0147218 0.0591255" quat="0.708963 -0.705246 6.47048e-06 -1.325e-05"/>
           <!-- Link r_knee -->
           <body name="r_knee" pos="2.49973e-06 0.119861 0.032728" quat="0.707114 0.00185503 -0.00186181 0.707094">
             <!-- Joint from r_thigh to r_knee -->
-            <joint axis="0 0 1" name="r_knee_passive" type="hinge"/>
+            <joint axis="0 0 1" name="r_knee_passive" type="hinge" frictionloss="0.01"/>
             <inertial pos="-0.00122513 -0.0428542 -0.0167069" mass="0.0251199" fullinertia="4.1152e-05 4.85627e-06 3.88354e-05 2.31027e-07 -4.92054e-07 5.95733e-07"/>
-            <!-- Part ankle_3 -->
-            <geom type="mesh" class="visual" pos="2.77556e-17 0 -0.0018" quat="0.5 -0.5 -0.5 -0.5" mesh="ankle__2" material="ankle__2_material"/>
-            <geom type="mesh" class="collision" pos="2.77556e-17 0 -0.0018" quat="0.5 -0.5 -0.5 -0.5" mesh="ankle__2" material="ankle__2_material"/>
-            <!-- Part ankle_4 -->
-            <geom type="mesh" class="visual" pos="2.77556e-17 0 -0.0018" quat="0.5 -0.5 -0.5 -0.5" mesh="ankle" material="ankle_material"/>
-            <geom type="mesh" class="collision" pos="2.77556e-17 0 -0.0018" quat="0.5 -0.5 -0.5 -0.5" mesh="ankle" material="ankle_material"/>
-            <!-- Part part_3_2 -->
-            <geom type="mesh" class="visual" pos="1.66533e-16 6.93889e-17 -0.03195" quat="0.5 -0.5 -0.5 -0.5" mesh="part_3" material="part_3_material"/>
-            <geom type="mesh" class="collision" pos="1.66533e-16 6.93889e-17 -0.03195" quat="0.5 -0.5 -0.5 -0.5" mesh="part_3" material="part_3_material"/>
-            <!-- Part 59935k13_ball_joint_rod_end_9 -->
-            <geom type="mesh" class="visual" pos="-0.00505927 -0.0405432 -0.0338278" quat="0.818249 -0.0201004 -0.0110332 0.574407" mesh="59935k13_ball_joint_rod_end" material="59935k13_ball_joint_rod_end_material"/>
-            <geom type="mesh" class="collision" pos="-0.00505927 -0.0405432 -0.0338278" quat="0.818249 -0.0201004 -0.0110332 0.574407" mesh="59935k13_ball_joint_rod_end" material="59935k13_ball_joint_rod_end_material"/>
+            <!-- Part r_knee_parts -->
+            <geom type="mesh" class="visual" pos="-0.00122513 -0.0428542 -0.0167069" quat="0.655001 -0.271296 -0.651565 -0.26988" mesh="r_knee_visual" material="r_knee_visual_material"/>
             <!-- Frame closing_r_knee_1 -->
             <site group="3" name="closing_r_knee_1" pos="-0.0168039 -0.0363018 -0.0343974" quat="0.137488 0.106354 0.700861 0.691794"/>
             <!-- Link foot_2 -->
-            <body name="foot_2" pos="1.38778e-15 -0.12 -0.0195" quat="2.85894e-16 0.382683 -0.92388 2.32286e-16">
+            <body name="foot_2" pos="4.71845e-16 -0.12 -0.0195" quat="5.33283e-16 0.382683 -0.92388 1.20971e-16">
               <!-- Joint from r_knee to foot_2 -->
-              <joint axis="0 0 1" name="r_ankle_passive" type="hinge"/>
+              <joint axis="0 0 1" name="r_ankle_passive" type="hinge" frictionloss="0.01"/>
               <inertial pos="-8.30386e-08 -0.00450828 -0.005" mass="0.00685832" fullinertia="2.75437e-07 9.89038e-07 1.15532e-06 8.01075e-13 -5.40036e-13 1.74194e-14"/>
-              <!-- Part foot_2 -->
-              <geom type="mesh" class="visual" pos="-5.42101e-20 0 -0.005" quat="0.707107 -0.707107 0 7.94881e-20" mesh="foot" material="foot_material"/>
-              <geom type="mesh" class="collision" pos="-5.42101e-20 0 -0.005" quat="0.707107 -0.707107 0 7.94881e-20" mesh="foot" material="foot_material"/>
+              <!-- Part foot_2_parts -->
+              <geom type="mesh" class="visual" pos="-8.30386e-08 -0.00450828 -0.005" quat="0.498147 -0.499995 0.501864 0.499988" mesh="foot_2_visual" material="foot_2_visual_material"/>
             </body>
           </body>
           <!-- Link knee_arm__length_0_04_meter_2 -->
-          <body name="knee_arm__length_0_04_meter_2" pos="-2.8365e-05 -3.38041e-05 -0.018" quat="0.34202 1.79444e-15 -6.66134e-15 0.939693">
+          <body name="knee_arm__length_0_04_meter_2" pos="-2.8365e-05 -3.38041e-05 -0.018" quat="0.34202 6.6752e-15 -1.38778e-14 0.939693">
             <!-- Joint from r_thigh to knee_arm__length_0_04_meter_2 -->
-            <joint axis="0 0 1" name="r_knee" type="hinge"/>
+            <joint axis="0 0 1" name="r_knee" type="hinge" frictionloss="0.01"/>
             <inertial pos="-0.0192516 -0.005248 0.0091877" mass="0.00480721" fullinertia="2.0089e-07 1.34244e-06 1.41312e-06 -3.40624e-07 2.05393e-07 5.70504e-08"/>
-            <!-- Part 59935k13_ball_joint_rod_end_10 -->
-            <geom type="mesh" class="visual" pos="-0.0418811 0.00149022 0.013825" quat="9.39206e-15 -0.991081 -0.133261 -1.9593e-14" mesh="59935k13_ball_joint_rod_end" material="59935k13_ball_joint_rod_end_material"/>
-            <geom type="mesh" class="collision" pos="-0.0418811 0.00149022 0.013825" quat="9.39206e-15 -0.991081 -0.133261 -1.9593e-14" mesh="59935k13_ball_joint_rod_end" material="59935k13_ball_joint_rod_end_material"/>
-            <!-- Part hip_arm__length_0_04_meter_2 -->
-            <geom type="mesh" class="visual" pos="-2.60209e-18 -1.38778e-17 0" quat="0.991081 1.0732e-14 -8.65974e-15 0.133261" mesh="hip_arm__length_0_04_meter" material="hip_arm__length_0_04_meter_material"/>
-            <geom type="mesh" class="collision" pos="-2.60209e-18 -1.38778e-17 0" quat="0.991081 1.0732e-14 -8.65974e-15 0.133261" mesh="hip_arm__length_0_04_meter" material="hip_arm__length_0_04_meter_material"/>
+            <!-- Part knee_arm__length_0_04_meter_2_parts -->
+            <geom type="mesh" class="visual" pos="-0.0192516 -0.005248 0.0091877" quat="0.477714 -0.521334 -0.477714 -0.521334" mesh="knee_arm__length_0_04_meter_2_visual" material="knee_arm__length_0_04_meter_2_visual_material"/>
+            <!-- Frame r_knee_arm_end -->
+            <site group="3" name="r_knee_arm_end" pos="-0.0385793 -0.0105658 0.009" quat="0.991081 9.34456e-15 -1.13243e-14 0.133261"/>
             <!-- Link r_knee_passive_link_x -->
             <body name="r_knee_passive_link_x" pos="-0.0385793 -0.0105658 0.013825" quat="0.399182 0.138871 0.320197 0.847846">
               <!-- Joint from knee_arm__length_0_04_meter_2 to r_knee_passive_link_x -->
-              <joint axis="1 0 0" name="r_knee_passive_x" type="hinge"/>
+              <joint axis="1 0 0" name="r_knee_passive_x" type="hinge" frictionloss="0.01"/>
               <inertial pos="0 0 0" mass="1e-09" fullinertia="1e-09 1e-09 1e-09 0 0 0"/>
+              <!-- Part r_knee_passive_link_x_parts -->
               <!-- Link r_knee_passive_link_y -->
-              <body name="r_knee_passive_link_y" pos="0 1.04083e-17 0" quat="1 0 0 8.32667e-17">
+              <body name="r_knee_passive_link_y" pos="0 -3.46945e-18 0" quat="1 -0 -3.33067e-16 5.55112e-17">
                 <!-- Joint from r_knee_passive_link_x to r_knee_passive_link_y -->
-                <joint axis="0 1 0" name="r_knee_passive_y" type="hinge"/>
+                <joint axis="0 1 0" name="r_knee_passive_y" type="hinge" frictionloss="0.01"/>
                 <inertial pos="0 0 0" mass="1e-09" fullinertia="1e-09 1e-09 1e-09 0 0 0"/>
+                <!-- Part r_knee_passive_link_y_parts -->
                 <!-- Link linkage__configuration_default_length_0_12_meter_2 -->
-                <body name="linkage__configuration_default_length_0_12_meter_2" pos="0 1.04083e-17 0" quat="1 0 0 8.32667e-17">
+                <body name="linkage__configuration_default_length_0_12_meter_2" pos="0 -3.46945e-18 0" quat="1 -0 -3.33067e-16 5.55112e-17">
                   <!-- Joint from r_knee_passive_link_y to linkage__configuration_default_length_0_12_meter_2 -->
-                  <joint axis="0 0 1" name="r_knee_passive_z" type="hinge"/>
-                  <inertial pos="-0.06 -5.19278e-09 -5.11208e-17" mass="0.00554627" fullinertia="1.40646e-08 5.38143e-06 5.37746e-06 -1.21974e-21 -9.69161e-12 -2.15332e-22"/>
-                  <!-- Part 59935k13_ball_joint_rod_end_11 -->
-                  <geom type="mesh" class="visual" pos="-0.1075 3.46945e-18 -8.32667e-17" quat="0.5 -0.5 0.5 0.5" mesh="59935k13_ball_joint_rod_end__2" material="59935k13_ball_joint_rod_end__2_material"/>
-                  <geom type="mesh" class="collision" pos="-0.1075 3.46945e-18 -8.32667e-17" quat="0.5 -0.5 0.5 0.5" mesh="59935k13_ball_joint_rod_end__2" material="59935k13_ball_joint_rod_end__2_material"/>
-                  <!-- Part part_3__length_0_12_meter_2 -->
-                  <geom type="mesh" class="visual" pos="-0.1075 1.73472e-17 -5.55112e-17" quat="0.5 -0.5 0.5 0.5" mesh="part_3__length_0_12_meter" material="part_3__length_0_12_meter_material"/>
-                  <geom type="mesh" class="collision" pos="-0.1075 1.73472e-17 -5.55112e-17" quat="0.5 -0.5 0.5 0.5" mesh="part_3__length_0_12_meter" material="part_3__length_0_12_meter_material"/>
-                  <!-- Part 59935k13_ball_joint_rod_end_12 -->
-                  <geom type="mesh" class="visual" pos="-0.0125 1.73472e-17 0" quat="0.5 -0.5 -0.5 -0.5" mesh="59935k13_ball_joint_rod_end__2" material="59935k13_ball_joint_rod_end__2_material"/>
-                  <geom type="mesh" class="collision" pos="-0.0125 1.73472e-17 0" quat="0.5 -0.5 -0.5 -0.5" mesh="59935k13_ball_joint_rod_end__2" material="59935k13_ball_joint_rod_end__2_material"/>
+                  <joint axis="0 0 1" name="r_knee_passive_z" type="hinge" frictionloss="0.01"/>
+                  <inertial pos="-0.06 -5.19278e-09 -4.32927e-17" mass="0.00554627" fullinertia="1.40646e-08 5.38143e-06 5.37746e-06 6.09536e-22 -9.69161e-12 -8.18093e-22"/>
+                  <!-- Part linkage__configuration_default_length_0_12_meter_2_parts -->
+                  <geom type="mesh" class="visual" pos="-0.06 -5.19278e-09 -5.55112e-17" quat="0.476676 0.512547 -0.0259547 0.713724" mesh="linkage__configuration_default_length_0_12_meter_2_visual" material="linkage__configuration_default_length_0_12_meter_2_visual_material"/>
                   <!-- Frame closing_r_knee_2 -->
-                  <site group="3" name="closing_r_knee_2" pos="-0.12 6.93889e-18 -8.32667e-17" quat="1 -5.55112e-17 -0 -0"/>
+                  <site group="3" name="closing_r_knee_2" pos="-0.12 -1.38778e-17 -8.32667e-17" quat="1 8.85611e-18 -1.56125e-16 -9.88792e-17"/>
                 </body>
               </body>
             </body>
@@ -316,40 +180,31 @@
       <!-- Link hip_arm__configuration_default -->
       <body name="hip_arm__configuration_default" pos="0.01175 0.01425 -0.0386505" quat="0.479206 0.519963 -0.479206 -0.519963">
         <!-- Joint from trunk to hip_arm__configuration_default -->
-        <joint axis="0 0 1" name="l_hip_inner" type="hinge"/>
+        <joint axis="0 0 1" name="l_hip_inner" type="hinge" frictionloss="0.01"/>
         <inertial pos="-0.0199541 -2.36213e-05 -0.00681107" mass="0.00480721" fullinertia="8.4118e-08 1.41349e-06 1.41312e-06 2.26557e-09 1.58559e-08 5.00559e-10"/>
-        <!-- Part 59935k13_ball_joint_rod_end_13 -->
-        <geom type="mesh" class="visual" pos="-0.04 0.0125 -0.004175" quat="5.89232e-16 -1 -2.93414e-16 5.54731e-17" mesh="59935k13_ball_joint_rod_end" material="59935k13_ball_joint_rod_end_material"/>
-        <geom type="mesh" class="collision" pos="-0.04 0.0125 -0.004175" quat="5.89232e-16 -1 -2.93414e-16 5.54731e-17" mesh="59935k13_ball_joint_rod_end" material="59935k13_ball_joint_rod_end_material"/>
-        <!-- Part hip_arm__length_0_04_meter_3 -->
-        <geom type="mesh" class="visual" pos="1.73472e-18 0 0" quat="3.05191e-16 -1 -3.56907e-18 2.09346e-16" mesh="hip_arm__length_0_04_meter" material="hip_arm__length_0_04_meter_material"/>
-        <geom type="mesh" class="collision" pos="1.73472e-18 0 0" quat="3.05191e-16 -1 -3.56907e-18 2.09346e-16" mesh="hip_arm__length_0_04_meter" material="hip_arm__length_0_04_meter_material"/>
+        <!-- Part hip_arm__configuration_default_parts -->
+        <geom type="mesh" class="visual" pos="-0.0199541 -2.36213e-05 -0.00681107" quat="0.479206 -0.519963 0.479206 0.519963" mesh="hip_arm__configuration_default_visual" material="hip_arm__configuration_default_visual_material"/>
         <!-- Link l_hip_inner_passive_link_x -->
-        <body name="l_hip_inner_passive_link_x" pos="-0.04 3.46945e-17 -0.004175" quat="0.333974 0.335096 0.631789 0.614015">
+        <body name="l_hip_inner_passive_link_x" pos="-0.04 0 -0.004175" quat="0.333974 0.335096 0.631789 0.614015">
           <!-- Joint from hip_arm__configuration_default to l_hip_inner_passive_link_x -->
-          <joint axis="1 0 0" name="l_hip_inner_passive_x" type="hinge"/>
+          <joint axis="1 0 0" name="l_hip_inner_passive_x" type="hinge" frictionloss="0.01"/>
           <inertial pos="0 0 0" mass="1e-09" fullinertia="1e-09 1e-09 1e-09 0 0 0"/>
+          <!-- Part l_hip_inner_passive_link_x_parts -->
           <!-- Link l_hip_inner_passive_link_y -->
-          <body name="l_hip_inner_passive_link_y" pos="-3.46945e-18 0 0" quat="1 -0 -2.37657e-16 1.73472e-18">
+          <body name="l_hip_inner_passive_link_y" pos="-4.33681e-18 -3.46945e-18 0" quat="1 -0 -3.19189e-16 2.22045e-16">
             <!-- Joint from l_hip_inner_passive_link_x to l_hip_inner_passive_link_y -->
-            <joint axis="0 1 0" name="l_hip_inner_passive_y" type="hinge"/>
+            <joint axis="0 1 0" name="l_hip_inner_passive_y" type="hinge" frictionloss="0.01"/>
             <inertial pos="0 0 0" mass="1e-09" fullinertia="1e-09 1e-09 1e-09 0 0 0"/>
+            <!-- Part l_hip_inner_passive_link_y_parts -->
             <!-- Link linkage__43d788dc267bdd7f4fb3b94dc32a7642 -->
-            <body name="linkage__43d788dc267bdd7f4fb3b94dc32a7642" pos="-3.46945e-18 0 0" quat="1 -0 -2.37657e-16 1.73472e-18">
+            <body name="linkage__43d788dc267bdd7f4fb3b94dc32a7642" pos="-4.33681e-18 -3.46945e-18 0" quat="1 -0 -3.19189e-16 2.22045e-16">
               <!-- Joint from l_hip_inner_passive_link_y to linkage__43d788dc267bdd7f4fb3b94dc32a7642 -->
-              <joint axis="0 0 1" name="l_hip_inner_passive_z" type="hinge"/>
-              <inertial pos="-0.02625 -1.67941e-08 4.17589e-18" mass="0.00171492" fullinertia="9.7543e-09 4.50395e-07 4.46417e-07 8.09563e-22 -2.26912e-12 1.40243e-21"/>
-              <!-- Part 59935k13_ball_joint_rod_end_14 -->
-              <geom type="mesh" class="visual" pos="-0.0125 0 0" quat="0.5 -0.5 -0.5 -0.5" mesh="59935k13_ball_joint_rod_end__2" material="59935k13_ball_joint_rod_end__2_material"/>
-              <geom type="mesh" class="collision" pos="-0.0125 0 0" quat="0.5 -0.5 -0.5 -0.5" mesh="59935k13_ball_joint_rod_end__2" material="59935k13_ball_joint_rod_end__2_material"/>
-              <!-- Part part_3__length_0_0525_meter -->
-              <geom type="mesh" class="visual" pos="-0.0125 -3.46945e-18 -6.93889e-17" quat="0.5 -0.5 -0.5 -0.5" mesh="part_3__length_0_0525_meter" material="part_3__length_0_0525_meter_material"/>
-              <geom type="mesh" class="collision" pos="-0.0125 -3.46945e-18 -6.93889e-17" quat="0.5 -0.5 -0.5 -0.5" mesh="part_3__length_0_0525_meter" material="part_3__length_0_0525_meter_material"/>
-              <!-- Part 59935k13_ball_joint_rod_end_15 -->
-              <geom type="mesh" class="visual" pos="-0.04 0 1.38778e-17" quat="0.5 -0.5 0.5 0.5" mesh="59935k13_ball_joint_rod_end__2" material="59935k13_ball_joint_rod_end__2_material"/>
-              <geom type="mesh" class="collision" pos="-0.04 0 1.38778e-17" quat="0.5 -0.5 0.5 0.5" mesh="59935k13_ball_joint_rod_end__2" material="59935k13_ball_joint_rod_end__2_material"/>
+              <joint axis="0 0 1" name="l_hip_inner_passive_z" type="hinge" frictionloss="0.01"/>
+              <inertial pos="-0.02625 -1.67941e-08 -2.13666e-17" mass="0.00171492" fullinertia="9.7543e-09 4.50395e-07 4.46417e-07 8.89965e-22 -2.26912e-12 -1.25973e-21"/>
+              <!-- Part linkage__43d788dc267bdd7f4fb3b94dc32a7642_parts -->
+              <geom type="mesh" class="visual" pos="-0.02625 -1.67941e-08 -2.77556e-17" quat="0.607827 -0.368502 0.350787 -0.609673" mesh="linkage__43d788dc267bdd7f4fb3b94dc32a7642_visual" material="linkage__43d788dc267bdd7f4fb3b94dc32a7642_visual_material"/>
               <!-- Frame closing_l_hip_inner_1 -->
-              <site group="3" name="closing_l_hip_inner_1" pos="-0.0525 3.46945e-18 5.55112e-17" quat="1.33227e-15 -4.85829e-15 -1 -8.37871e-15"/>
+              <site group="3" name="closing_l_hip_inner_1" pos="-0.0525 -1.38778e-17 -5.55112e-17" quat="1.11022e-16 1.00492e-15 1 1.7486e-15"/>
             </body>
           </body>
         </body>
@@ -357,40 +212,31 @@
       <!-- Link hip_arm__configuration_default_2 -->
       <body name="hip_arm__configuration_default_2" pos="0.09175 -0.01425 -0.0386505" quat="0.437314 0.555659 -0.437314 -0.555659">
         <!-- Joint from trunk to hip_arm__configuration_default_2 -->
-        <joint axis="0 0 1" name="l_hip_outer" type="hinge"/>
+        <joint axis="0 0 1" name="l_hip_outer" type="hinge" frictionloss="0.01"/>
         <inertial pos="-0.0199541 2.36213e-05 0.00681107" mass="0.00480721" fullinertia="8.4118e-08 1.41349e-06 1.41312e-06 -2.26557e-09 -1.58559e-08 5.00559e-10"/>
-        <!-- Part 59935k13_ball_joint_rod_end_16 -->
-        <geom type="mesh" class="visual" pos="-0.04 -0.0125 0.004175" quat="1 1.9074e-15 -1.88738e-15 -2.22045e-16" mesh="59935k13_ball_joint_rod_end" material="59935k13_ball_joint_rod_end_material"/>
-        <geom type="mesh" class="collision" pos="-0.04 -0.0125 0.004175" quat="1 1.9074e-15 -1.88738e-15 -2.22045e-16" mesh="59935k13_ball_joint_rod_end" material="59935k13_ball_joint_rod_end_material"/>
-        <!-- Part hip_arm__length_0_04_meter_4 -->
-        <geom type="mesh" class="visual" pos="0 0 0" quat="1 0 4.02282e-20 -2.42979e-27" mesh="hip_arm__length_0_04_meter" material="hip_arm__length_0_04_meter_material"/>
-        <geom type="mesh" class="collision" pos="0 0 0" quat="1 0 4.02282e-20 -2.42979e-27" mesh="hip_arm__length_0_04_meter" material="hip_arm__length_0_04_meter_material"/>
+        <!-- Part hip_arm__configuration_default_2_parts -->
+        <geom type="mesh" class="visual" pos="-0.0199541 2.36213e-05 0.00681107" quat="0.437314 -0.555659 0.437314 0.555659" mesh="hip_arm__configuration_default_2_visual" material="hip_arm__configuration_default_2_visual_material"/>
         <!-- Link l_hip_outer_passive_link_x -->
-        <body name="l_hip_outer_passive_link_x" pos="-0.04 -2.77556e-16 0.004175" quat="0.469428 -0.450314 -0.529728 0.544282">
+        <body name="l_hip_outer_passive_link_x" pos="-0.04 0 0.004175" quat="0.469428 -0.450314 -0.529728 0.544282">
           <!-- Joint from hip_arm__configuration_default_2 to l_hip_outer_passive_link_x -->
-          <joint axis="1 0 0" name="l_hip_outer_passive_x" type="hinge"/>
+          <joint axis="1 0 0" name="l_hip_outer_passive_x" type="hinge" frictionloss="0.01"/>
           <inertial pos="0 0 0" mass="1e-09" fullinertia="1e-09 1e-09 1e-09 0 0 0"/>
+          <!-- Part l_hip_outer_passive_link_x_parts -->
           <!-- Link l_hip_outer_passive_link_y -->
-          <body name="l_hip_outer_passive_link_y" pos="6.93889e-18 0 0" quat="1 0 -1.11022e-16 -3.88578e-16">
+          <body name="l_hip_outer_passive_link_y" pos="0 0 0" quat="1 -0 -1.11022e-16 -1.11022e-16">
             <!-- Joint from l_hip_outer_passive_link_x to l_hip_outer_passive_link_y -->
-            <joint axis="0 1 0" name="l_hip_outer_passive_y" type="hinge"/>
+            <joint axis="0 1 0" name="l_hip_outer_passive_y" type="hinge" frictionloss="0.01"/>
             <inertial pos="0 0 0" mass="1e-09" fullinertia="1e-09 1e-09 1e-09 0 0 0"/>
+            <!-- Part l_hip_outer_passive_link_y_parts -->
             <!-- Link linkage__43d788dc267bdd7f4fb3b94dc32a7642_2 -->
-            <body name="linkage__43d788dc267bdd7f4fb3b94dc32a7642_2" pos="6.93889e-18 0 0" quat="1 0 -1.11022e-16 -3.88578e-16">
+            <body name="linkage__43d788dc267bdd7f4fb3b94dc32a7642_2" pos="0 0 0" quat="1 -0 -1.11022e-16 -1.11022e-16">
               <!-- Joint from l_hip_outer_passive_link_y to linkage__43d788dc267bdd7f4fb3b94dc32a7642_2 -->
-              <joint axis="0 0 1" name="l_hip_outer_passive_z" type="hinge"/>
-              <inertial pos="-0.02625 -1.67941e-08 -5.71738e-17" mass="0.00171492" fullinertia="9.7543e-09 4.50395e-07 4.46417e-07 3.15926e-23 -2.26912e-12 3.96191e-22"/>
-              <!-- Part 59935k13_ball_joint_rod_end_17 -->
-              <geom type="mesh" class="visual" pos="-0.04 0 -1.11022e-16" quat="0.5 -0.5 0.5 0.5" mesh="59935k13_ball_joint_rod_end__2" material="59935k13_ball_joint_rod_end__2_material"/>
-              <geom type="mesh" class="collision" pos="-0.04 0 -1.11022e-16" quat="0.5 -0.5 0.5 0.5" mesh="59935k13_ball_joint_rod_end__2" material="59935k13_ball_joint_rod_end__2_material"/>
-              <!-- Part part_3__length_0_0525_meter_2 -->
-              <geom type="mesh" class="visual" pos="-0.04 0 -5.20417e-17" quat="0.5 -0.5 0.5 0.5" mesh="part_3__length_0_0525_meter" material="part_3__length_0_0525_meter_material"/>
-              <geom type="mesh" class="collision" pos="-0.04 0 -5.20417e-17" quat="0.5 -0.5 0.5 0.5" mesh="part_3__length_0_0525_meter" material="part_3__length_0_0525_meter_material"/>
-              <!-- Part 59935k13_ball_joint_rod_end_18 -->
-              <geom type="mesh" class="visual" pos="-0.0125 0 -3.46945e-18" quat="0.5 -0.5 -0.5 -0.5" mesh="59935k13_ball_joint_rod_end__2" material="59935k13_ball_joint_rod_end__2_material"/>
-              <geom type="mesh" class="collision" pos="-0.0125 0 -3.46945e-18" quat="0.5 -0.5 -0.5 -0.5" mesh="59935k13_ball_joint_rod_end__2" material="59935k13_ball_joint_rod_end__2_material"/>
+              <joint axis="0 0 1" name="l_hip_outer_passive_z" type="hinge" frictionloss="0.01"/>
+              <inertial pos="-0.02625 -1.67941e-08 -6.65034e-17" mass="0.00171492" fullinertia="9.7543e-09 4.50395e-07 4.46417e-07 3.85918e-24 -2.26912e-12 1.18581e-21"/>
+              <!-- Part linkage__43d788dc267bdd7f4fb3b94dc32a7642_2_parts -->
+              <geom type="mesh" class="visual" pos="-0.02625 -1.67941e-08 -6.93889e-17" quat="0.526286 0.468457 0.489159 0.514096" mesh="linkage__43d788dc267bdd7f4fb3b94dc32a7642_2_visual" material="linkage__43d788dc267bdd7f4fb3b94dc32a7642_2_visual_material"/>
               <!-- Frame closing_l_hip_outer_1 -->
-              <site group="3" name="closing_l_hip_outer_1" pos="-0.0525 0 -1.52656e-16" quat="6.66134e-16 2.02535e-16 1 1.83187e-15"/>
+              <site group="3" name="closing_l_hip_outer_1" pos="-0.0525 -2.77556e-17 -2.04697e-16" quat="1.44329e-15 -1.05762e-15 1 1.55431e-15"/>
             </body>
           </body>
         </body>
@@ -398,40 +244,31 @@
       <!-- Link hip_arm__configuration_default_3 -->
       <body name="hip_arm__configuration_default_3" pos="-0.01175 0.01425 -0.0386505" quat="0.479199 0.519969 -0.479199 -0.519969">
         <!-- Joint from trunk to hip_arm__configuration_default_3 -->
-        <joint axis="0 0 1" name="r_hip_inner" type="hinge"/>
+        <joint axis="0 0 1" name="r_hip_inner" type="hinge" frictionloss="0.01"/>
         <inertial pos="-0.0199541 2.36213e-05 0.00681107" mass="0.00480721" fullinertia="8.4118e-08 1.41349e-06 1.41312e-06 -2.26557e-09 -1.58559e-08 5.00559e-10"/>
-        <!-- Part 59935k13_ball_joint_rod_end_19 -->
-        <geom type="mesh" class="visual" pos="-0.04 -0.0125 0.004175" quat="1 8.33282e-17 -0 1.11022e-16" mesh="59935k13_ball_joint_rod_end" material="59935k13_ball_joint_rod_end_material"/>
-        <geom type="mesh" class="collision" pos="-0.04 -0.0125 0.004175" quat="1 8.33282e-17 -0 1.11022e-16" mesh="59935k13_ball_joint_rod_end" material="59935k13_ball_joint_rod_end_material"/>
-        <!-- Part hip_arm__length_0_04_meter_5 -->
-        <geom type="mesh" class="visual" pos="0 0 -1.73472e-18" quat="1 0 -5.86301e-20 2.22045e-16" mesh="hip_arm__length_0_04_meter" material="hip_arm__length_0_04_meter_material"/>
-        <geom type="mesh" class="collision" pos="0 0 -1.73472e-18" quat="1 0 -5.86301e-20 2.22045e-16" mesh="hip_arm__length_0_04_meter" material="hip_arm__length_0_04_meter_material"/>
+        <!-- Part hip_arm__configuration_default_3_parts -->
+        <geom type="mesh" class="visual" pos="-0.0199541 2.36213e-05 0.00681107" quat="0.479199 -0.519969 0.479199 0.519969" mesh="hip_arm__configuration_default_3_visual" material="hip_arm__configuration_default_3_visual_material"/>
         <!-- Link r_hip_inner_passive_link_x -->
-        <body name="r_hip_inner_passive_link_x" pos="-0.04 4.16334e-17 0.004175" quat="0.338623 -0.330409 -0.62315 0.622775">
+        <body name="r_hip_inner_passive_link_x" pos="-0.04 -6.93889e-18 0.004175" quat="0.338623 -0.330409 -0.62315 0.622775">
           <!-- Joint from hip_arm__configuration_default_3 to r_hip_inner_passive_link_x -->
-          <joint axis="1 0 0" name="r_hip_inner_passive_x" type="hinge"/>
+          <joint axis="1 0 0" name="r_hip_inner_passive_x" type="hinge" frictionloss="0.01"/>
           <inertial pos="0 0 0" mass="1e-09" fullinertia="1e-09 1e-09 1e-09 0 0 0"/>
+          <!-- Part r_hip_inner_passive_link_x_parts -->
           <!-- Link r_hip_inner_passive_link_y -->
-          <body name="r_hip_inner_passive_link_y" pos="-1.73472e-18 0 0" quat="1 0 4.68375e-17 0">
+          <body name="r_hip_inner_passive_link_y" pos="4.33681e-18 0 0" quat="1 0 4.44089e-16 1.38778e-17">
             <!-- Joint from r_hip_inner_passive_link_x to r_hip_inner_passive_link_y -->
-            <joint axis="0 1 0" name="r_hip_inner_passive_y" type="hinge"/>
+            <joint axis="0 1 0" name="r_hip_inner_passive_y" type="hinge" frictionloss="0.01"/>
             <inertial pos="0 0 0" mass="1e-09" fullinertia="1e-09 1e-09 1e-09 0 0 0"/>
+            <!-- Part r_hip_inner_passive_link_y_parts -->
             <!-- Link linkage__43d788dc267bdd7f4fb3b94dc32a7642_3 -->
-            <body name="linkage__43d788dc267bdd7f4fb3b94dc32a7642_3" pos="-1.73472e-18 0 0" quat="1 0 4.68375e-17 0">
+            <body name="linkage__43d788dc267bdd7f4fb3b94dc32a7642_3" pos="4.33681e-18 0 0" quat="1 0 4.44089e-16 1.38778e-17">
               <!-- Joint from r_hip_inner_passive_link_y to linkage__43d788dc267bdd7f4fb3b94dc32a7642_3 -->
-              <joint axis="0 0 1" name="r_hip_inner_passive_z" type="hinge"/>
-              <inertial pos="-0.02625 -1.67941e-08 -1.17012e-16" mass="0.00171492" fullinertia="9.7543e-09 4.50395e-07 4.46417e-07 3.86587e-23 -2.26912e-12 5.27869e-23"/>
-              <!-- Part 59935k13_ball_joint_rod_end_20 -->
-              <geom type="mesh" class="visual" pos="-0.0125 -3.46945e-18 0" quat="0.5 -0.5 -0.5 -0.5" mesh="59935k13_ball_joint_rod_end__2" material="59935k13_ball_joint_rod_end__2_material"/>
-              <geom type="mesh" class="collision" pos="-0.0125 -3.46945e-18 0" quat="0.5 -0.5 -0.5 -0.5" mesh="59935k13_ball_joint_rod_end__2" material="59935k13_ball_joint_rod_end__2_material"/>
-              <!-- Part part_3__length_0_0525_meter_3 -->
-              <geom type="mesh" class="visual" pos="-0.0125 -3.46945e-18 6.93889e-17" quat="0.5 -0.5 -0.5 -0.5" mesh="part_3__length_0_0525_meter" material="part_3__length_0_0525_meter_material"/>
-              <geom type="mesh" class="collision" pos="-0.0125 -3.46945e-18 6.93889e-17" quat="0.5 -0.5 -0.5 -0.5" mesh="part_3__length_0_0525_meter" material="part_3__length_0_0525_meter_material"/>
-              <!-- Part 59935k13_ball_joint_rod_end_21 -->
-              <geom type="mesh" class="visual" pos="-0.04 -3.46945e-18 -2.35922e-16" quat="0.5 -0.5 0.5 0.5" mesh="59935k13_ball_joint_rod_end__2" material="59935k13_ball_joint_rod_end__2_material"/>
-              <geom type="mesh" class="collision" pos="-0.04 -3.46945e-18 -2.35922e-16" quat="0.5 -0.5 0.5 0.5" mesh="59935k13_ball_joint_rod_end__2" material="59935k13_ball_joint_rod_end__2_material"/>
+              <joint axis="0 0 1" name="r_hip_inner_passive_z" type="hinge" frictionloss="0.01"/>
+              <inertial pos="-0.02625 -1.67941e-08 -3.90373e-17" mass="0.00171492" fullinertia="9.7543e-09 4.50395e-07 4.46417e-07 3.116e-23 -2.26912e-12 1.62642e-22"/>
+              <!-- Part linkage__43d788dc267bdd7f4fb3b94dc32a7642_3_parts -->
+              <geom type="mesh" class="visual" pos="-0.02625 -1.67941e-08 -4.16334e-17" quat="0.359281 0.60471 0.612902 0.359991" mesh="linkage__43d788dc267bdd7f4fb3b94dc32a7642_3_visual" material="linkage__43d788dc267bdd7f4fb3b94dc32a7642_3_visual_material"/>
               <!-- Frame closing_r_hip_inner_1 -->
-              <site group="3" name="closing_r_hip_inner_1" pos="-0.0525 -3.46945e-18 -3.60822e-16" quat="4.77396e-15 0 1 2.22045e-16"/>
+              <site group="3" name="closing_r_hip_inner_1" pos="-0.0525 3.46945e-18 -8.32667e-17" quat="1.11022e-16 3.06418e-16 -1 -5.55112e-16"/>
             </body>
           </body>
         </body>
@@ -439,38 +276,29 @@
       <!-- Link hip_arm__configuration_default_4 -->
       <body name="hip_arm__configuration_default_4" pos="-0.09175 -0.01425 -0.0386505" quat="0.641224 0.298046 0.641224 0.298046">
         <!-- Joint from trunk to hip_arm__configuration_default_4 -->
-        <joint axis="0 0 1" name="r_hip_outer" type="hinge"/>
+        <joint axis="0 0 1" name="r_hip_outer" type="hinge" frictionloss="0.01"/>
         <inertial pos="0.0118225 0.0160747 0.00681107" mass="0.00480721" fullinertia="9.50491e-07 5.47113e-07 1.41312e-06 -6.33349e-07 9.78285e-09 1.24883e-08"/>
-        <!-- Part 59935k13_ball_joint_rod_end_22 -->
-        <geom type="mesh" class="visual" pos="0.0135827 0.0396454 0.004175" quat="0.451924 -2.81582e-16 8.32667e-17 -0.892057" mesh="59935k13_ball_joint_rod_end" material="59935k13_ball_joint_rod_end_material"/>
-        <geom type="mesh" class="collision" pos="0.0135827 0.0396454 0.004175" quat="0.451924 -2.81582e-16 8.32667e-17 -0.892057" mesh="59935k13_ball_joint_rod_end" material="59935k13_ball_joint_rod_end_material"/>
-        <!-- Part hip_arm__length_0_04_meter_6 -->
-        <geom type="mesh" class="visual" pos="1.73472e-18 -6.93889e-18 -4.16334e-17" quat="0.451924 -2.73828e-16 1.249e-16 -0.892057" mesh="hip_arm__length_0_04_meter" material="hip_arm__length_0_04_meter_material"/>
-        <geom type="mesh" class="collision" pos="1.73472e-18 -6.93889e-18 -4.16334e-17" quat="0.451924 -2.73828e-16 1.249e-16 -0.892057" mesh="hip_arm__length_0_04_meter" material="hip_arm__length_0_04_meter_material"/>
+        <!-- Part hip_arm__configuration_default_4_parts -->
+        <geom type="mesh" class="visual" pos="0.0118225 0.0160747 0.00681107" quat="0.641224 -0.298046 -0.641224 -0.298046" mesh="hip_arm__configuration_default_4_visual" material="hip_arm__configuration_default_4_visual_material"/>
         <!-- Link r_hip_outer_passive_link_x -->
         <body name="r_hip_outer_passive_link_x" pos="0.0236612 0.0322513 0.004175" quat="0.67199 -0.67199 0.220066 -0.220066">
           <!-- Joint from hip_arm__configuration_default_4 to r_hip_outer_passive_link_x -->
-          <joint axis="1 0 0" name="r_hip_outer_passive_x" type="hinge"/>
+          <joint axis="1 0 0" name="r_hip_outer_passive_x" type="hinge" frictionloss="0.01"/>
           <inertial pos="0 0 0" mass="1e-09" fullinertia="1e-09 1e-09 1e-09 0 0 0"/>
+          <!-- Part r_hip_outer_passive_link_x_parts -->
           <!-- Link r_hip_outer_passive_link_y -->
-          <body name="r_hip_outer_passive_link_y" pos="6.93889e-18 0 0" quat="1 0 -2.42937e-17 7.59562e-21">
+          <body name="r_hip_outer_passive_link_y" pos="6.93889e-18 0 0" quat="1 0 4.88478e-17 3.7499e-19">
             <!-- Joint from r_hip_outer_passive_link_x to r_hip_outer_passive_link_y -->
-            <joint axis="0 1 0" name="r_hip_outer_passive_y" type="hinge"/>
+            <joint axis="0 1 0" name="r_hip_outer_passive_y" type="hinge" frictionloss="0.01"/>
             <inertial pos="0 0 0" mass="1e-09" fullinertia="1e-09 1e-09 1e-09 0 0 0"/>
+            <!-- Part r_hip_outer_passive_link_y_parts -->
             <!-- Link linkage__43d788dc267bdd7f4fb3b94dc32a7642_4 -->
-            <body name="linkage__43d788dc267bdd7f4fb3b94dc32a7642_4" pos="6.93889e-18 0 0" quat="1 0 -2.42937e-17 7.59562e-21">
+            <body name="linkage__43d788dc267bdd7f4fb3b94dc32a7642_4" pos="6.93889e-18 0 0" quat="1 0 4.88478e-17 3.7499e-19">
               <!-- Joint from r_hip_outer_passive_link_y to linkage__43d788dc267bdd7f4fb3b94dc32a7642_4 -->
-              <joint axis="0 0 1" name="r_hip_outer_passive_z" type="hinge"/>
+              <joint axis="0 0 1" name="r_hip_outer_passive_z" type="hinge" frictionloss="0.01"/>
               <inertial pos="0.0259374 0.000187483 -0.00403488" mass="0.00171492" fullinertia="2.0093e-08 4.50373e-07 4.361e-07 -3.10942e-09 6.63177e-08 4.87163e-10"/>
-              <!-- Part 59935k13_ball_joint_rod_end_23 -->
-              <geom type="mesh" class="visual" pos="0.0395236 0.000285714 -0.00614839" quat="0.539169 -0.534936 -0.461377 -0.458554" mesh="59935k13_ball_joint_rod_end__2" material="59935k13_ball_joint_rod_end__2_material"/>
-              <geom type="mesh" class="collision" pos="0.0395236 0.000285714 -0.00614839" quat="0.539169 -0.534936 -0.461377 -0.458554" mesh="59935k13_ball_joint_rod_end__2" material="59935k13_ball_joint_rod_end__2_material"/>
-              <!-- Part part_3__length_0_0525_meter_4 -->
-              <geom type="mesh" class="visual" pos="0.0395236 0.000285714 -0.00614839" quat="0.539169 -0.534936 -0.461377 -0.458554" mesh="part_3__length_0_0525_meter" material="part_3__length_0_0525_meter_material"/>
-              <geom type="mesh" class="collision" pos="0.0395236 0.000285714 -0.00614839" quat="0.539169 -0.534936 -0.461377 -0.458554" mesh="part_3__length_0_0525_meter" material="part_3__length_0_0525_meter_material"/>
-              <!-- Part 59935k13_ball_joint_rod_end_24 -->
-              <geom type="mesh" class="visual" pos="0.0123511 8.92857e-05 -0.00192137" quat="0.458554 -0.461377 0.534936 0.539169" mesh="59935k13_ball_joint_rod_end__2" material="59935k13_ball_joint_rod_end__2_material"/>
-              <geom type="mesh" class="collision" pos="0.0123511 8.92857e-05 -0.00192137" quat="0.458554 -0.461377 0.534936 0.539169" mesh="59935k13_ball_joint_rod_end__2" material="59935k13_ball_joint_rod_end__2_material"/>
+              <!-- Part linkage__43d788dc267bdd7f4fb3b94dc32a7642_4_parts -->
+              <geom type="mesh" class="visual" pos="0.0259374 0.000187483 -0.00403488" quat="0.555659 0.437314 -0.437314 -0.555659" mesh="linkage__43d788dc267bdd7f4fb3b94dc32a7642_4_visual" material="linkage__43d788dc267bdd7f4fb3b94dc32a7642_4_visual_material"/>
               <!-- Frame closing_r_hip_outer_1 -->
               <site group="3" name="closing_r_hip_outer_1" pos="0.0518747 0.000375 -0.00806977" quat="0.997018 0.000704974 0.0770873 0.0035276"/>
             </body>
@@ -480,64 +308,56 @@
     </body>
   </worldbody>
   <asset>
-    <mesh file="standoff.stl"/>
-    <mesh file="59935k13_ball_joint_rod_end__2.stl"/>
-    <mesh file="m2006_p36_3.stl"/>
-    <mesh file="superstructure.stl"/>
-    <mesh file="l_inner_arm.stl"/>
-    <mesh file="upper_carriage.stl"/>
-    <mesh file="upper_carriage__2.stl"/>
-    <mesh file="6656k118_ultra_thin_ball_bearing.stl"/>
-    <mesh file="l_outer_arm.stl"/>
-    <mesh file="part_3.stl"/>
-    <mesh file="ankle.stl"/>
-    <mesh file="r_thigh_outer_plate.stl"/>
-    <mesh file="m2006_p36_3__2.stl"/>
-    <mesh file="r_outer_arm.stl"/>
-    <mesh file="l_inner_plate.stl"/>
-    <mesh file="ankle__2.stl"/>
-    <mesh file="lower_carriage.stl"/>
-    <mesh file="59935k13_ball_joint_rod_end.stl"/>
-    <mesh file="hip_arm__length_0_04_meter.stl"/>
-    <mesh file="5972k222_ball_bearing.stl"/>
-    <mesh file="part_3__length_0_12_meter.stl"/>
-    <mesh file="r_inner_arm.stl"/>
-    <mesh file="part_3__length_0_0525_meter.stl"/>
-    <mesh file="foot.stl"/>
-    <mesh file="l_outer_plate.stl"/>
-    <material name="m2006_p36_3_material" rgba="0.917647 0.917647 0.917647 1"/>
-    <material name="upper_carriage_material" rgba="0.917647 0.917647 0.917647 1"/>
-    <material name="superstructure_material" rgba="0.647059 0.647059 0.647059 1"/>
-    <material name="upper_carriage__2_material" rgba="0.917647 0.917647 0.917647 1"/>
-    <material name="6656k118_ultra_thin_ball_bearing_material" rgba="0.498039 0.498039 0.498039 1"/>
-    <material name="5972k222_ball_bearing_material" rgba="0.972549 0.529412 0.00392157 1"/>
-    <material name="lower_carriage_material" rgba="0.917647 0.917647 0.917647 1"/>
-    <material name="l_outer_arm_material" rgba="0.498039 0.498039 0.498039 1"/>
-    <material name="59935k13_ball_joint_rod_end_material" rgba="0.917647 0.917647 0.917647 1"/>
-    <material name="l_inner_plate_material" rgba="0.917647 0.917647 0.917647 1"/>
-    <material name="l_inner_arm_material" rgba="0.647059 0.647059 0.647059 1"/>
-    <material name="m2006_p36_3__2_material" rgba="0.917647 0.917647 0.917647 1"/>
-    <material name="l_outer_plate_material" rgba="0.615686 0.811765 0.929412 1"/>
-    <material name="standoff_material" rgba="0.917647 0.917647 0.917647 1"/>
-    <material name="ankle_material" rgba="0.615686 0.811765 0.929412 1"/>
-    <material name="ankle__2_material" rgba="0.615686 0.811765 0.929412 1"/>
-    <material name="part_3_material" rgba="0.647059 0.647059 0.647059 1"/>
-    <material name="foot_material" rgba="0.615686 0.811765 0.929412 1"/>
-    <material name="hip_arm__length_0_04_meter_material" rgba="0.231373 0.380392 0.705882 1"/>
-    <material name="59935k13_ball_joint_rod_end__2_material" rgba="0.768627 0.886275 0.952941 1"/>
-    <material name="part_3__length_0_12_meter_material" rgba="0.231373 0.380392 0.705882 1"/>
-    <material name="r_thigh_outer_plate_material" rgba="0.615686 0.811765 0.929412 1"/>
-    <material name="r_outer_arm_material" rgba="0.498039 0.498039 0.498039 1"/>
-    <material name="r_inner_arm_material" rgba="0.647059 0.647059 0.647059 1"/>
-    <material name="part_3__length_0_0525_meter_material" rgba="0.231373 0.380392 0.705882 1"/>
+    <mesh file="merged\thigh_lower_mount_2_visual.stl"/>
+    <mesh file="merged\linkage__configuration_default_length_0_12_meter_visual.stl"/>
+    <mesh file="merged\hip_arm__configuration_default_visual.stl"/>
+    <mesh file="merged\linkage__43d788dc267bdd7f4fb3b94dc32a7642_4_visual.stl"/>
+    <mesh file="merged\r_knee_visual.stl"/>
+    <mesh file="merged\linkage__43d788dc267bdd7f4fb3b94dc32a7642_2_visual.stl"/>
+    <mesh file="merged\linkage__configuration_default_length_0_12_meter_2_visual.stl"/>
+    <mesh file="merged\hip_arm__configuration_default_2_visual.stl"/>
+    <mesh file="merged\l_thigh_visual.stl"/>
+    <mesh file="merged\knee_arm__length_0_04_meter_2_visual.stl"/>
+    <mesh file="merged\linkage__43d788dc267bdd7f4fb3b94dc32a7642_visual.stl"/>
+    <mesh file="merged\hip_arm__configuration_default_3_visual.stl"/>
+    <mesh file="merged\thigh_lower_mount_visual.stl"/>
+    <mesh file="merged\trunk_visual.stl"/>
+    <mesh file="merged\foot_2_visual.stl"/>
+    <mesh file="merged\hip_arm__configuration_default_4_visual.stl"/>
+    <mesh file="merged\knee_arm__length_0_04_meter_visual.stl"/>
+    <mesh file="merged\linkage__43d788dc267bdd7f4fb3b94dc32a7642_3_visual.stl"/>
+    <mesh file="merged\r_thigh_visual.stl"/>
+    <mesh file="merged\foot_visual.stl"/>
+    <mesh file="merged\l_knee_visual.stl"/>
+    <material name="trunk_visual_material" rgba="0.871891 0.871891 0.871891 1"/>
+    <material name="thigh_lower_mount_visual_material" rgba="0.723602 0.631822 0.522985 1"/>
+    <material name="l_thigh_visual_material" rgba="0.880253 0.840419 0.780539 1"/>
+    <material name="l_knee_visual_material" rgba="0.632559 0.802889 0.905087 1"/>
+    <material name="foot_visual_material" rgba="0.615686 0.811765 0.929412 1"/>
+    <material name="knee_arm__length_0_04_meter_visual_material" rgba="0.400391 0.512709 0.758036 1"/>
+    <material name="linkage__configuration_default_length_0_12_meter_visual_material" rgba="0.356256 0.497983 0.763311 1"/>
+    <material name="thigh_lower_mount_2_visual_material" rgba="0.723602 0.631822 0.522985 1"/>
+    <material name="r_thigh_visual_material" rgba="0.880253 0.840419 0.780539 1"/>
+    <material name="r_knee_visual_material" rgba="0.632559 0.802889 0.905087 1"/>
+    <material name="foot_2_visual_material" rgba="0.615686 0.811765 0.929412 1"/>
+    <material name="knee_arm__length_0_04_meter_2_visual_material" rgba="0.400391 0.512709 0.758036 1"/>
+    <material name="linkage__configuration_default_length_0_12_meter_2_visual_material" rgba="0.356256 0.497983 0.763311 1"/>
+    <material name="hip_arm__configuration_default_visual_material" rgba="0.400391 0.512709 0.758036 1"/>
+    <material name="linkage__43d788dc267bdd7f4fb3b94dc32a7642_visual_material" rgba="0.635261 0.760696 0.891612 1"/>
+    <material name="hip_arm__configuration_default_2_visual_material" rgba="0.400391 0.512709 0.758036 1"/>
+    <material name="linkage__43d788dc267bdd7f4fb3b94dc32a7642_2_visual_material" rgba="0.635261 0.760696 0.891612 1"/>
+    <material name="hip_arm__configuration_default_3_visual_material" rgba="0.400391 0.512709 0.758036 1"/>
+    <material name="linkage__43d788dc267bdd7f4fb3b94dc32a7642_3_visual_material" rgba="0.635261 0.760696 0.891612 1"/>
+    <material name="hip_arm__configuration_default_4_visual_material" rgba="0.400391 0.512709 0.758036 1"/>
+    <material name="linkage__43d788dc267bdd7f4fb3b94dc32a7642_4_visual_material" rgba="0.635261 0.760696 0.891612 1"/>
   </asset>
   <actuator>
-    <motor class="C:\Users\steph\code\arca\arca-sim\models\full\mjcf" name="l_knee" joint="l_knee"/>
+    <motor class="C:\Users\steph\code\arca\arca-sim\models\full\mjcf" name="l_knee" joint="l_knee" ctrlrange="-1.572 0.523"/>
     <motor class="C:\Users\steph\code\arca\arca-sim\models\full\mjcf" name="r_knee" joint="r_knee"/>
-    <motor class="C:\Users\steph\code\arca\arca-sim\models\full\mjcf" name="l_hip_inner" joint="l_hip_inner"/>
-    <motor class="C:\Users\steph\code\arca\arca-sim\models\full\mjcf" name="l_hip_outer" joint="l_hip_outer"/>
-    <motor class="C:\Users\steph\code\arca\arca-sim\models\full\mjcf" name="r_hip_inner" joint="r_hip_inner"/>
-    <motor class="C:\Users\steph\code\arca\arca-sim\models\full\mjcf" name="r_hip_outer" joint="r_hip_outer"/>
+    <position class="C:\Users\steph\code\arca\arca-sim\models\full\mjcf" name="l_hip_inner" joint="l_hip_inner"/>
+    <position class="C:\Users\steph\code\arca\arca-sim\models\full\mjcf" name="l_hip_outer" joint="l_hip_outer"/>
+    <position class="C:\Users\steph\code\arca\arca-sim\models\full\mjcf" name="r_hip_inner" joint="r_hip_inner"/>
+    <position class="C:\Users\steph\code\arca\arca-sim\models\full\mjcf" name="r_hip_outer" joint="r_hip_outer"/>
   </actuator>
   <equality>
     <connect site1="closing_l_knee_linkage_1" site2="closing_l_knee_linkage_2"/>

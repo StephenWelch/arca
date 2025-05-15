@@ -203,5 +203,6 @@ def main_passive():
 
 
 if __name__ == '__main__':
-    # main()
-    main_passive()
+    parser = argparse.ArgumentParser()
+    
+    main()

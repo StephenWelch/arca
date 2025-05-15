@@ -1,6 +1,6 @@
 import numpy as np
 from dataclasses import dataclass, field
-from . import util
+from . import math_utils
 
 @dataclass
 class State:
@@ -14,7 +14,7 @@ class State:
 
     @property
     def rpy(self)->np.ndarray:
-        return util.rpy_from_quat(self.quat)
+        return math_utils.rpy_from_quat(self.quat)
 
     @property
     def l_joint_pos(self)->np.ndarray:

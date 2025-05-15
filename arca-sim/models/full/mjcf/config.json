@@ -8,8 +8,8 @@
     "assembly_name": "main_full",
     "assets_dir": "assets",
 
-    // "merge_stls": true,
-    // "merge_stls_collisions": true,
+    "merge_stls": true,
+    "merge_stls_collisions": true,
     "simplify_stls": true,
     // "add_dummy_base_link": true,
 
@@ -31,7 +31,8 @@
             "actuated": true
         },
         "l_knee": {
-            "actuated": true
+            "actuated": true,
+            "limits": [-1.221, 0.523]
         },
         "r_hip_outer": {
             "actuated": true
@@ -40,7 +41,7 @@
             "actuated": true
         },
         "r_knee": {
-            "actuated": true
+            // "actuated": [-0.523, 1.396]
         },
 
         // "l_hip_outer_passive": {
