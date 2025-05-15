@@ -1,14 +1,16 @@
 import copy
 import dataclasses
 import zenoh
+from zenoh import Encoding
 import time
-import robot_model
+from arca_sim import robot_model
 import numpy as np
-import mujoco as mj
-from mujoco import MjModel, MjData, viewer
+import mujoco
+from mujoco import _mujoco as mj
 from dataclasses import dataclass, field
 from enum import Enum
-from arca_sim.robot import State, Setpoint, Mode
+from arca_sim.robot import Setpoint, Mode
+from arca_sim.state import State
 
 np.set_printoptions(
     precision=4,
@@ -24,7 +26,7 @@ r_motor_idx_pos = [11, 12, 13]
 l_motor_idx_vel = [6, 7, 8]
 r_motor_idx_vel = [10, 11, 12]
 
-def foot_jac_from_mujoco(model:MjModel, data:MjData, state:State)->tuple[np.ndarray,np.ndarray]:
+def foot_jac_from_mujoco(model:mj.MjModel, data:mj.MjData, state:State)->tuple[np.ndarray,np.ndarray]:
     # l_foot_body = [model.body(i) for i in range(model.nbody) if 'onshape/foot_2' == model.body(i).name][0]
     # r_foot_body = [model.body(i) for i in range(model.nbody) if 'onshape/foot' == model.body(i).name][0]
 
@@ -39,7 +41,7 @@ def foot_jac_from_mujoco(model:MjModel, data:MjData, state:State)->tuple[np.ndar
     mj.mj_jacGeom(model, data, r_full_jac[:3], r_full_jac[3:], r_foot_body.id)
     return l_full_jac, r_full_jac
 
-def state_from_mujoco(model:MjModel, data:MjData, state:State):
+def state_from_mujoco(model:mj.MjModel, data:mj.MjData, state:State):
     state.pos = data.qpos[0:3]
     state.quat = data.qpos[3:7]
     state.joint_pos = data.qpos[l_motor_idx_pos + r_motor_idx_pos]
@@ -68,10 +70,11 @@ def publish_to_zenoh(z: zenoh.Session, path: str, state: State):
     if not hasattr(state, "_zenoh_pubs"):
         state._zenoh_pubs = {}
         for f in dataclasses.fields(state):
-            state._zenoh_pubs[f.name] = z.declare_publisher(f"{path}/{f.name}")
+            if not f.name.startswith('_'):
+                state._zenoh_pubs[f.name] = z.declare_publisher(f"{path}/{f.name}")
 
     for f, pub in state._zenoh_pubs.items():
-        pub.put(getattr(state, f).tobytes(), encoding=zenoh.Encoding.APP_FLOAT())
+        pub.put(getattr(state, f).tobytes(), encoding=Encoding.APP_OCTET_STREAM)
 
 
 def pd(q, qd, q_des, qd_des, kp, kd, ff):
@@ -80,7 +83,7 @@ def pd(q, qd, q_des, qd_des, kp, kd, ff):
 
 class SimLowLevelController:
 
-    def update(self, model:MjModel, data:MjData, state:State, setpoint:Setpoint):
+    def update(self, model:mj.MjModel, data:mj.MjData, state:State, setpoint:Setpoint):
         torque = np.zeros(6)
         if setpoint.l_mode == Mode.JOINT:
             torque = pd(state.joint_pos, state.joint_vel, setpoint.des_joint_pos, setpoint.des_joint_vel, 10, 0.01, 0)
@@ -124,7 +127,7 @@ def main_passive():
 
     # model = MjModel.from_xml_path("models/urdf/robot.xml")
     model = robot_model.get_mujoco_model("models/full", fixed=True)
-    data = MjData(model)
+    data = mj.MjData(model)
 
     state_out = State()
     state_in = State()
@@ -143,7 +146,7 @@ def main_passive():
         # des_pos=np.array([0, 0, 0.265, 0, 0, 0.265])
     )
 
-    z = zenoh.open()
+    z = zenoh.open(zenoh.Config())
     publish_to_zenoh(z, "arca/state", state_out)
     subcribe_to_zenoh(z, "arca/state", state_in)
 
