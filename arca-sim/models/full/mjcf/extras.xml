@@ -7,7 +7,18 @@
 </worldbody>
 
 <equality>
-    <weld name="gantry" body1="world_link" body2="trunk" relpose="0 0 0.5 1 0 0 0"/>
+    <weld name="gantry" body1="world_link" body2="trunk" relpose="0 0 0.272 1 0 0 0"/>
 </equality>
+
+<keyframe>
+    <key 
+    name="home" 
+    qpos="0 0 0.272
+    1 0 0 0
+    0.     0.
+    0.     0.     0.     0.     0.     0.     0.     0.     0.     0.
+    0.     0.     0.     0.     0.     0.     0.     0.     0.     0.
+    0.     0.     0.     0.     0.     0.     0.     0.     0.     0"/>
+</keyframe>
 
 <option timestep="0.001"/>

@@ -8,9 +8,9 @@
     "assembly_name": "main_full",
     "assets_dir": "assets",
 
-    "merge_stls": true,
-    "merge_stls_collisions": true,
-    "simplify_stls": true,
+    // "merge_stls": true,
+    // "merge_stls_collisions": true,
+    // "simplify_stls": true,
     // "add_dummy_base_link": true,
 
     "output_format": "mujoco",
@@ -25,63 +25,39 @@
             "frictionloss": 0.01,
         },
         "l_hip_outer": {
+            "range": false,
+            "limits": [-1, 1],
             "actuated": true
         },
         "l_hip_inner": {
+            "range": false,
+            "limits": [-1, 1],
             "actuated": true
         },
         "l_knee": {
+            "range": false,
+            "limits": [-1, 1],
             "actuated": true,
-            "limits": [-1.221, 0.523]
         },
         "r_hip_outer": {
+            "range": false,
+            "limits": [-1, 1],
             "actuated": true
         },
         "r_hip_inner": {
+            "range": false,
+            "limits": [-1, 1],
             "actuated": true
         },
         "r_knee": {
-            // "actuated": [-0.523, 1.396]
+            "range": false,
+            "limits": [-1, 1],
+            "actuated": true,
         },
-
-        // "l_hip_outer_passive": {
-        //     "actuated": false
-        // },
-        // "l_hip_inner_passive": {
-        //     "actuated": false
-        // },
-        // "l_hip_pitch_passive": {
-        //     "actuated": false
-        // },
-        // "l_hip_roll_passive": {
-        //     "actuated": false
-        // },
-        // "l_knee_passive": {
-        //     "actuated": false
-        // },
-        // "l_ankle_passive": {
-        //     "actuated": false
-        // },
-        // "r_hip_outer_passive": {
-        //     "actuated": false
-        // },
-        // "r_hip_inner_passive": {
-        //     "actuated": false
-        // },
-        // "r_hip_pitch_passive": {
-        //     "actuated": false
-        // },
-        // "r_hip_roll_passive": {
-        //     "actuated": false
-        // },
-        // "r_knee_passive": {
-        //     "actuated": false
-        // },
-        // "r_ankle_passive": {
-        //     "actuated": false
-        // },
     },
     "ignore": {
-        "*": "collision"
+        "*": "collision",
+        "!foot": "collision",
+        "!foot_2": "collision",
     }
 }
