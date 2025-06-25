@@ -19,12 +19,12 @@
   <default>
     <equality solimp="0.9 0.95 0.001 0.5 2" solref="0.005 1"/>
   </default>
-  <worldbody>
+  <!-- <worldbody>
     <body name="world_link" pos="0 0 0" quat="1 0 0 0"/>
   </worldbody>
   <equality>
     <weld name="gantry" body1="world_link" body2="trunk" relpose="0 0 0.5 1 0 0 0"/>
-  </equality>
+  </equality> -->
   <option timestep="0.001"/>
   <worldbody>
     <!-- Link trunk -->
@@ -86,9 +86,9 @@
           <!-- Part standoff -->
           <geom type="mesh" class="visual" pos="-9.29812e-16 -1.41553e-15 -0.018" quat="4.77396e-15 9.15758e-15 -3.77476e-15 1" mesh="standoff" material="standoff_material"/>
           <!-- Frame closing_l_hip_inner_2 -->
-          <site group="3" name="closing_l_hip_inner_2" pos="0.0259801 0.0147204 0.059126" quat="0.49868 0.501322 0.501303 -0.498689"/>
+          <body name="closing_l_hip_inner_2" pos="0.0259801 0.0147204 0.059126" quat="0.49868 0.501322 0.501303 -0.498689" group="3"/>
           <!-- Frame closing_l_hip_outer_2 -->
-          <site group="3" name="closing_l_hip_outer_2" pos="0.0259808 0.015 -0.01345" quat="0.5 -0.5 0.5 0.5"/>
+          <body name="closing_l_hip_outer_2" pos="0.0259808 0.015 -0.01345" quat="0.5 -0.5 0.5 0.5" group="3"/>
           <!-- Link l_knee -->
           <body name="l_knee" pos="2.49973e-06 0.119861 0.032728" quat="0.707094 0.00186181 0.00185503 -0.707114">
             <!-- Joint from l_thigh to l_knee -->
@@ -103,7 +103,7 @@
             <!-- Part 59935k13_ball_joint_rod_end_3 -->
             <geom type="mesh" class="visual" pos="0.0294047 -0.0362523 -0.0344" quat="0.707107 3.1016e-16 1.38778e-16 0.707107" mesh="59935k13_ball_joint_rod_end" material="59935k13_ball_joint_rod_end_material"/>
             <!-- Frame closing_l_knee_linkage_2 -->
-            <site group="3" name="closing_l_knee_linkage_2" pos="0.0169047 -0.0362523 -0.0344" quat="0.5 0.5 0.5 -0.5"/>
+            <body name="closing_l_knee_linkage_2" pos="0.0169047 -0.0362523 -0.0344" quat="0.5 0.5 0.5 -0.5" group="3"/>
             <!-- Link foot -->
             <body name="foot" pos="2.77556e-17 -0.12 -0.0195" quat="9.26522e-18 1 5.07512e-17 3.62584e-19">
               <!-- Joint from l_knee to foot -->
@@ -144,7 +144,7 @@
                   <!-- Part 59935k13_ball_joint_rod_end_6 -->
                   <geom type="mesh" class="visual" pos="-0.1075 5.89806e-17 -8.32667e-17" quat="0.5 -0.5 0.5 0.5" mesh="59935k13_ball_joint_rod_end__2" material="59935k13_ball_joint_rod_end__2_material"/>
                   <!-- Frame closing_l_knee_linkage_1 -->
-                  <site group="3" name="closing_l_knee_linkage_1" pos="-0.12 4.94396e-17 -8.32667e-17" quat="2.22045e-16 -0 1 -2.22045e-16"/>
+                  <body name="closing_l_knee_linkage_1" pos="-0.12 4.94396e-17 -8.32667e-17" quat="2.22045e-16 -0 1 -2.22045e-16" group="3"/>
                 </body>
               </body>
             </body>
@@ -192,9 +192,9 @@
           <!-- Part l_inner_plate_2 -->
           <geom type="mesh" class="visual" pos="-3.58456e-07 0.00012709 -0.0181521" quat="1.39445e-05 -4.79387e-06 -0.0026282 0.999997" mesh="l_inner_plate" material="l_inner_plate_material"/>
           <!-- Frame closing_r_hip_outer_2 -->
-          <site group="3" name="closing_r_hip_outer_2" pos="-0.0259808 0.015 -0.01345" quat="0.707107 0.707107 3.33067e-15 3.56458e-15"/>
+          <body name="closing_r_hip_outer_2" pos="-0.0259808 0.015 -0.01345" quat="0.707107 0.707107 3.33067e-15 3.56458e-15" group="3"/>
           <!-- Frame closing_r_hip_inner_2 -->
-          <site group="3" name="closing_r_hip_inner_2" pos="-0.0259814 0.0147218 0.0591255" quat="0.708963 -0.705246 6.47048e-06 -1.325e-05"/>
+          <body name="closing_r_hip_inner_2" pos="-0.0259814 0.0147218 0.0591255" quat="0.708963 -0.705246 6.47048e-06 -1.325e-05" group="3"/>
           <!-- Link r_knee -->
           <body name="r_knee" pos="2.49973e-06 0.119861 0.032728" quat="0.707114 0.00185503 -0.00186181 0.707094">
             <!-- Joint from r_thigh to r_knee -->
@@ -209,7 +209,7 @@
             <!-- Part 59935k13_ball_joint_rod_end_9 -->
             <geom type="mesh" class="visual" pos="-0.00505927 -0.0405432 -0.0338278" quat="0.818249 -0.0201004 -0.0110332 0.574407" mesh="59935k13_ball_joint_rod_end" material="59935k13_ball_joint_rod_end_material"/>
             <!-- Frame closing_r_knee_1 -->
-            <site group="3" name="closing_r_knee_1" pos="-0.0168039 -0.0363018 -0.0343974" quat="0.137488 0.106354 0.700861 0.691794"/>
+            <body name="closing_r_knee_1" pos="-0.0168039 -0.0363018 -0.0343974" quat="0.137488 0.106354 0.700861 0.691794" group="3"/>
             <!-- Link foot_2 -->
             <body name="foot_2" pos="1.38778e-15 -0.12 -0.0195" quat="2.85894e-16 0.382683 -0.92388 2.32286e-16">
               <!-- Joint from r_knee to foot_2 -->
@@ -250,7 +250,7 @@
                   <!-- Part 59935k13_ball_joint_rod_end_12 -->
                   <geom type="mesh" class="visual" pos="-0.0125 1.73472e-17 0" quat="0.5 -0.5 -0.5 -0.5" mesh="59935k13_ball_joint_rod_end__2" material="59935k13_ball_joint_rod_end__2_material"/>
                   <!-- Frame closing_r_knee_2 -->
-                  <site group="3" name="closing_r_knee_2" pos="-0.12 6.93889e-18 -8.32667e-17" quat="1 -5.55112e-17 -0 -0"/>
+                  <body name="closing_r_knee_2" pos="-0.12 6.93889e-18 -8.32667e-17" quat="1 -5.55112e-17 -0 -0" group="3"/>
                 </body>
               </body>
             </body>
@@ -288,7 +288,7 @@
               <!-- Part 59935k13_ball_joint_rod_end_15 -->
               <geom type="mesh" class="visual" pos="-0.04 0 1.38778e-17" quat="0.5 -0.5 0.5 0.5" mesh="59935k13_ball_joint_rod_end__2" material="59935k13_ball_joint_rod_end__2_material"/>
               <!-- Frame closing_l_hip_inner_1 -->
-              <site group="3" name="closing_l_hip_inner_1" pos="-0.0525 3.46945e-18 5.55112e-17" quat="1.33227e-15 -4.85829e-15 -1 -8.37871e-15"/>
+              <body name="closing_l_hip_inner_1" pos="-0.0525 3.46945e-18 5.55112e-17" quat="1.33227e-15 -4.85829e-15 -1 -8.37871e-15" group="3"/>
             </body>
           </body>
         </body>
@@ -324,7 +324,7 @@
               <!-- Part 59935k13_ball_joint_rod_end_18 -->
               <geom type="mesh" class="visual" pos="-0.0125 0 -3.46945e-18" quat="0.5 -0.5 -0.5 -0.5" mesh="59935k13_ball_joint_rod_end__2" material="59935k13_ball_joint_rod_end__2_material"/>
               <!-- Frame closing_l_hip_outer_1 -->
-              <site group="3" name="closing_l_hip_outer_1" pos="-0.0525 0 -1.52656e-16" quat="6.66134e-16 2.02535e-16 1 1.83187e-15"/>
+              <body name="closing_l_hip_outer_1" pos="-0.0525 0 -1.52656e-16" quat="6.66134e-16 2.02535e-16 1 1.83187e-15" group="3"/>
             </body>
           </body>
         </body>
@@ -360,7 +360,7 @@
               <!-- Part 59935k13_ball_joint_rod_end_21 -->
               <geom type="mesh" class="visual" pos="-0.04 -3.46945e-18 -2.35922e-16" quat="0.5 -0.5 0.5 0.5" mesh="59935k13_ball_joint_rod_end__2" material="59935k13_ball_joint_rod_end__2_material"/>
               <!-- Frame closing_r_hip_inner_1 -->
-              <site group="3" name="closing_r_hip_inner_1" pos="-0.0525 -3.46945e-18 -3.60822e-16" quat="4.77396e-15 0 1 2.22045e-16"/>
+              <body name="closing_r_hip_inner_1" pos="-0.0525 -3.46945e-18 -3.60822e-16" quat="4.77396e-15 0 1 2.22045e-16" group="3"/>
             </body>
           </body>
         </body>
@@ -396,7 +396,7 @@
               <!-- Part 59935k13_ball_joint_rod_end_24 -->
               <geom type="mesh" class="visual" pos="0.0123511 8.92857e-05 -0.00192137" quat="0.458554 -0.461377 0.534936 0.539169" mesh="59935k13_ball_joint_rod_end__2" material="59935k13_ball_joint_rod_end__2_material"/>
               <!-- Frame closing_r_hip_outer_1 -->
-              <site group="3" name="closing_r_hip_outer_1" pos="0.0518747 0.000375 -0.00806977" quat="0.997018 0.000704974 0.0770873 0.0035276"/>
+              <body name="closing_r_hip_outer_1" pos="0.0518747 0.000375 -0.00806977" quat="0.997018 0.000704974 0.0770873 0.0035276" group="3"/>
             </body>
           </body>
         </body>
@@ -464,11 +464,11 @@
     <motor class="C:\Users\steph\code\arca\arca-sim\models\full\mjcf" name="r_hip_outer" joint="r_hip_outer"/>
   </actuator>
   <equality>
-    <connect site1="closing_l_knee_linkage_1" site2="closing_l_knee_linkage_2"/>
-    <connect site1="closing_r_knee_1" site2="closing_r_knee_2"/>
-    <connect site1="closing_l_hip_inner_1" site2="closing_l_hip_inner_2"/>
-    <connect site1="closing_l_hip_outer_1" site2="closing_l_hip_outer_2"/>
-    <connect site1="closing_r_hip_outer_1" site2="closing_r_hip_outer_2"/>
-    <connect site1="closing_r_hip_inner_1" site2="closing_r_hip_inner_2"/>
+    <connect body1="closing_l_knee_linkage_1" body2="closing_l_knee_linkage_2"/>
+    <connect body1="closing_r_knee_1" body2="closing_r_knee_2"/>
+    <connect body1="closing_l_hip_inner_1" body2="closing_l_hip_inner_2"/>
+    <connect body1="closing_l_hip_outer_1" body2="closing_l_hip_outer_2"/>
+    <connect body1="closing_r_hip_outer_1" body2="closing_r_hip_outer_2"/>
+    <connect body1="closing_r_hip_inner_1" body2="closing_r_hip_inner_2"/>
   </equality>
 </mujoco>
