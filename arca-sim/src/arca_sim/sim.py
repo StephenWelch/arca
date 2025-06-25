@@ -8,7 +8,7 @@ import mujoco as mj
 from mujoco import MjModel, MjData, viewer
 from dataclasses import dataclass, field
 from enum import Enum
-from arca_sim.robot import State, Setpoint, Mode
+from arca_sim.state import State, Setpoint, Mode
 
 np.set_printoptions(
     precision=4,
