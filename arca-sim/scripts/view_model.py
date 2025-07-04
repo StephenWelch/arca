@@ -1,14 +1,33 @@
+from abc import abstractmethod
 import argparse
+from dataclasses import dataclass, field
 import mujoco
+from mujoco._structs import MjModel, MjData
 import mujoco.viewer
-import rerun as rr
+# import rerun as rr
 
 import numpy as np
+from numpy import ndarray
+from numpy.ma.core import innerproduct
 from arca_sim import math_utils, sim_utils
 
 np.set_printoptions(precision=3, suppress=True)
 
+
 class Linkage:
+
+    @dataclass
+    class State:
+        ol_J_or:list[ndarray] = field(default_factory=list)
+        """Output rotary -> output linear Jacobians"""
+    
+        linkage_dirs:list[ndarray] = field(default_factory=list)
+        """Linkage direction vectors"""
+
+        il_J_ir:list[ndarray] = field(default_factory=list)
+        """Input rotary -> input linear Jacobians"""        
+
+    
     def __init__(
         self, 
         model: mujoco.MjModel,
@@ -23,18 +42,23 @@ class Linkage:
         self.ol_site_names = ol_site_names
 
         self.or_jnt_dofadrs = np.array([model.joint(n).dofadr[0] for n in or_jnt_names], dtype=np.int32)
+        self.ir_jnt_dofadrs = np.array([model.joint(n).dofadr[0] for n in self.ir_jnt_names], dtype=np.int32)
+        self.ir_act_ids = np.array([model.actuator(n).id for n in self.ir_jnt_names], dtype=np.int32)
 
 
-    def ol_to_ir(self, model, data, or_eff_des: np.ndarray) -> None:
+    def state_from_mujoco(self, model:MjModel, data:MjData)->State:
+        state = Linkage.State()
+        
+        # Compute Jacobians for driving and driven mechanisms
+        for site_name in self.il_start_site_names:
+            J_site_full = sim_utils.get_site_jacobian(model, data, site_name)
+            state.il_J_ir.append(J_site_full[:3, self.ir_jnt_dofadrs])
 
-        ol_J_or_list = [] 
         for site_name in self.ol_site_names:
             J_site_full = sim_utils.get_site_jacobian(model, data, site_name)
-            ol_J_or_list.append(J_site_full[:3, self.or_jnt_dofadrs])
-        
-        il_J_or_T = np.vstack(ol_J_or_list).T
+            state.ol_J_or.append(J_site_full[:3, self.or_jnt_dofadrs])
 
-        linkage_dirs_list = []
+        # Compute linkage direction vectors
         for driving_site_name, driven_site_name in zip(self.il_start_site_names, self.ol_site_names):
             driving_site_pos_w = data.site(driving_site_name).xpos
             driven_site_pos_w = data.site(driven_site_name).xpos
@@ -42,34 +66,37 @@ class Linkage:
 
             norm_linkage_vec = np.linalg.norm(linkage_vec)
             if norm_linkage_vec > 1e-9:
-                linkage_dirs_list.append(linkage_vec / norm_linkage_vec)
+                state.linkage_dirs.append(linkage_vec / norm_linkage_vec)
             else:
-                linkage_dirs_list.append(np.zeros(3))
+                state.linkage_dirs.append(np.zeros(3))
+            
+        return state
 
-        linkage_dir_diag_matrix = np.diag(np.concatenate(linkage_dirs_list))
+    def ol_to_ir(self, model:MjModel, data:MjData, or_eff_des:ndarray)->list[float]:
+        state = self.state_from_mujoco(model, data)
+        ol_J_or_T = np.vstack(state.ol_J_or).T
+
+        linkage_dir_diag_matrix = np.diag(np.concatenate(state.linkage_dirs))
         
-        M = il_J_or_T @ linkage_dir_diag_matrix
+        M = ol_J_or_T @ linkage_dir_diag_matrix
         des_frcs_flat = np.linalg.pinv(M) @ or_eff_des
         
-        des_frcs_list_scaled = np.split(linkage_dir_diag_matrix @ des_frcs_flat, len(self.il_start_site_names))
+        # des_frcs_list_scaled = np.split(linkage_dir_diag_matrix @ des_frcs_flat, len(self.il_start_site_names))
 
-        current_ir_jnt_dofadrs = np.array([model.joint(n).dofadr[0] for n in self.ir_jnt_names], dtype=np.int32)
-        current_ir_actuator_ids = np.array([model.actuator(n).id for n in self.ir_jnt_names], dtype=np.int32)
+        # input_jnt_eff_des = np.zeros(len(self.ir_act_ids))
+        # for il_J_ir, des_frc_scaled in zip(state.il_J_ir, des_frcs_list_scaled):
+        #     input_jnt_eff_des += il_J_ir.T @ des_frc_scaled
+        il_J_ir_T = np.vstack(state.il_J_ir).T
+        print(f"{il_J_ir_T.shape=}")
+        input_jnt_eff_des = il_J_ir_T @ des_frcs_flat
+        print(f"{input_jnt_eff_des.shape=}")
 
-        for i in range(len(self.ir_jnt_names)):
-            des_frc_scaled = des_frcs_list_scaled[i]
-            driving_site_name = self.il_start_site_names[i]
-            
-            J_driving_site_full = sim_utils.get_site_jacobian(model, data, driving_site_name)
-            ol_J_ir_vec = J_driving_site_full[:3, current_ir_jnt_dofadrs[i]]
-            
-            input_joint_effort_des = ol_J_ir_vec.T @ des_frc_scaled
-
-            data.ctrl[current_ir_actuator_ids[i]] = input_joint_effort_des
+        data.ctrl[self.ir_act_ids] = input_jnt_eff_des
+        return input_jnt_eff_des
 
 
 def main(args):
-    rr.init("arca_sim", spawn=True)
+    # rr.init("arca_sim", spawn=True)
     
     # Load the MuJoCo model from the specified XML file
     model = mujoco.MjModel.from_xml_path(f"models/{args.model}/mjcf/scene.xml")
@@ -132,7 +159,7 @@ def main(args):
     )
 
     def ctrl_loop(model, data):
-        rr.set_time("mujoco", duration=data.time)
+        # rr.set_time("mujoco", duration=data.time)
         
         kp = np.array([10.0, 10.0, 10.0, 10.0, 10.0, 10.0])
         kd = np.array([1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
