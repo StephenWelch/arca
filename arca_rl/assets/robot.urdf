@@ -1,0 +1,285 @@
+<?xml version="1.0" ?>
+<!-- Generated using onshape-to-robot -->
+<!-- Onshape document_id: 4743a97557c0a80d1585b0a7 / workspace_id: 2d6986bf76e2e55acb049bf2 -->
+<robot name="urdf">
+  <!-- Link trunk -->
+  <link name="trunk">
+    <inertial>
+      <origin xyz="8.93209e-17 -0.0322521 -0.0255515" rpy="0 0 0"/>
+      <mass value="0.50738"/>
+      <inertia ixx="0.000361696" ixy="-6.30203e-08" ixz="-4.36525e-07" iyy="0.00154489" iyz="8.81145e-09" izz="0.00155102"/>
+    </inertial>
+    <!-- Part trunk_parts -->
+    <visual>
+      <origin xyz="8.46198e-17 -0.0322521 -0.0255515" rpy="0 -0 0"/>
+      <geometry>
+        <mesh filename="package://assets/merged/trunk_visual.stl"/>
+      </geometry>
+      <material name="trunk_parts_material">
+        <color rgba="0.871891 0.871891 0.871891 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="8.46198e-17 -0.0322521 -0.0255515" rpy="0 -0 0"/>
+      <geometry>
+        <mesh filename="package://assets/merged/trunk_collision.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Link thigh_lower_mount -->
+  <link name="thigh_lower_mount">
+    <inertial>
+      <origin xyz="-1.12935e-18 -1.75427e-05 -0.0275" rpy="0 0 0"/>
+      <mass value="0.106222"/>
+      <inertia ixx="4.98391e-05" ixy="2.1234e-20" ixz="-2.14174e-13" iyy="6.15836e-05" iyz="4.25849e-13" izz="4.69705e-05"/>
+    </inertial>
+    <!-- Part thigh_lower_mount_parts -->
+    <visual>
+      <origin xyz="0 -1.75427e-05 -0.0275" rpy="1.5708 -2.19958e-17 1.66533e-16"/>
+      <geometry>
+        <mesh filename="package://assets/merged/thigh_lower_mount_visual.stl"/>
+      </geometry>
+      <material name="thigh_lower_mount_parts_material">
+        <color rgba="0.723602 0.631822 0.522985 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 -1.75427e-05 -0.0275" rpy="1.5708 -2.19958e-17 1.66533e-16"/>
+      <geometry>
+        <mesh filename="package://assets/merged/thigh_lower_mount_collision.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Link r_thigh -->
+  <link name="r_thigh">
+    <inertial>
+      <origin xyz="0.000352109 -0.0299392 0.017919" rpy="0 0 0"/>
+      <mass value="0.156403"/>
+      <inertia ixx="0.000391219" ixy="-1.3488e-06" ixz="4.41349e-07" iyy="5.59838e-05" iyz="-6.40476e-07" izz="0.000353364"/>
+    </inertial>
+    <!-- Part r_thigh_parts -->
+    <visual>
+      <origin xyz="0.000352109 -0.0299392 0.017919" rpy="-2.23677 -1.5708 0"/>
+      <geometry>
+        <mesh filename="package://assets/merged/r_thigh_visual.stl"/>
+      </geometry>
+      <material name="r_thigh_parts_material">
+        <color rgba="0.879627 0.839147 0.778342 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.000352109 -0.0299392 0.017919" rpy="-2.23677 -1.5708 0"/>
+      <geometry>
+        <mesh filename="package://assets/merged/r_thigh_collision.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Link r_knee -->
+  <link name="r_knee">
+    <inertial>
+      <origin xyz="-0.00131403 -0.0427728 -0.0165918" rpy="0 0 0"/>
+      <mass value="0.0251199"/>
+      <inertia ixx="4.10878e-05" ixy="2.80016e-07" ixz="-4.81232e-07" iyy="4.83543e-06" iyz="6.08158e-07" izz="3.89368e-05"/>
+    </inertial>
+    <!-- Part r_knee_parts -->
+    <visual>
+      <origin xyz="-0.00131403 -0.0427728 -0.0165918" rpy="-0.66521 -1.56547 -0.0890774"/>
+      <geometry>
+        <mesh filename="package://assets/merged/r_knee_visual.stl"/>
+      </geometry>
+      <material name="r_knee_parts_material">
+        <color rgba="0.632559 0.802889 0.905087 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.00131403 -0.0427728 -0.0165918" rpy="-0.66521 -1.56547 -0.0890774"/>
+      <geometry>
+        <mesh filename="package://assets/merged/r_knee_collision.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Link foot -->
+  <link name="foot">
+    <inertial>
+      <origin xyz="-8.30386e-08 -0.00450828 -0.005" rpy="0 0 0"/>
+      <mass value="0.00685832"/>
+      <inertia ixx="2.75437e-07" ixy="8.01075e-13" ixz="-5.40036e-13" iyy="9.89038e-07" iyz="1.74194e-14" izz="1.15532e-06"/>
+    </inertial>
+    <!-- Part foot_parts -->
+    <visual>
+      <origin xyz="-8.30386e-08 -0.00450828 -0.005" rpy="2.47638 1.56547 -2.25736"/>
+      <geometry>
+        <mesh filename="package://assets/merged/foot_visual.stl"/>
+      </geometry>
+      <material name="foot_parts_material">
+        <color rgba="0.615686 0.811765 0.929412 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-8.30386e-08 -0.00450828 -0.005" rpy="2.47638 1.56547 -2.25736"/>
+      <geometry>
+        <mesh filename="package://assets/merged/foot_collision.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Joint from r_knee to foot -->
+  <joint name="r_ankle_passive" type="revolute">
+    <origin xyz="-3.05311e-16 -0.12 -0.0195" rpy="3.14159 3.34686e-16 -2.34644"/>
+    <parent link="r_knee"/>
+    <child link="foot"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10" velocity="10" lower="-3.141592653589793" upper="3.141592653589793"/>
+  </joint>
+  <!-- Joint from r_thigh to r_knee -->
+  <joint name="r_knee" type="revolute">
+    <origin xyz="-1.40571e-06 -0.119866 0.032731" rpy="-0.000473435 -0.00530076 -1.48248"/>
+    <parent link="r_thigh"/>
+    <child link="r_knee"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10" velocity="10" lower="-3.141592653589793" upper="3.141592653589793"/>
+  </joint>
+  <!-- Joint from thigh_lower_mount to r_thigh -->
+  <joint name="r_hip_pitch" type="revolute">
+    <origin xyz="-0.023 4.16334e-17 -0.0275" rpy="-1.5708 -0.904819 -1.5708"/>
+    <parent link="thigh_lower_mount"/>
+    <child link="r_thigh"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10" velocity="10" lower="-3.141592653589793" upper="3.141592653589793"/>
+  </joint>
+  <!-- Joint from trunk to thigh_lower_mount -->
+  <joint name="r_hip_roll" type="revolute">
+    <origin xyz="-0.05175 -0.00475 -0.0806645" rpy="-1.5708 -1.66533e-16 -2.19958e-17"/>
+    <parent link="trunk"/>
+    <child link="thigh_lower_mount"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10" velocity="10" lower="-3.141592653589793" upper="3.141592653589793"/>
+  </joint>
+  <!-- Link thigh_lower_mount_2 -->
+  <link name="thigh_lower_mount_2">
+    <inertial>
+      <origin xyz="-3.88721e-18 -1.75427e-05 -0.0275" rpy="0 0 0"/>
+      <mass value="0.106222"/>
+      <inertia ixx="4.98391e-05" ixy="-2.54261e-20" ixz="-2.14174e-13" iyy="6.15836e-05" iyz="4.25849e-13" izz="4.69705e-05"/>
+    </inertial>
+    <!-- Part thigh_lower_mount_2_parts -->
+    <visual>
+      <origin xyz="-6.93889e-18 -1.75427e-05 -0.0275" rpy="1.5708 3.42011e-15 3.14157"/>
+      <geometry>
+        <mesh filename="package://assets/merged/thigh_lower_mount_2_visual.stl"/>
+      </geometry>
+      <material name="thigh_lower_mount_2_parts_material">
+        <color rgba="0.723602 0.631822 0.522985 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-6.93889e-18 -1.75427e-05 -0.0275" rpy="1.5708 3.42011e-15 3.14157"/>
+      <geometry>
+        <mesh filename="package://assets/merged/thigh_lower_mount_2_collision.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Link l_thigh -->
+  <link name="l_thigh">
+    <inertial>
+      <origin xyz="-0.000312941 -0.0299249 0.017919" rpy="0 0 0"/>
+      <mass value="0.156403"/>
+      <inertia ixx="0.000391424" ixy="1.07541e-06" ixz="-5.04975e-07" iyy="5.59166e-05" iyz="-6.63694e-07" izz="0.000353502"/>
+    </inertial>
+    <!-- Part l_thigh_parts -->
+    <visual>
+      <origin xyz="-0.000312941 -0.0299249 0.017919" rpy="-3.62318e-12 1.57078 2.21925"/>
+      <geometry>
+        <mesh filename="package://assets/merged/l_thigh_visual.stl"/>
+      </geometry>
+      <material name="l_thigh_parts_material">
+        <color rgba="0.879627 0.839147 0.778342 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.000312941 -0.0299249 0.017919" rpy="-3.62318e-12 1.57078 2.21925"/>
+      <geometry>
+        <mesh filename="package://assets/merged/l_thigh_collision.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Link l_knee -->
+  <link name="l_knee">
+    <inertial>
+      <origin xyz="0.00122988 -0.0428518 -0.016707" rpy="0 0 0"/>
+      <mass value="0.0251199"/>
+      <inertia ixx="4.11528e-05" ixy="-2.3273e-07" ixz="4.94116e-07" iyy="4.86011e-06" iyz="5.96743e-07" izz="3.88399e-05"/>
+    </inertial>
+    <!-- Part l_knee_parts -->
+    <visual>
+      <origin xyz="0.00122988 -0.0428518 -0.016707" rpy="-0.647036 1.56546 0.137365"/>
+      <geometry>
+        <mesh filename="package://assets/merged/l_knee_visual.stl"/>
+      </geometry>
+      <material name="l_knee_parts_material">
+        <color rgba="0.632559 0.802889 0.905087 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.00122988 -0.0428518 -0.016707" rpy="-0.647036 1.56546 0.137365"/>
+      <geometry>
+        <mesh filename="package://assets/merged/l_knee_collision.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Link foot_2 -->
+  <link name="foot_2">
+    <inertial>
+      <origin xyz="-8.30386e-08 -0.00450828 -0.005" rpy="0 0 0"/>
+      <mass value="0.00685832"/>
+      <inertia ixx="2.75437e-07" ixy="8.01075e-13" ixz="-5.40036e-13" iyy="9.89038e-07" iyz="1.74194e-14" izz="1.15532e-06"/>
+    </inertial>
+    <!-- Part foot_2_parts -->
+    <visual>
+      <origin xyz="-8.30386e-08 -0.00450828 -0.005" rpy="2.49456 -1.56546 2.22226"/>
+      <geometry>
+        <mesh filename="package://assets/merged/foot_2_visual.stl"/>
+      </geometry>
+      <material name="foot_2_parts_material">
+        <color rgba="0.615686 0.811765 0.929412 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-8.30386e-08 -0.00450828 -0.005" rpy="2.49456 -1.56546 2.22226"/>
+      <geometry>
+        <mesh filename="package://assets/merged/foot_2_collision.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Joint from l_knee to foot_2 -->
+  <joint name="l_ankle_passive" type="revolute">
+    <origin xyz="4.44089e-16 -0.12 -0.0195" rpy="-3.14159 -1.73512e-15 2.35962"/>
+    <parent link="l_knee"/>
+    <child link="foot_2"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10" velocity="10" lower="-3.141592653589793" upper="3.141592653589793"/>
+  </joint>
+  <!-- Joint from l_thigh to l_knee -->
+  <joint name="l_knee" type="revolute">
+    <origin xyz="-1.40571e-06 -0.119866 0.032731" rpy="-0.000717208 0.00527331 1.43485"/>
+    <parent link="l_thigh"/>
+    <child link="l_knee"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10" velocity="10" lower="-3.141592653589793" upper="3.141592653589793"/>
+  </joint>
+  <!-- Joint from thigh_lower_mount_2 to l_thigh -->
+  <joint name="l_hip_pitch" type="revolute">
+    <origin xyz="-0.023 2.77556e-17 -0.0275" rpy="-1.5708 0.922339 -1.5708"/>
+    <parent link="thigh_lower_mount_2"/>
+    <child link="l_thigh"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10" velocity="10" lower="-3.141592653589793" upper="3.141592653589793"/>
+  </joint>
+  <!-- Joint from trunk to thigh_lower_mount_2 -->
+  <joint name="l_hip_roll" type="revolute">
+    <origin xyz="0.05175 -0.00475 -0.0806645" rpy="1.5708 -1.9322e-05 -3.14159"/>
+    <parent link="trunk"/>
+    <child link="thigh_lower_mount_2"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10" velocity="10" lower="-3.141592653589793" upper="3.141592653589793"/>
+  </joint>
+</robot>
